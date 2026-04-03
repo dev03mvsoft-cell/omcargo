@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>On Board Process - Oman Cargo Mover</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/operations.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: normal; font-style: normal; font-size: 24px; line-height: 1;
+            letter-spacing: normal; text-transform: none; display: inline-block;
+            white-space: nowrap; word-wrap: normal; direction: ltr;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility; font-feature-settings: 'liga';
+        }
+    </style>
+    <script src="../../js/tailwind-config.js"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .simple-card { @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition-all; }
+            .nav-link { 
+                   @apply flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-all font-bold text-sm; 
+            }
+            .nav-link.active { @apply bg-primary text-white; }
+            .input-field { @apply w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-1 focus:ring-primary/20 transition-all font-bold text-sm; }
+            .label-text { @apply text-xs font-black text-slate-400 uppercase tracking-widest mb-2 block; }
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside
+            class="w-72 flex-shrink-0 hidden lg:flex flex-col gap-4 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sticky top-0 h-screen overflow-y-auto custom-scrollbar">
+            <div class="flex items-center gap-3 px-2 mb-4">
+                <div
+                    class="bg-primary size-10 rounded-lg text-white flex items-center justify-center shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined block text-2xl">local_shipping</span>
+                </div>
+                <div>
+                    <h1
+                        class="text-lg font-black text-slate-900 dark:text-white leading-none uppercase tracking-tighter">
+                        Oman Cargo</h1>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Global Console Hub
+                    </p>
+                </div>
+            </div>
+            <nav class="flex-1 space-y-1">
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mb-3">Operational Hub</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../../dashboard/index.html">
+                    <span class="material-symbols-outlined text-xl">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../operational-dashboard.html">
+                    <span class="material-symbols-outlined text-xl">assignment_turned_in</span>
+                    <span>Operational Control</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-bold transition-all text-sm shadow-sm"
+                    href="../all-jobs.html">
+                    <span class="material-symbols-outlined text-xl text-white">work</span>
+                    <span>Job Management</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../create-job.html">
+                    <span class="material-symbols-outlined text-xl">add_circle</span>
+                    <span>Create Job</span>
+                </a>
+
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">Master Control</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../../clients/index.html">
+                    <span class="material-symbols-outlined text-xl">person_search</span>
+                    <span>Client Information</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../../vendors/transport-directory/index.html">
+                    <span class="material-symbols-outlined text-xl">local_shipping</span>
+                    <span>Transport Directory</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../../vendors/shipping-line/index.html">
+                    <span class="material-symbols-outlined text-xl">directions_boat</span>
+                    <span>Shipping Line</span>
+                </a>
+
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">System Hub</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../../settings/console-settings/index.html">
+                    <span class="material-symbols-outlined text-xl">settings_applications</span>
+                    <span>Console Settings</span>
+                </a>
+
+                <div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800">
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-all font-bold text-sm"
+                        href="../../../auth/login/index.html">
+                        <span class="material-symbols-outlined text-xl text-red-500">logout</span>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 lg:p-12 overflow-y-auto">
+            <div class="max-w-4xl mx-auto w-full flex flex-col gap-10">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                        <a id="back-link" href="#" class="inline-flex items-center gap-2 text-primary font-black uppercase tracking-widest text-[10px] mb-3 hover:gap-3 transition-all">
+                            <span class="material-symbols-outlined text-sm">arrow_back</span> Back to Gate In
+                        </a>
+                        <h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight uppercase">On Board <span class="text-primary">Confirmation</span></h2>
+                        <p class="text-slate-400 font-bold text-[10px] uppercase tracking-[0.2em] mt-2" id="job-id-display">Loading...</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="px-4 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-900/10 text-emerald-600 border border-emerald-100 dark:border-emerald-800/30 text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
+                             <span class="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                             Final Stage 5
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Simple Stepper -->
+                <div class="flex items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/20 overflow-x-auto custom-scrollbar">
+                    <div class="flex items-center gap-3 opacity-40 shrink-0 group">
+                        <div class="size-8 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xs"><span class="material-symbols-outlined text-sm">check</span></div>
+                        <span class="text-[10px] font-black uppercase tracking-widest">Gate In</span>
+                    </div>
+                    <div class="w-12 h-px bg-slate-100 flex-shrink-0"></div>
+                    <div class="flex items-center gap-3 shrink-0">
+                        <div class="size-8 rounded-xl bg-primary text-white flex items-center justify-center text-xs font-black shadow-lg shadow-primary/20">5</div>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-slate-900 dark:text-white">On Board</span>
+                    </div>
+                    <div class="w-12 h-px bg-slate-100 flex-shrink-0"></div>
+                    <div class="flex items-center gap-3 opacity-20 shrink-0">
+                        <div class="size-8 rounded-xl bg-slate-200 text-slate-500 flex items-center justify-center text-xs font-black">6</div>
+                        <span class="text-[10px] font-black uppercase tracking-widest">Line Process</span>
+                    </div>
+                </div>
+
+                <!-- Onboard Form -->
+                <form id="onboard-form" class="space-y-8">
+                    <div class="bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-2xl shadow-slate-200/40 dark:shadow-none space-y-10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div>
+                                <label class="label-text">Vessel Name (Confirmed)</label>
+                                <div class="relative group">
+                                    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-hover:text-primary transition-colors">directions_boat</span>
+                                    <input type="text" id="vessel-name" class="input-field pl-12 bg-slate-50 dark:bg-slate-800/50 cursor-not-allowed border-slate-100 dark:border-slate-800" readonly>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="label-text">Bill of Lading Number <span class="text-primary">*</span></label>
+                                <div class="relative group">
+                                    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">terminal</span>
+                                    <input type="text" id="bl-number" class="input-field pl-12" placeholder="BL-XXXXXXX" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                            <div>
+                                <label class="label-text">Onboard Date <span class="text-primary">*</span></label>
+                                <input type="date" id="onboard-date" class="input-field" required>
+                            </div>
+                            <div>
+                                <label class="label-text">Onboard Time <span class="text-primary">*</span></label>
+                                <input type="time" id="onboard-time" class="input-field" required>
+                            </div>
+                            <div>
+                                <label class="label-text">BL Documentation</label>
+                                <label class="w-full flex flex-col items-center px-4 py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl cursor-pointer hover:border-primary/50 hover:bg-white dark:hover:bg-slate-800 transition-all group">
+                                    <span class="material-symbols-outlined text-primary mb-1 group-hover:scale-110 transition-transform">cloud_upload</span>
+                                    <span class="text-[10px] font-black text-slate-500 uppercase tracking-widest" id="file-name">Upload BL PDF</span>
+                                    <input type="file" class="hidden" onchange="document.getElementById('file-name').innerText = this.files[0].name; document.getElementById('file-name').classList.add('text-primary')">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 p-8 rounded-[2rem] flex flex-col sm:flex-row items-center justify-between gap-6">
+                            <div class="flex items-center gap-5">
+                                <div class="size-14 rounded-2xl bg-white dark:bg-slate-900 flex items-center justify-center shadow-xl shadow-slate-200/40 dark:shadow-none text-primary">
+                                    <span class="material-symbols-outlined text-3xl">save_as</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-black text-slate-900 dark:text-white uppercase leading-none">Draft Mode</p>
+                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2">Save info without closing the job</p>
+                                </div>
+                            </div>
+                            <button type="button" onclick="saveProgress()" class="w-full sm:w-auto px-10 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-200 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:-translate-y-0.5 transition-all shadow-xl shadow-slate-200/10 dark:shadow-none active:scale-95">
+                                Save Progress
+                            </button>
+                        </div>
+
+                        <div class="bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-100 dark:border-emerald-800/30 p-8 rounded-[2.5rem] flex flex-col sm:flex-row items-center justify-between gap-6 group hover:border-emerald-500/30 transition-all duration-500">
+                            <div class="flex items-center gap-5">
+                                <div class="size-16 rounded-3xl bg-white dark:bg-slate-900 flex items-center justify-center shadow-2xl shadow-emerald-500/10 dark:shadow-none text-emerald-500 group-hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined text-4xl">verified</span>
+                                </div>
+                                <div>
+                                    <p class="text-lg font-black text-emerald-900 dark:text-emerald-400 uppercase leading-none">Vessel Sailed</p>
+                                    <p class="text-[10px] font-bold text-emerald-600 uppercase tracking-[0.15em] mt-3">Final departure confirmation & archive</p>
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full sm:w-auto px-12 py-5 bg-emerald-600 text-white text-[10px] font-black uppercase tracking-widest rounded-2xl shadow-2xl shadow-emerald-500/30 hover:bg-emerald-700 hover:-translate-y-1 active:scale-95 transition-all flex items-center justify-center gap-3">
+                                <span class="material-symbols-outlined text-lg">rocket_launch</span>
+                                Complete Export Process
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('id') || 'Unknown JOB';
+        document.getElementById('job-id-display').innerText = `JOB ID: ${jobId}`;
+        document.getElementById('back-link').href = `gate-in.html?id=${jobId}`;
+
+        const savedJobs = JSON.parse(localStorage.getItem('omancargo_jobs') || '[]');
+        const job = savedJobs.find(j => j.id === jobId);
+
+        if (job) {
+            document.getElementById('vessel-name').value = job.booking?.vesselName || 'TBA';
+            
+            if (job.onboardData) {
+                document.getElementById('bl-number').value = job.onboardData.blNumber || '';
+                document.getElementById('onboard-date').value = job.onboardData.onboardDate || '';
+                document.getElementById('onboard-time').value = job.onboardData.onboardTime || '';
+            } else {
+                // Set default date to today
+                const now = new Date();
+                document.getElementById('onboard-date').value = now.toISOString().split('T')[0];
+                document.getElementById('onboard-time').value = now.toTimeString().split(' ')[0].substring(0, 5);
+            }
+        }
+
+        function saveProgress() {
+            const onboardData = {
+                vesselName: document.getElementById('vessel-name').value,
+                blNumber: document.getElementById('bl-number').value,
+                onboardDate: document.getElementById('onboard-date').value,
+                onboardTime: document.getElementById('onboard-time').value,
+                savedAt: new Date().toISOString()
+            };
+
+            const jobIndex = savedJobs.findIndex(j => j.id === jobId);
+            if (jobIndex !== -1) {
+                savedJobs[jobIndex].onboardData = onboardData;
+                localStorage.setItem('omancargo_jobs', JSON.stringify(savedJobs));
+            }
+
+            Swal.fire({
+                title: 'Draft Saved',
+                text: 'On Board details updated successfully',
+                icon: 'info',
+                timer: 1000,
+                showConfirmButton: false
+            });
+        }
+
+        document.getElementById('onboard-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const onboardData = {
+                vesselName: document.getElementById('vessel-name').value,
+                blNumber: document.getElementById('bl-number').value,
+                onboardDate: document.getElementById('onboard-date').value,
+                onboardTime: document.getElementById('onboard-time').value,
+                completionDate: new Date().toISOString()
+            };
+
+            const jobIndex = savedJobs.findIndex(j => j.id === jobId);
+            if (jobIndex !== -1) {
+                savedJobs[jobIndex].onboardData = onboardData;
+                savedJobs[jobIndex].step = 6;
+                savedJobs[jobIndex].status = 'Completed';
+                localStorage.setItem('omancargo_jobs', JSON.stringify(savedJobs));
+            }
+
+            Swal.fire({
+                title: 'Export Process Completed',
+                text: 'Moving to Line Process for Final Reconciliation',
+                icon: 'success',
+                timer: 2000,
+                showConfirmButton: false,
+                background: '#fff',
+                color: '#1a1f2e',
+                customClass: { popup: 'rounded-xl' }
+            }).then(() => {
+                window.location.href = `line.html?id=${jobId}`;
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="../js/tailwind-config.js"></script>
+    <title>Admin Reports &amp; Analytics</title>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+    <div class="flex min-h-screen overflow-x-hidden">
+        <!-- Sidebar Navigation -->
+        <aside
+            class="w-64 flex-shrink-0 bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between p-4 sticky top-0 h-screen">
+            <div class="flex flex-col gap-6">
+                <div class="flex items-center gap-3 px-2">
+                    <div class="bg-primary rounded-lg size-10 flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined">analytics</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-slate-900 dark:text-white text-base font-bold leading-none">DispatchAdmin</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Administrator</p>
+                    </div>
+                </div>
+                <nav class="flex flex-col gap-1">
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-[24px]">dashboard</span>
+                        <span class="text-sm font-semibold">Dashboard</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-[24px]">work</span>
+                        <span class="text-sm font-semibold">Jobs</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-[24px]">group</span>
+                        <span class="text-sm font-semibold">Technicians</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-[24px] fill-1">bar_chart</span>
+                        <span class="text-sm font-semibold">Reports</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-[24px]">settings</span>
+                        <span class="text-sm font-semibold">Settings</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="flex flex-col gap-4">
+                <button
+                    class="w-full bg-primary text-white text-sm font-bold py-2.5 rounded-xl hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined text-sm">download</span>
+                    Export Data
+                </button>
+                <div class="flex items-center gap-3 p-2 bg-slate-100 dark:bg-slate-800 rounded-xl">
+                    <div class="size-8 rounded-full bg-slate-300" data-alt="User profile avatar circle"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBIrHL4QELcg1TNBOPdsB6zlFd7qzo7BTVxZjhHiY6YazHgynHsz0nmYLZ1MIX3IeKIihZGUuJXbxxltYRSH48T3eza31CbffN3w3aO3xSt4m5nf6V8cDBHD6ot_O_Gu666PY8vnD1FBl-SvwRd2CHpHiobUkwjMp6y6_l6-GYv3Mx7ZfEKepifkajG5wjI0ThB3gj8E_DJs7NV4mCZHsQhbF00KCzT24iBR0myxIWuNrpH6MzNzJQxS6_uKtAtuQmnoKFy5zJgX-o')">
+                    </div>
+                    <div class="flex-1 overflow-hidden">
+                        <p class="text-xs font-bold truncate">Alex Rivera</p>
+                    </div>
+                    <span class="material-symbols-outlined text-slate-400 text-sm">logout</span>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-background-dark">
+            <!-- Header -->
+            <header
+                class="h-16 border-b border-slate-200 dark:border-slate-800 px-8 flex items-center justify-between sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">assessment</span>
+                    <h2 class="text-lg font-bold tracking-tight">Reports &amp; Analytics</h2>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="relative w-64">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+                        <input
+                            class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 placeholder:text-slate-500"
+                            placeholder="Search reports..." type="text" />
+                    </div>
+                    <button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <div class="h-8 w-px bg-slate-200 dark:border-slate-700"></div>
+                    <div class="size-10 rounded-full bg-primary/20 border-2 border-primary/10 overflow-hidden"
+                        data-alt="System administrator profile photo"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCqeZV8mkVAv3FRy6nLAS-wDVDE0q-h2odANq_EMqEYdFzI300WyG-FEZ7kJbz4jv_Ebv6u3cVx3mBf-cAqwDzYZCaDd6j1uUx1hBnoLKPVGxWanatEFTEAhl-gZxCLG6uUUyBnxm9cCrQTFRR79mP9w0aJzGGtOuzfJZORQD6lK2nIdqavHYo8bXt_KP0wE6qgi6VIi9VmM-9NJtJZ_5YUTHDJz3waoD2xvZtd2lKuqa4V4iOK0_rqsvI-p7y4s4b47Tmj96XtFP0')">
+                    </div>
+                </div>
+            </header>
+            <div class="p-8 flex flex-col gap-8 max-w-7xl mx-auto w-full">
+                <!-- Summary Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div>
+                        <h3 class="text-3xl font-black text-slate-900 dark:text-white leading-tight">Operational
+                            Performance</h3>
+                        <p class="text-slate-500 dark:text-slate-400">Review historical data and efficiency metrics
+                            across your workspace.</p>
+                    </div>
+                    <div
+                        class="flex items-center gap-3 bg-white dark:bg-slate-800 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <button class="px-4 py-1.5 text-xs font-bold rounded-lg bg-primary text-white shadow-sm">Last 30
+                            Days</button>
+                        <button
+                            class="px-4 py-1.5 text-xs font-bold rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">Quarterly</button>
+                        <button
+                            class="px-4 py-1.5 text-xs font-bold rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">Yearly</button>
+                        <div class="w-px h-6 bg-slate-200 dark:bg-slate-700"></div>
+                        <button
+                            class="px-3 py-1.5 flex items-center gap-2 text-xs font-bold text-slate-600 dark:text-slate-300">
+                            <span class="material-symbols-outlined text-sm">calendar_month</span>
+                            Custom Range
+                        </button>
+                    </div>
+                </div>
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Revenue</span>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-black">$124,592</span>
+                            <span class="text-emerald-500 text-xs font-bold flex items-center">+12.4% <span
+                                    class="material-symbols-outlined text-xs">trending_up</span></span>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Completed Jobs</span>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-black">1,842</span>
+                            <span class="text-emerald-500 text-xs font-bold flex items-center">+8.2% <span
+                                    class="material-symbols-outlined text-xs">trending_up</span></span>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Avg. Response
+                            Time</span>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-black">24m 12s</span>
+                            <span class="text-emerald-500 text-xs font-bold flex items-center">-14.1% <span
+                                    class="material-symbols-outlined text-xs transform rotate-180">trending_up</span></span>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Cust.
+                            Satisfaction</span>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-black">4.92 / 5</span>
+                            <span class="text-amber-500 text-xs font-bold flex items-center">-0.2% <span
+                                    class="material-symbols-outlined text-xs">trending_flat</span></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Charts Row 1: Line Chart (Main Analytics) -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div
+                        class="lg:col-span-2 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center justify-between mb-8">
+                            <div>
+                                <h4 class="text-lg font-bold">Monthly Job Volume &amp; Revenue</h4>
+                                <p class="text-xs text-slate-500">Comparison of job count vs revenue generation</p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="flex items-center gap-2">
+                                    <div class="size-2.5 rounded-full bg-primary"></div>
+                                    <span class="text-xs font-medium">Revenue</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="size-2.5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+                                    <span class="text-xs font-medium">Jobs</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mock Line Chart -->
+                        <div class="h-64 flex items-end gap-2 relative">
+                            <div class="absolute inset-0 flex flex-col justify-between py-2 pointer-events-none">
+                                <div class="border-t border-slate-100 dark:border-slate-800 w-full h-px"></div>
+                                <div class="border-t border-slate-100 dark:border-slate-800 w-full h-px"></div>
+                                <div class="border-t border-slate-100 dark:border-slate-800 w-full h-px"></div>
+                                <div class="border-t border-slate-100 dark:border-slate-800 w-full h-px"></div>
+                                <div class="border-t border-slate-100 dark:border-slate-800 w-full h-px"></div>
+                            </div>
+                            <!-- Chart Bars/Lines Simulation -->
+                            <div class="flex-1 flex flex-col justify-end gap-1 group">
+                                <div
+                                    class="w-full bg-primary/20 rounded-t-sm h-[40%] group-hover:bg-primary/40 transition-all">
+                                </div>
+                                <div
+                                    class="w-full bg-primary rounded-t-sm h-[20%] group-hover:scale-y-110 origin-bottom transition-all">
+                                </div>
+                                <span class="text-xs text-slate-400 text-center mt-2">Jan</span>
+                            </div>
+                            <div class="flex-1 flex flex-col justify-end gap-1 group">
+                                <div
+                                    class="w-full bg-primary/20 rounded-t-sm h-[55%] group-hover:bg-primary/40 transition-all">
+                                </div>
+                                <div
+                                    class="w-full bg-primary rounded-t-sm h-[30%] group-hover:scale-y-110 origin-bottom transition-all">
+                                </div>
+                                <span class="text-xs text-slate-400 text-center mt-2">Feb</span>
+                            </div>
+                            <div class="flex-1 flex flex-col justify-end gap-1 group">
+                                <div
+                                    class="w-full bg-primary/20 rounded-t-sm h-[45%] group-hover:bg-primary/40 transition-all">
+                                </div>
+                                <div
+                                    class="w-full bg-primary rounded-t-sm h-[35%] group-hover:scale-y-110 origin-bottom transition-all">
+                                </div>
+                                <span class="text-xs text-slate-400 text-center mt-2">Mar</span>
+                            </div>
+                            <div class="flex-1 flex flex-col justify-end gap-1 group">
+                                <div
+                                    class="w-full bg-primary/20 rounded-t-sm h-[70%] group-hover:bg-primary/40 transition-all">
+                                </div>
+                                <div
+                                    class="w-full bg-primary rounded-t-sm h-[50%] group-hover:scale-y-110 origin-bottom transition-all">
+                                </div>
+                                <span class="text-xs text-slate-400 text-center mt-2">Apr</span>
+                            </div>
+                            <div class="flex-1 flex flex-col justify-end gap-1 group">
+                                <div
+                                    class="w-full bg-primary/20 rounded-t-sm h-[60%] group-hover:bg-primary/40 transition-all">
+                                </div>
+                                <div
+                                    class="w-full bg-primary rounded-t-sm h-[45%] group-hover:scale-y-110 origin-bottom transition-all">
+                                </div>
+                                <span class="text-xs text-slate-400 text-center mt-2">May</span>
+                            </div>
+                            <div class="flex-1 flex flex-col justify-end gap-1 group">
+                                <div
+                                    class="w-full bg-primary/20 rounded-t-sm h-[85%] group-hover:bg-primary/40 transition-all">
+                                </div>
+                                <div
+                                    class="w-full bg-primary rounded-t-sm h-[65%] group-hover:scale-y-110 origin-bottom transition-all">
+                                </div>
+                                <span class="text-xs text-slate-400 text-center mt-2">Jun</span>
+                            </div>
+                            <div class="flex-1 flex flex-col justify-end gap-1 group">
+                                <div
+                                    class="w-full bg-primary/20 rounded-t-sm h-[90%] group-hover:bg-primary/40 transition-all">
+                                </div>
+                                <div
+                                    class="w-full bg-primary rounded-t-sm h-[75%] group-hover:scale-y-110 origin-bottom transition-all">
+                                </div>
+                                <span class="text-xs text-slate-400 text-center mt-2">Jul</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <h4 class="text-lg font-bold mb-1">Job Type Distribution</h4>
+                        <p class="text-xs text-slate-500 mb-8">Breakdown of work categories</p>
+                        <div class="relative size-48 mx-auto mb-8">
+                            <!-- Mock Pie Chart -->
+                            <div class="size-full rounded-full border-[18px] border-primary"
+                                style="clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 40%)"></div>
+                            <div class="absolute inset-0 size-full rounded-full border-[18px] border-slate-200 dark:border-slate-800 rotate-[45deg]"
+                                style="clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 20%)"></div>
+                            <div class="absolute inset-0 size-full rounded-full border-[18px] border-slate-400 dark:border-slate-700 -rotate-[120deg]"
+                                style="clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 30%)"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center">
+                                    <p class="text-2xl font-black">1.8k</p>
+                                    <p class="text-xs text-slate-500 font-bold uppercase tracking-tight">Total Jobs
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <div class="size-2.5 rounded-full bg-primary"></div>
+                                    <span class="text-sm font-medium">Installation</span>
+                                </div>
+                                <span class="text-sm font-bold">45%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <div class="size-2.5 rounded-full bg-slate-400"></div>
+                                    <span class="text-sm font-medium">Maintenance</span>
+                                </div>
+                                <span class="text-sm font-bold">30%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <div class="size-2.5 rounded-full bg-slate-200 dark:bg-slate-800"></div>
+                                    <span class="text-sm font-medium">Repair</span>
+                                </div>
+                                <span class="text-sm font-bold">25%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Detailed Revenue Trends Table -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                    <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                        <div>
+                            <h4 class="text-lg font-bold">Revenue Breakdown by Technician</h4>
+                            <p class="text-xs text-slate-500">Individual performance metrics for current period</p>
+                        </div>
+                        <button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                            View Full Table
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr
+                                    class="bg-slate-50 dark:bg-slate-800/50 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+                                    <th class="px-6 py-4">Technician</th>
+                                    <th class="px-6 py-4">Jobs Completed</th>
+                                    <th class="px-6 py-4">Avg. Ticket</th>
+                                    <th class="px-6 py-4">Total Revenue</th>
+                                    <th class="px-6 py-4 text-right">Efficiency</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="size-8 rounded-full bg-slate-200" data-alt="Technician headshot"
+                                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDL8RnXUqe1VcKXS4DRBARDCG8RtepSiIxWhDWetdfi2neUoCAzGmwWhIhQwL03lqhCvcmq8bTVzP2RxCbgJlgP_A_zs_zPDLdg-KdRxCC8C8M6DQv0pnn5M-gQwcSNufvW4yquIsnCIuiDnjoEwHhgSmx1HnlWiNnTnFdi034Y6T3dhupUGE880OkfpJWuO5K-MySKrnRg61taLxgIqQeuTL48NvNkTwQWNYbEPo0uNSZ41I-B5Lh9YLP4KD1Z-DxMaOucWPAohJQ')">
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span class="text-sm font-bold">Marcus Johnson</span>
+                                                <span class="text-xs text-slate-500">Senior Tech</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm">48</td>
+                                    <td class="px-6 py-4 text-sm">$320.00</td>
+                                    <td class="px-6 py-4 text-sm font-bold">$15,360</td>
+                                    <td class="px-6 py-4 text-right">
+                                        <div
+                                            class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-full">
+                                            98%
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="size-8 rounded-full bg-slate-200" data-alt="Technician headshot"
+                                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCW-e3Akgu-zKilwzrR_CnnICTQb0gUEGOVQazOsy3cBjcf5XFWVYdpyG9EFNgXh3adHtMWNxJOx2iL4zEMMJJmWiOOsVexg96aHT76YwswFUPiyuR9P0kAF0aYlpExoHTXM_gtOA4qdWXJDeVvtQaH0wvNSApDI0FUryidnfFIlmJSXOE1yNw2RoElW7lzrPldf44gSNJar17lHNngnYkEqG2jXq544pGvXOYoPLCPDezSwb2Iz5VeA2yhgpD2zuTvHMUod3q919Q')">
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span class="text-sm font-bold">Sarah Williams</span>
+                                                <span class="text-xs text-slate-500">Fleet Specialist</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm">42</td>
+                                    <td class="px-6 py-4 text-sm">$310.50</td>
+                                    <td class="px-6 py-4 text-sm font-bold">$13,041</td>
+                                    <td class="px-6 py-4 text-right">
+                                        <div
+                                            class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-full">
+                                            94%
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="size-8 rounded-full bg-slate-200" data-alt="Technician headshot"
+                                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8-ptLvtGT7s-DNncTSxzUR1tD16ZUrrC-X7yJqEK2_9QaqAqf3IJuXQnDhe7vSGT63p0vJd2Tex6ITpVCvzbEnPNzYS2he8XN3d3TE8Ev3QAeOlV4mqhWKRu9X-DUXrlUF9Z3b0uSFFKlZtFach_EXAZMAchgNcI1iv2yD_jPgn9UWDFbxgEFITXIi0vNj4oVRq7T9w3SAHjuIm5MEdRh_ft-TS5sjK5JiQPo3CZxSdU06RICO5Xaknu7zBkEDj3REdjtOM6kbHg')">
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span class="text-sm font-bold">David Chen</span>
+                                                <span class="text-xs text-slate-500">Junior Tech</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm">31</td>
+                                    <td class="px-6 py-4 text-sm">$245.00</td>
+                                    <td class="px-6 py-4 text-sm font-bold">$7,595</td>
+                                    <td class="px-6 py-4 text-right">
+                                        <div
+                                            class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-bold rounded-full">
+                                            82%
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

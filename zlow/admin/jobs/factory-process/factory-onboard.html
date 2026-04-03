@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Onboard Confirmation - Oman Cargo Mover</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/operations.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: normal; font-style: normal; font-size: 24px; line-height: 1;
+            letter-spacing: normal; text-transform: none; display: inline-block;
+            white-space: nowrap; word-wrap: normal; direction: ltr;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility; font-feature-settings: 'liga';
+        }
+    </style>
+    <script src="../../js/tailwind-config.js"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .simple-card { @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition-all; }
+            .nav-link { 
+                   @apply flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-all font-bold text-sm; 
+            }
+            .nav-link.active { @apply bg-primary text-white; }
+            .input-field { @apply w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-1 focus:ring-primary/20 transition-all font-normal text-sm; }
+            .label-text { @apply text-xs font-black text-slate-400 uppercase tracking-widest mb-2 block; }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-72 flex-shrink-0 bg-white border-r border-slate-200 p-6 hidden lg:flex flex-col gap-6 sticky top-0 h-screen overflow-y-auto">
+            <div class="flex items-center gap-3 px-2">
+                <div class="size-10 rounded-lg bg-primary flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-2xl">ship</span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-black text-slate-900 leading-none uppercase tracking-tighter">Oman Cargo</h1>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Factory Stuffing</p>
+                </div>
+            </div>
+            <nav class="space-y-1">
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mb-3">Operational Hub</p>
+                <a href="../../dashboard/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="../operational-dashboard.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">assignment</span>
+                    <span>Control Panel</span>
+                </a>
+                <a href="../all-jobs.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">work</span>
+                    <span>Job Management</span>
+                </a>
+
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">Master Control</p>
+                <a href="../../clients/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">person_search</span>
+                    <span>Client Information</span>
+                </a>
+                <a href="../../vendors/transport-directory/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">local_shipping</span>
+                    <span>Transport Directory</span>
+                </a>
+
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">System Hub</p>
+                <a href="../../settings/console-settings/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">settings_applications</span>
+                    <span>Console Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-hidden flex flex-col gap-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a id="back-link" href="#" class="inline-flex items-center gap-1 text-primary font-black uppercase tracking-widest text-[11px] mb-2 hover:underline">
+                        <span class="material-symbols-outlined text-[12px]">arrow_back</span> Back to Gate In
+                    </a>
+                    <h2 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Departure Confirmation</h2>
+                    <p class="text-slate-500 font-bold text-xs uppercase tracking-widest mt-1" id="job-id-display">Loading...</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="px-3 py-1.5 rounded-md bg-emerald-50 text-emerald-600 border border-emerald-100 text-[11px] font-black uppercase tracking-widest">Stage 4: Final Export</div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 overflow-x-auto custom-scrollbar">
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs"><span class="material-symbols-outlined text-xs">check</span></div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Booking</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs"><span class="material-symbols-outlined text-xs">check</span></div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Manifest</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs"><span class="material-symbols-outlined text-xs">check</span></div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Invoice</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs"><span class="material-symbols-outlined text-xs">check</span></div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Gate In</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <div class="size-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-black">5</div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-white">On Board</span>
+                </div>
+            </div>
+
+            <div class="max-w-4xl">
+                 <form id="onboard-form" class="space-y-6">
+                    <div class="simple-card p-10 rounded-3xl shadow-2xl shadow-emerald-900/5">
+                        <div class="flex items-center gap-6 mb-10 pb-6 border-b border-slate-50">
+                            <div class="size-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-3xl">verified</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-black tracking-tighter uppercase">Finalize Ship Departure</h3>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Confirm vessel departure and bill of lading</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <label class="label-text">Onboard Date *</label>
+                                <input type="date" id="onboard-date" class="input-field" required>
+                            </div>
+                            <div>
+                                <label class="label-text">Onboard Time *</label>
+                                <input type="time" id="onboard-time" class="input-field" required>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                            <div>
+                                <label class="label-text">Vessel Name Confirmation</label>
+                                <input type="text" id="vessel-confirm" class="input-field" placeholder="Auto-filled from Booking" readonly>
+                            </div>
+                            <div>
+                                <label class="label-text">Bill of Lading Number *</label>
+                                <input type="text" id="bl-number" class="input-field" placeholder="BL-XXXX-XXXX" required>
+                            </div>
+                        </div>
+
+                         <div class="flex justify-between items-center bg-slate-50 p-6 rounded-2xl mb-8">
+                            <div class="flex items-center gap-3">
+                                <div class="size-3 rounded-full bg-emerald-500 animate-pulse"></div>
+                                <span class="text-xs font-black uppercase tracking-widest text-emerald-700">Ready to Complete</span>
+                            </div>
+                            <button type="submit" class="px-14 py-5 bg-emerald-600 text-white text-[11px] font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-emerald-700 transition-all hover:scale-105 shadow-xl shadow-emerald-200 active:scale-95">
+                                Finalize Export Job
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('id') || 'JOB-XXXX';
+        document.getElementById('job-id-display').innerText = `JOB ID: ${jobId}`;
+        document.getElementById('back-link').href = `factory-gate-in.html?id=${jobId}`;
+
+        const savedJobs = JSON.parse(localStorage.getItem('omancargo_jobs') || '[]');
+        const currentJob = savedJobs.find(j => j.id === jobId);
+
+        if(currentJob) {
+            if(currentJob.factoryStuffing && currentJob.factoryStuffing.vesselName) {
+                document.getElementById('vessel-confirm').value = currentJob.factoryStuffing.vesselName;
+            }
+            if(currentJob.factoryOnboard) {
+                document.getElementById('onboard-date').value = currentJob.factoryOnboard.date || '';
+                document.getElementById('onboard-time').value = currentJob.factoryOnboard.time || '';
+                document.getElementById('bl-number').value = currentJob.factoryOnboard.blNo || '';
+            }
+        }
+
+        document.getElementById('onboard-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const onboardData = {
+                date: document.getElementById('onboard-date').value,
+                time: document.getElementById('onboard-time').value,
+                blNo: document.getElementById('bl-number').value,
+                completedAt: new Date().toISOString()
+            };
+
+            const jobIndex = savedJobs.findIndex(j => j.id === jobId);
+            if(jobIndex !== -1) {
+                savedJobs[jobIndex].factoryOnboard = onboardData;
+                savedJobs[jobIndex].status = 'Completed';
+                savedJobs[jobIndex].step = 4;
+                localStorage.setItem('omancargo_jobs', JSON.stringify(savedJobs));
+            }
+
+            Swal.fire({
+                title: 'Export Completed!',
+                text: 'The factory stuffing process is now closed and locked.',
+                icon: 'success',
+                background: '#fff',
+                color: '#1a1f2e',
+                confirmButtonColor: '#059669',
+                customClass: { popup: 'rounded-2xl' }
+            }).then(() => {
+                window.location.href = '../all-jobs.html';
+            });
+        });
+    </script>
+</body>
+
+</html>

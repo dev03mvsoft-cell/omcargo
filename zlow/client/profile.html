@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>My Profile - Customer Portal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <script src="../admin/js/tailwind-config.js"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .glass-card { @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/20 dark:shadow-none transition-all; }
+            .nav-link { @apply flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 transition-all font-bold text-sm; }
+            .nav-link.active { @apply bg-primary text-white shadow-lg shadow-primary/30; }
+            .form-input { @apply block w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all text-sm font-bold placeholder:text-slate-400 placeholder:font-normal; }
+            .form-label { @apply block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1; }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside
+            class="w-72 flex-shrink-0 p-6 hidden lg:flex flex-col gap-8 sticky top-0 h-screen overflow-y-auto custom-scrollbar bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 z-50">
+            <div class="flex items-center gap-4 px-4">
+                <div class="size-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-xl shadow-primary/20">
+                    <span class="material-symbols-outlined text-2xl">local_shipping</span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-black text-slate-900 dark:text-white leading-none tracking-tight">OMAN CARGO</h1>
+                    <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1">Client Connect</p>
+                </div>
+            </div>
+
+            <nav class="space-y-2">
+                <p class="px-4 text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Main Menu</p>
+                <a href="index.html" class="nav-link">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="live-tracking.html" class="nav-link">
+                    <span class="material-symbols-outlined">map</span>
+                    <span>Live Tracking</span>
+                </a>
+
+                <p class="px-4 text-[10px] font-black text-slate-400 uppercase tracking-widest mt-8 mb-4">Operations</p>
+                <a href="active-jobs.html" class="nav-link">
+                    <span class="material-symbols-outlined">package_2</span>
+                    <span>My Shipments</span>
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="material-symbols-outlined">description</span>
+                    <span>Archive & Docs</span>
+                </a>
+
+                <p class="px-4 text-[10px] font-black text-slate-400 uppercase tracking-widest mt-8 mb-4">Account</p>
+                <a href="profile.html" class="nav-link active">
+                    <span class="material-symbols-outlined">person</span>
+                    <span>My Profile</span>
+                </a>
+                <a href="../auth/login/index.html" class="nav-link text-rose-500 hover:bg-rose-50">
+                    <span class="material-symbols-outlined">logout</span>
+                    <span>Sign Out</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="flex-1 p-4 lg:p-8 flex flex-col gap-8">
+            <header class="flex items-center gap-4">
+                <a href="index.html" class="size-10 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-slate-50 transition-all text-slate-500 shadow-sm">
+                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                </a>
+                <div>
+                    <h2 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight uppercase">My Profile</h2>
+                    <p class="text-slate-400 font-bold text-xs uppercase tracking-widest mt-1">Update your corporate identity & preferences</p>
+                </div>
+            </header>
+
+            <div class="max-w-4xl space-y-8">
+                <!-- Profile Header -->
+                <div class="glass-card rounded-[2.5rem] p-10 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8">
+                        <span class="px-3 py-1 bg-emerald-50 text-emerald-600 border border-emerald-200 rounded-full text-[9px] font-black uppercase tracking-widest">Verified Account</span>
+                    </div>
+                    <div class="size-32 rounded-[3.5rem] bg-slate-50 dark:bg-slate-800 border-8 border-white dark:border-slate-700 shadow-2xl flex items-center justify-center text-primary font-black text-4xl mb-4">RI</div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Reliance Industries Ltd.</h3>
+                        <p class="text-slate-400 font-bold text-[11px] uppercase tracking-[0.2em] mt-2 mb-4">Strategic Logistics Partner Since Oct 2021</p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                            <div class="flex items-center gap-2 px-4 py-1.5 bg-slate-50 dark:bg-slate-800 rounded-full text-[10px] font-black uppercase tracking-tighter"><span class="material-symbols-outlined text-xs">pin_drop</span> Mumbai HQ</div>
+                            <div class="flex items-center gap-2 px-4 py-1.5 bg-slate-50 dark:bg-slate-800 rounded-full text-[10px] font-black uppercase tracking-tighter"><span class="material-symbols-outlined text-xs">shield_person</span> Premium Client</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Section -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-card rounded-[2.5rem] p-8 space-y-6">
+                        <h4 class="text-xs font-black uppercase text-primary tracking-[0.2em] mb-4">Business Identity</h4>
+                        <div>
+                            <label class="form-label">GST Number</label>
+                            <input type="text" value="27AAACR1234F1Z5" class="form-input" readonly />
+                        </div>
+                        <div>
+                            <label class="form-label">Full Legal Name</label>
+                            <input type="text" value="Reliance Industries Limited" class="form-input" />
+                        </div>
+                        <div>
+                            <label class="form-label">Billing Address</label>
+                            <textarea rows="3" class="form-input resize-none">Reliance Corporate Park, Ghansoli, Navi Mumbai, Maharashtra 400701, India</textarea>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-[2.5rem] p-8 space-y-6">
+                        <h4 class="text-xs font-black uppercase text-primary tracking-[0.2em] mb-4">Contact Details</h4>
+                        <div>
+                            <label class="form-label">Primary Email (Login)</label>
+                            <input type="email" value="logistics@reliance.com" class="form-input" />
+                        </div>
+                        <div>
+                            <label class="form-label">Dispatch Desk Mobile</label>
+                            <div class="flex gap-2">
+                                <span class="px-4 py-3 bg-slate-50 dark:bg-slate-800 rounded-2xl flex items-center justify-center font-bold text-sm">+91</span>
+                                <input type="tel" value="22 2445 1000" class="form-input" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label">Authorized Signatory</label>
+                            <input type="text" value="Dr. Amrita Singh" class="form-input" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-end gap-4 py-8">
+                    <button class="px-8 py-4 text-slate-500 font-black uppercase text-[10px] tracking-widest hover:text-slate-900 transition-colors">Discard Changes</button>
+                    <button class="px-12 py-4 bg-slate-900 dark:bg-white dark:text-slate-900 text-white font-black uppercase text-[10px] tracking-widest rounded-[1.5rem] shadow-2xl hover:scale-105 transition-all">Update System Identity</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

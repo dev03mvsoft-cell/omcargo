@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Mission Control - Export - Oman Cargo Movers v2</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/new-design.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-slate-50 dark:bg-[#020617] text-[#0f172a] dark:text-slate-100 min-h-screen">
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar -->
+        <aside class="w-72 hidden lg:flex flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] p-6 overflow-y-auto">
+            <div class="flex items-center gap-4 mb-10 px-2">
+                <div class="size-11 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
+                    <span class="material-symbols-rounded text-white text-2xl">local_shipping</span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-black tracking-tighter leading-none">OMAN CARGO</h1>
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mt-1 tracking-widest">Premium Ops Hub</p>
+                </div>
+            </div>
+
+            <nav class="space-y-1.5 flex-1">
+                <p class="px-2 text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Mission Navigation</p>
+                <a href="operational-dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm">
+                    <span class="material-symbols-rounded">dashboard</span>
+                    <span>Global Dashboard</span>
+                </a>
+                <a href="create-v2.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm">
+                    <span class="material-symbols-rounded">add_circle</span>
+                    <span>Create New Job</span>
+                </a>
+                <div class="pt-10">
+                    <p class="px-2 text-[10px] font-black text-primary uppercase tracking-widest mb-4">Current Workflow</p>
+                    <div id="sidebar-timeline" class="space-y-1 px-2">
+                        <!-- Dynamic list of stages -->
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Interface -->
+        <main class="flex-1 flex flex-col overflow-y-auto bg-slate-50/50 dark:bg-[#020617]">
+            <header class="h-20 border-b border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-md flex items-center justify-between px-10 sticky top-0 z-20">
+                <div class="flex flex-col gap-1">
+                    <div class="flex items-center gap-2">
+                         <span id="header-job-id" class="text-sm font-black text-primary uppercase tracking-widest">Job: OCM-EXP-2024-0892</span>
+                         <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[9px] font-black uppercase tracking-widest border border-emerald-200">Active</span>
+                    </div>
+                    <p id="header-process-type" class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Dock Stuffing (8 Stages)</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="text-right">
+                        <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest">Current Lead</p>
+                        <p class="text-[11px] font-bold">Admin Sarah Smith</p>
+                    </div>
+                    <div class="size-10 rounded-full bg-primary/10 border border-primary/20 p-1">
+                        <img src="https://i.pravatar.cc/150?u=sarah" class="w-full h-full rounded-full object-cover shadow-sm">
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-10 max-w-6xl mx-auto w-full space-y-10">
+                <!-- Visual Progress Bar -->
+                <div id="top-progress-bar" class="flex items-center justify-between gap-1">
+                    <!-- Dynamic Progress Steps -->
+                </div>
+
+                <!-- Stage Workspace -->
+                <div id="stage-content" class="bg-white dark:bg-[#0f172a] rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 p-12 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 opacity-5">
+                       <span class="material-symbols-rounded text-9xl">package_2</span>
+                    </div>
+
+                    <div id="stage-form-header" class="mb-12">
+                        <!-- Dynamic Header -->
+                    </div>
+
+                    <form id="stage-form" class="space-y-10 min-h-[400px]">
+                        <!-- Dynamic Form Fields -->
+                    </form>
+
+                    <div class="mt-12 pt-8 border-t border-slate-50 dark:border-slate-800 flex items-center justify-between">
+                         <button id="prev-btn" onclick="goToStage(currentStageIndex - 1)" class="px-8 py-4 bg-slate-100 dark:bg-slate-800 text-slate-500 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-slate-200 transition-all">Previous Stage</button>
+                         <button id="next-btn" onclick="saveCurrentStage()" class="px-10 py-4 bg-primary text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all">Commit & Next Sequence</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const stagesDock = [
+            { id: 1, title: 'Export Invoice Received', icon: 'description', fields: ['Invoice No', 'Invoice Date', 'Total Tons', 'Commodity', 'Ref Number', 'Invoice Upload'] },
+            { id: 2, title: 'Custom Checklist', icon: 'checklist', fields: ['Checklist Items Status', 'Inspector Name', 'Remarks', 'Verification Date'] },
+            { id: 3, title: 'Cargo Arrival', icon: 'warehouse', fields: ['Arrival Date & Time', 'Actual Qty (Tons)', 'Vehicle Details', 'Driver Info', 'Arrival Condition'] },
+            { id: 4, title: 'CFS Assignment', icon: 'location_on', fields: ['CFS Name', 'CFS Location', 'Contact Person', 'Phone Number', 'ETA @ CFS'] },
+            { id: 5, title: 'Daily Carting', icon: 'local_shipping', fields: ['Truck Movements Table', 'Driver Names', 'Time In/Out', 'Cumulative Total', 'Remaining Balance'] },
+            { id: 6, title: 'Booking & Containers', icon: 'inventory_2', fields: ['Shipping Line', 'Vessel Name', 'Container Entries', 'Seal Numbers', 'Booking Reference'] },
+            { id: 7, title: 'Gate In', icon: 'login', fields: ['Gate In Time', 'Gate Pass Number', 'Terminal Confirmation', 'Photos'] },
+            { id: 8, title: 'Onboard Confirmation', icon: 'directions_boat', fields: ['Onboard Date', 'Vessel Confirmation', 'Bill of Lading No', 'Final Export Status'] }
+        ];
+
+        let currentStageIndex = 0;
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('id') || 'OCM-EXP-24-0892';
+
+        function initUI() {
+            document.getElementById('header-job-id').textContent = `Job: ${jobId}`;
+            renderProgress();
+            renderSidebar();
+            loadStage(0);
+        }
+
+        function renderProgress() {
+            const container = document.getElementById('top-progress-bar');
+            container.innerHTML = stagesDock.map((s, i) => `
+                <div class="flex-1 group cursor-pointer" onclick="goToStage(${i})">
+                    <div class="h-2 rounded-full mb-3 transition-all ${i < currentStageIndex ? 'bg-emerald-500' : (i === currentStageIndex ? 'bg-primary' : 'bg-slate-200 dark:bg-slate-800')}"></div>
+                    <p class="text-[9px] font-black uppercase text-center tracking-tighter ${i === currentStageIndex ? 'text-primary' : 'text-slate-400'}">${s.title.split(' ')[0]}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderSidebar() {
+            const container = document.getElementById('sidebar-timeline');
+            container.innerHTML = stagesDock.map((s, i) => `
+                <button onclick="goToStage(${i})" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${i === currentStageIndex ? 'bg-primary/10 text-primary' : 'text-slate-400 hover:text-slate-600'}">
+                    <div class="size-6 rounded-lg ${i === currentStageIndex ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-slate-50 dark:bg-slate-800'} flex items-center justify-center">
+                        <span class="text-[10px] font-black">${s.id}</span>
+                    </div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-left">${s.title}</span>
+                </button>
+            `).join('');
+        }
+
+        function loadStage(index) {
+            currentStageIndex = index;
+            const stage = stagesDock[index];
+            
+            // Header
+            const header = document.getElementById('stage-form-header');
+            header.innerHTML = `
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                         <span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.2em] border border-primary/20">Sequence: ${stage.id} of 8</span>
+                    </div>
+                    <h2 class="text-4xl font-black tracking-tight text-slate-900 dark:text-white">${stage.title}</h2>
+                </div>
+            `;
+
+            // Form Content (Generalized for Prototype)
+            const form = document.getElementById('stage-form');
+            form.innerHTML = stage.fields.map(f => `
+                <div class="space-y-4">
+                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest block pl-1">${f}</label>
+                    ${f.includes('Upload') || f.includes('Photos') ? 
+                        `<div class="border-2 border-dashed border-slate-100 dark:border-slate-800 rounded-[2rem] p-10 text-center hover:border-primary/50 transition-all cursor-pointer group">
+                             <span class="material-symbols-rounded text-slate-200 group-hover:text-primary transition-colors text-4xl">cloud_upload</span>
+                             <p class="text-[10px] font-bold text-slate-400 mt-2">CLICK TO UPLOAD STRATEGIC DOCS</p>
+                        </div>` :
+                        `<input type="text" placeholder="Enter ${f.toLowerCase()}..." class="w-full bg-slate-50/50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl px-6 py-5 text-sm font-bold focus:ring-4 focus:ring-primary/10 transition-all outline-none">`
+                    }
+                </div>
+            `).join('');
+
+            // Buttons
+            document.getElementById('prev-btn').style.visibility = index === 0 ? 'hidden' : 'visible';
+            document.getElementById('next-btn').textContent = index === stagesDock.length - 1 ? 'Finalize Export Mission' : 'Commit & Next Sequence';
+
+            renderProgress();
+            renderSidebar();
+        }
+
+        function goToStage(index) {
+            if(index < 0 || index >= stagesDock.length) return;
+            loadStage(index);
+        }
+
+        function saveCurrentStage() {
+            if(currentStageIndex < stagesDock.length - 1) {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `Stage ${stagesDock[currentStageIndex].id} Finalized`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                    didOpen: (toast) => {
+                         toast.addEventListener('mouseenter', Swal.stopTimer)
+                         toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                });
+                goToStage(currentStageIndex + 1);
+            } else {
+                Swal.fire({
+                    title: 'Export Mission Accomplished',
+                    text: 'Everything verified and synced. The export job is now complete.',
+                    icon: 'success',
+                    confirmButtonColor: '#1e40af'
+                }).then(() => window.location.href = 'operational-dashboard.html');
+            }
+        }
+
+        window.onload = initUI;
+    </script>
+</body>
+</html>

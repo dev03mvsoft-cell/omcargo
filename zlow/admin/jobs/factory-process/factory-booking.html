@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Factory Stuffing Booking - Oman Cargo Mover</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/operations.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: normal; font-style: normal; font-size: 24px; line-height: 1;
+            letter-spacing: normal; text-transform: none; display: inline-block;
+            white-space: nowrap; word-wrap: normal; direction: ltr;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility; font-feature-settings: 'liga';
+        }
+    </style>
+    <script src="../../js/tailwind-config.js"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .simple-card { @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition-all; }
+            .nav-link { 
+                   @apply flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-all font-bold text-sm; 
+            }
+            .nav-link.active { @apply bg-primary text-white; }
+            .input-field { @apply w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-1 focus:ring-primary/20 transition-all font-normal text-sm; }
+            .label-text { @apply text-xs font-black text-slate-400 uppercase tracking-widest mb-2 block; }
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-72 flex-shrink-0 bg-white border-r border-slate-200 p-6 hidden lg:flex flex-col gap-6 sticky top-0 h-screen overflow-y-auto custom-scrollbar">
+            <div class="flex items-center gap-3 px-2">
+                <div class="size-10 rounded-lg bg-primary flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-2xl">factory</span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-black text-slate-900 leading-none uppercase tracking-tighter">Oman Cargo</h1>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Factory Stuffing</p>
+                </div>
+            </div>
+            <nav class="space-y-1">
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mb-3">Operational Hub</p>
+                <a href="../../dashboard/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="../operational-dashboard.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">assignment_turned_in</span>
+                    <span>Operational Control</span>
+                </a>
+                <div class="pl-4 space-y-1 mt-2 mb-4">
+                    <a href="../operational-dashboard.html#export-section" class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-500 hover:bg-slate-50 transition-all font-bold text-[11px] uppercase tracking-wider">
+                        <span class="material-symbols-outlined text-sm">output</span>
+                        <span>Export Control</span>
+                    </a>
+                    <a href="../operational-dashboard.html#import-section" class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-500 hover:bg-slate-50 transition-all font-bold text-[11px] uppercase tracking-wider">
+                        <span class="material-symbols-outlined text-sm">input</span>
+                        <span>Import Control</span>
+                    </a>
+                </div>
+                <a href="../all-jobs.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">work</span>
+                    <span>Job Management</span>
+                </a>
+
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">Master Control</p>
+                <a href="../../clients/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">person_search</span>
+                    <span>Client Information</span>
+                </a>
+                <a href="../../vendors/transport-directory/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">local_shipping</span>
+                    <span>Transport Directory</span>
+                </a>
+
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">System Hub</p>
+                <a href="../../settings/console-settings/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">settings_applications</span>
+                    <span>Console Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-hidden flex flex-col gap-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a id="back-link" href="../all-jobs.html" class="inline-flex items-center gap-1 text-primary font-black uppercase tracking-widest text-[11px] mb-2 hover:underline">
+                        <span class="material-symbols-outlined text-[12px]">arrow_back</span> Back
+                    </a>
+                    <h2 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Factory Stuffing Process</h2>
+                    <p class="text-slate-500 font-bold text-xs uppercase tracking-widest mt-1" id="job-id-display">Loading...</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="px-3 py-1.5 rounded-md bg-blue-50 text-blue-600 border border-blue-100 text-[11px] font-black uppercase tracking-widest">Stage 1: Stuffing Request</div>
+                </div>
+            </div>
+
+            <!-- Simple Stepper -->
+            <div class="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 overflow-x-auto custom-scrollbar">
+                <div class="flex items-center gap-2 shrink-0">
+                    <div class="size-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-black">1</div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-white">Booking</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-30 shrink-0">
+                    <div class="size-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs font-black">2</div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Manifest</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-30 shrink-0">
+                    <div class="size-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs font-black">3</div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Invoice</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-30 shrink-0">
+                    <div class="size-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs font-black">4</div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Gate In</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-30 shrink-0">
+                    <div class="size-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs font-black">5</div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">On Board</span>
+                </div>
+            </div>
+
+            <div class="simple-card rounded-xl p-8">
+                <form id="stuffing-form" class="space-y-8">
+                    <!-- Section 1: Header Info -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                        <div>
+                            <label class="label-text">Number of Containers *</label>
+                            <input type="number" id="container-qty" class="input-field" placeholder="0" min="1" value="1" required>
+                        </div>
+                        <div>
+                            <label class="label-text">Container Size</label>
+                            <select id="global-cntr-size" class="input-field appearance-none">
+                                <option value="20ft">20ft Std</option>
+                                <option value="40ft">40ft HC</option>
+                                <option value="40ft_std">40ft Std</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="label-text">Shipping Line</label>
+                            <select id="shipping-line" class="input-field appearance-none">
+                                <option value="">Select Line</option>
+                                <option value="MAERSK">MAERSK</option>
+                                <option value="MSC">MSC</option>
+                                <option value="CMA CGM">CMA CGM</option>
+                                <option value="COSCO">COSCO</option>
+                                <option value="HAPAG-LLOYD">HAPAG-LLOYD</option>
+                                <option value="ONE">ONE</option>
+                                <option value="EVERGREEN">EVERGREEN</option>
+                                <option value="YANG MING">YANG MING</option>
+                                <option value="HMM">HMM</option>
+                                <option value="ZIM">ZIM</option>
+                                <option value="OTHER">OTHER</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="label-text">Vessel Name</label>
+                            <input type="text" id="vessel-name" class="input-field" placeholder="e.g. ARCTIC VOYAGER">
+                        </div>
+                        <div>
+                            <label class="label-text">Booking Ref No *</label>
+                            <input type="text" id="booking-ref" class="input-field" placeholder="BK-0000000" required>
+                        </div>
+                        <div>
+                            <label class="label-text">Factory Address</label>
+                            <input type="text" id="global-stuffing-loc" class="input-field" placeholder="Factory Location">
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end pt-8 mt-8 border-t border-slate-100">
+                        <button type="submit" class="px-10 py-3.5 bg-primary text-white text-[11px] font-black uppercase tracking-widest rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 active:scale-95">
+                            Generate Empty Table & Proceed
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('id') || 'JOB-XXXX';
+        document.getElementById('job-id-display').innerText = `JOB ID: ${jobId}`;
+
+        // Load existing data if available
+        const savedJobs = JSON.parse(localStorage.getItem('omancargo_jobs') || '[]');
+        const currentJob = savedJobs.find(j => j.id === jobId);
+
+        if(currentJob && currentJob.factoryStuffing) {
+            document.getElementById('container-qty').value = currentJob.factoryStuffing.qty || 1;
+            document.getElementById('shipping-line').value = currentJob.factoryStuffing.shippingLine || '';
+            document.getElementById('vessel-name').value = currentJob.factoryStuffing.vesselName || '';
+            document.getElementById('booking-ref').value = currentJob.factoryStuffing.bookingRef || '';
+            document.getElementById('global-stuffing-loc').value = currentJob.factoryStuffing.factoryAddr || '';
+            document.getElementById('global-cntr-size').value = currentJob.factoryStuffing.defaultSize || '20ft';
+        }
+
+        document.getElementById('stuffing-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const stuffingData = {
+                qty: document.getElementById('container-qty').value,
+                shippingLine: document.getElementById('shipping-line').value,
+                vesselName: document.getElementById('vessel-name').value,
+                bookingRef: document.getElementById('booking-ref').value,
+                factoryAddr: document.getElementById('global-stuffing-loc').value,
+                defaultSize: document.getElementById('global-cntr-size').value,
+                updatedAt: new Date().toISOString()
+            };
+
+            let jobIndex = savedJobs.findIndex(j => j.id === jobId);
+            if(jobIndex !== -1) {
+                savedJobs[jobIndex].factoryStuffing = stuffingData;
+                savedJobs[jobIndex].step = 1;
+            } else {
+                // Create new job entry if it doesn't exist
+                savedJobs.push({
+                    id: jobId,
+                    factoryStuffing: stuffingData,
+                    step: 1,
+                    status: 'Pending',
+                    type: 'Factory Stuffing'
+                });
+            }
+            localStorage.setItem('omancargo_jobs', JSON.stringify(savedJobs));
+
+            Swal.fire({
+                title: 'Data Saved',
+                text: 'Moving to Stage 2: Container Manifest.',
+                icon: 'success',
+                timer: 1500,
+                showConfirmButton: false,
+                background: '#fff',
+                customClass: { popup: 'rounded-xl' }
+            }).then(() => {
+                window.location.href = `factory-manifest.html?id=${jobId}`;
+            });
+        });
+    </script>
+</body>
+
+</html>

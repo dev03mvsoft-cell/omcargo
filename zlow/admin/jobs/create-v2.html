@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Create Mission - Oman Cargo Movers v2</title>
+    <!-- Tailwind with custom config for the new design -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/new-design.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        :root {
+            --primary: #1e40af;
+        }
+        .material-symbols-rounded {
+            font-family: 'Material Symbols Rounded' !important;
+            font-size: 20px;
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-[#020617] text-[#0f172a] dark:text-slate-100 min-h-screen selection:bg-primary/20">
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar: Premium Glassmorphism -->
+        <aside class="w-72 hidden lg:flex flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] sticky top-0 h-screen p-6 overflow-y-auto">
+            <div class="flex items-center gap-4 mb-10 px-2">
+                <div class="size-11 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
+                    <span class="material-symbols-rounded text-white text-2xl">local_shipping</span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-black tracking-tighter leading-none dark:text-white">OMAN CARGO</h1>
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mt-1 tracking-widest">Premium Ops Hub</p>
+                </div>
+            </div>
+
+            <nav class="space-y-1.5 contents">
+                <div class="px-2 mb-4">
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Operational Hub</p>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm">
+                        <span class="material-symbols-rounded">grid_view</span>
+                        <span>Overview</span>
+                    </a>
+                    <a href="create-v2.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary text-white shadow-lg shadow-primary/20 transition-all font-bold text-sm">
+                        <span class="material-symbols-rounded">add_notes</span>
+                        <span>New Cargo Mission</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="flex-1 flex flex-col overflow-y-auto bg-slate-50/50 dark:bg-[#020617] custom-scrollbar">
+            <!-- Header -->
+            <header class="h-20 border-b border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-md flex items-center justify-between px-10 sticky top-0 z-20">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-black uppercase text-slate-400 tracking-[0.2em]">Workflow</span>
+                    <span class="material-symbols-rounded text-slate-300 text-sm">chevron_right</span>
+                    <span class="text-xs font-black uppercase text-primary tracking-[0.2em]">Initiate Mission</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="size-10 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-100 dark:border-slate-700">
+                        <span class="material-symbols-rounded text-slate-400">notifications</span>
+                    </button>
+                    <div class="size-10 rounded-full bg-primary/10 border border-primary/20 p-1">
+                        <img src="https://i.pravatar.cc/150?u=admin" class="w-full h-full rounded-full object-cover">
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-10 max-w-5xl mx-auto w-full">
+                <!-- Title Section -->
+                <div class="mb-12 flex items-end justify-between">
+                    <div>
+                        <h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Initiate New Mission</h2>
+                        <p class="text-slate-500 font-bold text-xs uppercase tracking-widest mt-2">Global Logistics Management System</p>
+                    </div>
+                </div>
+
+                <!-- Form Card -->
+                <div class="bg-white dark:bg-[#0f172a] rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 p-10 overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-primary shadow-lg shadow-primary/20"></div>
+                    
+                    <form id="create-mission-form" class="space-y-12">
+                        <!-- Section 1: Identifier & Origin -->
+                        <div class="space-y-8">
+                            <div class="flex items-center gap-4 border-b border-slate-50 dark:border-slate-800 pb-4">
+                                <span class="material-symbols-rounded text-primary bg-primary/10 p-2 rounded-lg">fingerprint</span>
+                                <h3 class="text-sm font-black uppercase tracking-widest text-[#0f172a] dark:text-white">Core Identifiers</h3>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest block pl-2">System Job Number</label>
+                                    <div class="relative group">
+                                        <input id="job-number" type="text" readonly value="OCM-EXP-2024-0892" 
+                                               class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl px-5 py-4 text-sm font-bold text-slate-500 cursor-not-allowed">
+                                        <span class="material-symbols-rounded absolute right-5 top-1/2 -translate-y-1/2 text-slate-300">lock</span>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest block pl-2">Initiation Date</label>
+                                    <input type="date" required 
+                                           class="w-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl px-5 py-4 text-sm font-bold focus:ring-4 focus:ring-primary/10 transition-all outline-none">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 2: Counterparty (The Request: Job User Name) -->
+                        <div class="space-y-8 bg-slate-50/50 dark:bg-slate-900/10 p-8 rounded-3xl border border-slate-100 dark:border-slate-800">
+                            <div class="flex items-center gap-4">
+                                <span class="material-symbols-rounded text-primary bg-primary/10 p-2 rounded-lg">person_book</span>
+                                <h3 class="text-sm font-black uppercase tracking-widest text-[#0f172a] dark:text-white">Counterparty Assignment</h3>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="space-y-2 md:col-span-2">
+                                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest block pl-2">Job User Name / Client Account</label>
+                                    <div class="relative group">
+                                        <select id="client-select" required
+                                                class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-4 text-sm font-bold appearance-none hover:border-primary/50 transition-all outline-none">
+                                            <option value="">-- Search Client Database --</option>
+                                            <option value="GLO-001">GLOBAL FREIGHT SOLUTIONS (G-FREIGHT)</option>
+                                            <option value="NEX-342">NEXUS LOGISTICS OMAN (NEX-L)</option>
+                                            <option value="TAS-887">TASNEEM EXPORTS CO.</option>
+                                            <option value="NEW-CLIENT">+ ADD NEW CLIENT DATA</option>
+                                        </select>
+                                        <span class="material-symbols-rounded absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+                                    </div>
+                                    <p class="text-[10px] text-slate-400 font-bold mt-2 pl-2">Job User Name defines transparency and client-side tracking visibility.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 3: Modality & Process -->
+                        <div class="space-y-8">
+                            <div class="flex items-center gap-4 border-b border-slate-50 dark:border-slate-800 pb-4">
+                                <span class="material-symbols-rounded text-primary bg-primary/10 p-2 rounded-lg">route</span>
+                                <h3 class="text-sm font-black uppercase tracking-widest text-[#0f172a] dark:text-white">Operational Modality</h3>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="space-y-4">
+                                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest block pl-2 text-center">Movement Class</label>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <label class="cursor-pointer">
+                                            <input type="radio" name="job-type" value="export" checked class="hidden peer">
+                                            <div class="p-6 border-2 border-slate-100 dark:border-slate-800 rounded-3xl text-center transition-all peer-checked:border-primary peer-checked:bg-primary/5 group">
+                                                <span class="material-symbols-rounded text-3xl block mb-2 text-slate-300 group-peer-checked:text-primary">upload</span>
+                                                <span class="text-xs font-black uppercase tracking-widest">Export</span>
+                                            </div>
+                                        </label>
+                                        <label class="cursor-pointer">
+                                            <input type="radio" name="job-type" value="import" class="hidden peer">
+                                            <div class="p-6 border-2 border-slate-100 dark:border-slate-800 rounded-3xl text-center transition-all peer-checked:border-primary peer-checked:bg-primary/5 group">
+                                                <span class="material-symbols-rounded text-3xl block mb-2 text-slate-300 group-peer-checked:text-primary">download</span>
+                                                <span class="text-xs font-black uppercase tracking-widest">Import</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest block pl-2">Specific Process Sequence</label>
+                                    <div class="relative">
+                                        <select id="process-type" required
+                                                class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-4 text-sm font-bold appearance-none outline-none">
+                                            <option value="dock_stuffing">DOCK STUFFING (CFS)</option>
+                                            <option value="factory_stuffing">FACTORY STUFFING</option>
+                                            <!-- Import options will be dynamic -->
+                                        </select>
+                                        <span class="material-symbols-rounded absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Final Action -->
+                        <div class="pt-10 border-t border-slate-50 dark:border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-3 text-slate-400">
+                                <span class="material-symbols-rounded text-sm">verified_user</span>
+                                <span class="text-[10px] font-bold uppercase tracking-widest">Validating Operational Sequence</span>
+                            </div>
+                            <button type="submit" 
+                                    class="px-12 py-5 bg-primary text-white text-xs font-black uppercase tracking-[0.2em] rounded-2xl shadow-2xl shadow-primary/40 hover:scale-[1.02] active:scale-95 transition-all">
+                                Establish Mission Control
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Dynamic options for Export/Import
+        const modalitySelectors = document.querySelectorAll('input[name="job-type"]');
+        const processSelect = document.getElementById('process-type');
+        const jobNumberInput = document.getElementById('job-number');
+
+        const processOptions = {
+            export: [
+                { value: 'dock_stuffing', text: 'DOCK STUFFING (CFS)' },
+                { value: 'factory_stuffing', text: 'FACTORY STUFFING' }
+            ],
+            import: [
+                { value: 'dock_delivery', text: 'DOCK DELIVERY' },
+                { value: 'factory_delivery', text: 'FACTORY DELIVERY' }
+            ]
+        };
+
+        modalitySelectors.forEach(input => {
+            input.addEventListener('change', (e) => {
+                const type = e.target.value;
+                processSelect.innerHTML = '';
+                processOptions[type].forEach(opt => {
+                    const el = document.createElement('option');
+                    el.value = opt.value;
+                    el.textContent = opt.text;
+                    processSelect.appendChild(el);
+                });
+
+                // Update Job Number Prefix
+                const year = new Date().getFullYear();
+                const rand = Math.floor(1000 + Math.random() * 9000);
+                jobNumberInput.value = `OCM-${type.toUpperCase()}-${year}-${rand}`;
+            });
+        });
+
+        // Client handling
+        document.getElementById('client-select').addEventListener('change', function() {
+            if (this.value === 'NEW-CLIENT') {
+                Swal.fire({
+                    title: 'Strategic Onboarding',
+                    text: 'Would you like to register a new Client ID?',
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonText: 'Forward to Onboarding',
+                    confirmButtonColor: '#1e40af'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // In real app, redirect to client creation
+                    }
+                });
+            }
+        });
+
+        // Form Submit
+        document.getElementById('create-mission-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const jobType = document.querySelector('input[name="job-type"]:checked').value;
+            const process = processSelect.value;
+            const jobID = jobNumberInput.value;
+
+            Swal.fire({
+                title: 'Sequence Initialized',
+                text: `Mission ${jobID} is now live in the ${jobType} workflow.`,
+                icon: 'success',
+                confirmButtonColor: '#1e40af'
+            }).then(() => {
+                // If export, redirect to our new export workflow page
+                if (jobType === 'export') {
+                    window.location.href = `export-process-v2.html?id=${jobID}&type=${process}`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

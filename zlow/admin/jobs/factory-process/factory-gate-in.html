@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Gate In - Oman Cargo Mover</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/operations.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: normal; font-style: normal; font-size: 24px; line-height: 1;
+            letter-spacing: normal; text-transform: none; display: inline-block;
+            white-space: nowrap; word-wrap: normal; direction: ltr;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility; font-feature-settings: 'liga';
+        }
+    </style>
+    <script src="../../js/tailwind-config.js"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .simple-card { @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition-all; }
+            .nav-link { 
+                   @apply flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-all font-bold text-sm; 
+            }
+            .nav-link.active { @apply bg-primary text-white; }
+            .input-field { @apply w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded focus:ring-1 focus:ring-primary/20 transition-all font-bold text-xs; }
+            .label-text { @apply text-xs font-black text-slate-400 uppercase tracking-widest mb-1 block; }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-72 flex-shrink-0 bg-white border-r border-slate-200 p-6 hidden lg:flex flex-col gap-6 sticky top-0 h-screen overflow-y-auto custom-scrollbar">
+            <div class="flex items-center gap-3 px-2">
+                <div class="size-10 rounded-lg bg-primary flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-2xl">door_front</span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-black text-slate-900 leading-none uppercase tracking-tighter">Oman Cargo</h1>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Factory Stuffing</p>
+                </div>
+            </div>
+            <nav class="space-y-1">
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mb-3">Operational Hub</p>
+                <a href="../../dashboard/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="../operational-dashboard.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">assignment</span>
+                    <span>Control Panel</span>
+                </a>
+                <a href="../all-jobs.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">work</span>
+                    <span>Job Management</span>
+                </a>
+
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">Master Control</p>
+                <a href="../../clients/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">person_search</span>
+                    <span>Client Information</span>
+                </a>
+                <a href="../../vendors/transport-directory/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">local_shipping</span>
+                    <span>Transport Directory</span>
+                </a>
+
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">System Hub</p>
+                <a href="../../settings/console-settings/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">settings_applications</span>
+                    <span>Console Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-hidden flex flex-col gap-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a id="back-link" href="#" class="inline-flex items-center gap-1 text-primary font-black uppercase tracking-widest text-[11px] mb-2 hover:underline">
+                        <span class="material-symbols-outlined text-[12px]">arrow_back</span> Back to Invoice
+                    </a>
+                    <h2 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Gate In Process</h2>
+                    <p class="text-slate-500 font-bold text-xs uppercase tracking-widest mt-1" id="job-id-display">Loading...</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="px-3 py-1.5 rounded-md bg-amber-50 text-amber-600 border border-amber-100 text-[11px] font-black uppercase tracking-widest uppercase tracking-widest">Stage 3: Port Entry</div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 overflow-x-auto custom-scrollbar">
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs"><span class="material-symbols-outlined text-xs">check</span></div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Booking</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs"><span class="material-symbols-outlined text-xs">check</span></div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Manifest</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs"><span class="material-symbols-outlined text-xs">check</span></div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Invoice</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <div class="size-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-black">4</div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-white">Gate In</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-30 shrink-0">
+                    <div class="size-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs font-black">5</div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">On Board</span>
+                </div>
+            </div>
+
+            <div class="simple-card rounded-xl p-8 overflow-hidden flex flex-col gap-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xs font-black uppercase tracking-[0.2em] text-slate-900">Gate In Verification</h3>
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Verify port entry for each container</p>
+                    </div>
+                </div>
+
+                <div id="gate-in-tables-container" class="space-y-6">
+                    <!-- Tables generated via JS -->
+                </div>
+
+                <div class="pt-8 border-t border-slate-100 flex items-center justify-between">
+                    <div class="flex items-center gap-2 opacity-50">
+                        <span class="material-symbols-outlined text-primary text-xl">gated_house</span>
+                        <span class="text-xs font-black uppercase tracking-widest">Security Sync Active</span>
+                    </div>
+                    <button id="save-gate-in" class="px-10 py-3 bg-primary text-white text-xs font-black uppercase tracking-widest rounded shadow-lg shadow-primary/20 hover:scale-105 transition-all">
+                        Complete Gate In & Proceed
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('id') || 'JOB-XXXX';
+        document.getElementById('job-id-display').innerText = `JOB ID: ${jobId}`;
+        document.getElementById('back-link').href = `factory-invoice.html?id=${jobId}`;
+
+        const savedJobs = JSON.parse(localStorage.getItem('omancargo_jobs') || '[]');
+        const currentJob = savedJobs.find(j => j.id === jobId);
+        
+        const tablesContainer = document.getElementById('gate-in-tables-container');
+        
+        function createContainerTable(index, container) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-900 overflow-hidden';
+            
+            const existing = (currentJob && currentJob.factoryGateInRows) ? currentJob.factoryGateInRows[index] : {};
+
+            wrapper.innerHTML = `
+                <div class="p-3 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                    <span class="text-[11px] font-black uppercase tracking-widest text-primary">Unit #${index + 1}</span>
+                    <span class="text-[11px] font-black uppercase tracking-widest text-slate-400 font-mono">${container.number || 'TBA'}</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse container-data-table">
+                        <thead>
+                            <tr class="bg-slate-50/20 text-xs font-black uppercase tracking-widest text-slate-500 border-b border-slate-100 dark:border-slate-800">
+                                <th class="px-4 py-2">Container No</th>
+                                <th class="px-4 py-2">Gate Date</th>
+                                <th class="px-4 py-2">Gate Time</th>
+                                <th class="px-4 py-2">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="container-entry-row hover:bg-slate-50/50 transition-all">
+                                <td class="px-4 py-3 text-xs font-bold text-slate-900 dark:text-white uppercase">${container.number || 'TBA'}</td>
+                                <td class="px-2 py-3"><input type="date" class="gate-date input-field" value="${existing.date || ''}"></td>
+                                <td class="px-2 py-3"><input type="time" class="gate-time input-field" value="${existing.time || ''}"></td>
+                                <td class="px-2 py-3">
+                                    <select class="gate-status input-field appearance-none">
+                                        <option value="pending" ${existing.status === 'pending' ? 'selected' : ''}>PENDING</option>
+                                        <option value="entered" ${existing.status === 'entered' ? 'selected' : ''}>ENTERED</option>
+                                        <option value="rejected" ${existing.status === 'rejected' ? 'selected' : ''}>REJECTED</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            return wrapper;
+        }
+
+        if(currentJob && currentJob.factoryManifest) {
+            currentJob.factoryManifest.forEach((c, i) => {
+                tablesContainer.appendChild(createContainerTable(i, c));
+            });
+        }
+
+        document.getElementById('save-gate-in').addEventListener('click', () => {
+             const rows = Array.from(tablesContainer.querySelectorAll('.container-entry-row')).map(tr => ({
+                number: tr.querySelector('td:first-child').innerText, // Adjusted to get container number from the first td
+                date: tr.querySelector('.gate-date').value,
+                time: tr.querySelector('.gate-time').value,
+                status: tr.querySelector('.gate-status').value
+            }));
+
+            const jobIndex = savedJobs.findIndex(j => j.id === jobId);
+            if(jobIndex !== -1) {
+                savedJobs[jobIndex].factoryGateInRows = rows;
+                // Maintain compatibility with existing field for header if needed
+                savedJobs[jobIndex].factoryGateIn = rows[0] || {}; 
+                savedJobs[jobIndex].step = 4;
+                localStorage.setItem('omancargo_jobs', JSON.stringify(savedJobs));
+            }
+
+            Swal.fire({
+                title: 'Port Entry Secured',
+                text: 'Moving to Onboard Confirmation.',
+                icon: 'success',
+                timer: 1500,
+                showConfirmButton: false,
+                background: '#fff',
+                customClass: { popup: 'rounded-xl' }
+            }).then(() => {
+                window.location.href = `factory-onboard.html?id=${jobId}`;
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Operational Dashboard - Oman Cargo Mover</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../css/operations.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: 'liga';
+        }
+    </style>
+    <script src="../js/tailwind-config.js"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .simple-card { @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition-all; }
+            .nav-link { 
+                   @apply flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-all font-bold text-sm; 
+            }
+            .nav-link.active { @apply bg-primary text-white; }
+            .status-badge { @apply px-2 py-0.5 rounded text-xs font-black uppercase tracking-widest border; }
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside
+            class="w-72 flex-shrink-0 hidden lg:flex flex-col gap-4 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sticky top-0 h-screen overflow-y-auto custom-scrollbar">
+            <div class="flex items-center gap-3 px-2 mb-4">
+                <div
+                    class="bg-primary size-10 rounded-lg text-white flex items-center justify-center shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined block text-2xl">local_shipping</span>
+                </div>
+                <div>
+                    <h1
+                        class="text-lg font-black text-slate-900 dark:text-white leading-none uppercase tracking-tighter">
+                        Oman Cargo</h1>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Global Console Hub
+                    </p>
+                </div>
+            </div>
+            <nav class="flex-1 space-y-1">
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mb-3">Operational Hub</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../dashboard/index.html">
+                    <span class="material-symbols-outlined text-xl">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-bold transition-all text-sm shadow-sm"
+                    href="operational-dashboard.html">
+                    <span class="material-symbols-outlined text-xl text-white">assignment_turned_in</span>
+                    <span>Operational Control</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="all-jobs.html">
+                    <span class="material-symbols-outlined text-xl">work</span>
+                    <span>Job Management</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="create-job.html">
+                    <span class="material-symbols-outlined text-xl">add_circle</span>
+                    <span>Create Job</span>
+                </a>
+
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">Master Control</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../clients/index.html">
+                    <span class="material-symbols-outlined text-xl">person_search</span>
+                    <span>Client Information</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../vendors/transport-directory/index.html">
+                    <span class="material-symbols-outlined text-xl">local_shipping</span>
+                    <span>Transport Directory</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../vendors/shipping-line/index.html">
+                    <span class="material-symbols-outlined text-xl">directions_boat</span>
+                    <span>Shipping Line</span>
+                </a>
+
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">System Hub</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../settings/console-settings/index.html">
+                    <span class="material-symbols-outlined text-xl">settings_applications</span>
+                    <span>Console Settings</span>
+                </a>
+
+                <div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800">
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-all font-bold text-sm"
+                        href="../auth/login/index.html">
+                        <span class="material-symbols-outlined text-xl text-red-500">logout</span>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-hidden flex flex-col gap-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Operational
+                        Control</h2>
+                    <p class="text-slate-500 font-bold text-xs uppercase tracking-widest mt-1 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[14px] text-primary">route</span>
+                        Real-time Workflow Monitor
+                    </p>
+                </div>
+                <div class="flex -space-x-2">
+                    <img src="https://i.pravatar.cc/150?u=1"
+                        class="size-8 rounded-full border-2 border-slate-50 shadow-sm">
+                    <img src="https://i.pravatar.cc/150?u=2"
+                        class="size-8 rounded-full border-2 border-slate-50 shadow-sm">
+                    <div
+                        class="size-8 rounded-full border-2 border-slate-50 bg-slate-200 flex items-center justify-center text-[11px] font-black">
+                        +14</div>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="simple-card p-4 rounded-xl">
+                    <p class="text-[11px] font-black text-slate-400 uppercase tracking-widest">In Queue</p>
+                    <h4 class="text-xl font-black text-amber-600 mt-1">24</h4>
+                </div>
+                <div class="simple-card p-4 rounded-xl">
+                    <p class="text-[11px] font-black text-slate-400 uppercase tracking-widest">Processing</p>
+                    <h4 class="text-xl font-black text-primary mt-1">12</h4>
+                </div>
+                <div class="simple-card p-4 rounded-xl">
+                    <p class="text-[11px] font-black text-slate-400 uppercase tracking-widest">Completed</p>
+                    <h4 class="text-xl font-black text-emerald-600 mt-1">158</h4>
+                </div>
+                <div class="simple-card p-4 rounded-xl border-red-100 bg-red-50/20">
+                    <p class="text-[11px] font-black text-red-400 uppercase tracking-widest">Flagged</p>
+                    <h4 class="text-xl font-black text-red-600 mt-1">2</h4>
+                </div>
+            </div>
+
+            <!-- Tab Switcher -->
+            <div
+                class="flex items-center gap-2 bg-slate-100 dark:bg-slate-900/50 p-1.5 rounded-2xl w-fit self-center md:self-start lg:ml-0">
+                <button onclick="switchTab('export')" id="export-tab-btn"
+                    class="px-8 py-3 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-black uppercase tracking-widest rounded-xl shadow-xl transition-all flex items-center gap-3">
+                    <span class="material-symbols-outlined text-lg">output</span> Export
+                </button>
+                <button onclick="switchTab('import')" id="import-tab-btn"
+                    class="px-8 py-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 text-xs font-black uppercase tracking-widest rounded-xl transition-all flex items-center gap-3">
+                    <span class="material-symbols-outlined text-lg">input</span> Import
+                </button>
+            </div>
+
+            <div id="mission-container" class="contents">
+                <!-- Export Missions Table -->
+                <div id="export-section" class="simple-card rounded-xl flex-1 flex flex-col min-h-0 overflow-hidden">
+                    <div
+                        class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-emerald-50/30 dark:bg-emerald-800/10">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-emerald-600">output</span>
+                            <h3 class="text-xs font-black uppercase text-emerald-700 tracking-widest">Active Export
+                                Missions
+                            </h3>
+                        </div>
+                        <span id="export-count"
+                            class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-black">0</span>
+                    </div>
+
+                    <div class="flex-1 overflow-x-auto custom-scrollbar">
+                        <table class="w-full text-left border-collapse min-w-[1000px]">
+                            <thead>
+                                <tr
+                                    class="bg-slate-50/50 dark:bg-slate-800/50 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 border-b border-slate-100 dark:border-slate-800">
+                                    <th class="px-8 py-5">System ID</th>
+                                    <th class="px-6 py-5">Counterparty</th>
+                                    <th class="px-6 py-5">Modality</th>
+                                    <th class="px-6 py-5">Operational Progress</th>
+                                    <th class="px-6 py-5">Controller</th>
+                                    <th class="px-8 py-5 text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="export-table-body"
+                                class="divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-900">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Import Missions Table -->
+                <div id="import-section"
+                    class="simple-card rounded-xl flex-1 flex flex-col min-h-0 overflow-hidden hidden">
+                    <div
+                        class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-blue-50/30 dark:bg-blue-800/10">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-blue-600">input</span>
+                            <h3 class="text-xs font-black uppercase text-blue-700 tracking-widest">Active Import
+                                Missions
+                            </h3>
+                        </div>
+                        <span id="import-count"
+                            class="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 text-xs font-black">0</span>
+                    </div>
+
+                    <div class="flex-1 overflow-x-auto custom-scrollbar">
+                        <table class="w-full text-left border-collapse min-w-[1000px]">
+                            <thead>
+                                <tr
+                                    class="bg-slate-50/50 dark:bg-slate-800/50 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 border-b border-slate-100 dark:border-slate-800">
+                                    <th class="px-8 py-5">System ID</th>
+                                    <th class="px-6 py-5">Counterparty</th>
+                                    <th class="px-6 py-5">Modality</th>
+                                    <th class="px-6 py-5">Operational Progress</th>
+                                    <th class="px-6 py-5">Controller</th>
+                                    <th class="px-8 py-5 text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="import-table-body"
+                                class="divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-900">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function switchTab(type) {
+            const exportBtn = document.getElementById('export-tab-btn');
+            const importBtn = document.getElementById('import-tab-btn');
+            const exportSection = document.getElementById('export-section');
+            const importSection = document.getElementById('import-section');
+
+            if (type === 'export') {
+                exportBtn.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-900', 'dark:text-white', 'shadow-xl');
+                exportBtn.classList.remove('text-slate-400', 'hover:text-slate-600', 'dark:hover:text-slate-300');
+                importBtn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-900', 'dark:text-white', 'shadow-xl');
+                importBtn.classList.add('text-slate-400', 'hover:text-slate-600', 'dark:hover:text-slate-300');
+                exportSection.classList.remove('hidden');
+                importSection.classList.add('hidden');
+            } else {
+                importBtn.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-900', 'dark:text-white', 'shadow-xl');
+                importBtn.classList.remove('text-slate-400', 'hover:text-slate-600', 'dark:hover:text-slate-300');
+                exportBtn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-900', 'dark:text-white', 'shadow-xl');
+                exportBtn.classList.add('text-slate-400', 'hover:text-slate-600', 'dark:hover:text-slate-300');
+                importSection.classList.remove('hidden');
+                exportSection.classList.add('hidden');
+            }
+        }
+        const urlParams = new URLSearchParams(window.location.search);
+        const filterId = urlParams.get('id');
+
+        const mockJobs = [
+            { id: 'JOB-EXP-5591', client: 'Reliance Industries', type: 'export', isFactory: true, step: 3, staff: 'Michael Ross', avatar: '4' },
+            { id: 'JOB-EXP-5592', client: 'Tata Steel', type: 'export', isFactory: false, step: 2, staff: 'Alex Rivera', avatar: '3' },
+            { id: 'JOB-IMP-5595', client: 'Nexus Logistics', type: 'import', isFactory: true, step: 2, staff: 'Sarah Smith', avatar: '5' }
+        ];
+
+        function loadJobs() {
+            const exportTbody = document.getElementById('export-table-body');
+            const importTbody = document.getElementById('import-table-body');
+            const savedJobs = JSON.parse(localStorage.getItem('omancargo_jobs') || '[]');
+
+            // Map existing jobs
+            let allJobs = savedJobs.map(j => ({
+                id: j.id,
+                client: j.clientName || 'N/A',
+                isFactory: !!j.factoryStuffing,
+                type: j.type || 'export',
+                step: j.step || 1,
+                staff: 'Operator',
+                avatar: '0'
+            })).concat(mockJobs);
+
+            if (filterId) {
+                allJobs.sort((a, b) => a.id === filterId ? -1 : (b.id === filterId ? 1 : 0));
+            }
+
+            exportTbody.innerHTML = '';
+            importTbody.innerHTML = '';
+            let exportCount = 0;
+            let importCount = 0;
+
+            allJobs.forEach((job, index) => {
+                const isExport = job.type === 'export';
+                const targetTbody = isExport ? exportTbody : importTbody;
+                if (isExport) exportCount++; else importCount++;
+
+                const isHighlighted = filterId && job.id === filterId;
+                const tr = document.createElement('tr');
+                tr.className = `hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-all ${isHighlighted ? 'bg-primary/5 ring-1 ring-inset ring-primary/20' : ''}`;
+
+                // Stages logic
+                let stages = [];
+                if (job.isFactory) {
+                    stages = [
+                        { name: 'BK', file: 'factory-process/factory-booking.html' },
+                        { name: 'MN', file: 'factory-process/factory-manifest.html' },
+                        { name: 'INV', file: 'factory-process/factory-invoice.html' },
+                        { name: 'GT', file: 'factory-process/factory-gate-in.html' },
+                        { name: 'OB', file: 'factory-process/factory-onboard.html' }
+                    ];
+                } else {
+                    stages = [
+                        { name: 'BK', file: 'dock-process/booking.html' },
+                        { name: 'CT', file: 'dock-process/carting.html' },
+                        { name: 'CH', file: 'dock-process/custom-checklist.html' },
+                        { name: 'GT', file: 'dock-process/gate-in.html' },
+                        { name: 'OB', file: 'dock-process/on-board.html' },
+                        { name: 'LP', file: 'dock-process/line.html' }
+                    ];
+                }
+
+                const currentFile = stages[job.step - 1]?.file || '#';
+
+                tr.innerHTML = `
+                    <td class="px-8 py-6">
+                        <div class="flex flex-col">
+                            <span class="text-xs font-black uppercase tracking-tighter text-slate-900 dark:text-white">${job.id}</span>
+                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest mt-0.5">Reference Unit</span>
+                        </div>
+                    </td>
+                    <td class="px-6 py-6">
+                        <div class="flex items-center gap-2">
+                             <div class="size-2 rounded-full bg-slate-200"></div>
+                             <span class="text-xs font-bold uppercase text-slate-600 dark:text-slate-400">${job.client}</span>
+                        </div>
+                    </td>
+                    <td class="px-6 py-6">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest border transition-colors ${!job.isFactory ? 'bg-amber-50 text-amber-600 border-amber-100' : 'bg-emerald-50 text-emerald-600 border-emerald-100'}">
+                            ${!job.isFactory ? 'Dock Stuffing' : 'Factory Stuffing'}
+                        </span>
+                    </td>
+                    <td class="px-6 py-6">
+                        <div class="flex flex-col gap-3">
+                             <div class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar pb-1">
+                                ${stages.map((s, i) => {
+                    const isComplete = job.step > i + 1;
+                    const isActive = job.step === i + 1;
+                    return `
+                                        <div class="flex flex-col items-center gap-1 shrink-0 px-2 min-w-[40px]">
+                                            <div class="size-6 rounded-lg flex items-center justify-center transition-all duration-500 ${isComplete ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20' : (isActive ? 'bg-primary text-white shadow-xl shadow-primary/30 ring-4 ring-primary/10' : 'bg-slate-100 text-slate-400')}">
+                                                <span class="text-[11px] font-black">${isComplete ? '✓' : i + 1}</span>
+                                            </div>
+                                            <a href="${s.file}?id=${job.id}" 
+                                               class="text-[7px] font-black uppercase tracking-tighter ${isActive ? 'text-primary' : (isComplete ? 'text-emerald-600' : 'text-slate-400')} hover:underline">
+                                                ${s.name}
+                                            </a>
+                                        </div>
+                                    `;
+                }).join('')}
+                             </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-6 font-mono">
+                        <div class="flex items-center gap-2">
+                            <div class="size-8 rounded-full border-2 border-slate-100 bg-slate-200 flex items-center justify-center text-xs font-black overflow-hidden shadow-sm">
+                                <img src="https://i.pravatar.cc/150?u=${job.avatar || index}" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-xs font-bold uppercase text-slate-500 tracking-tight">${job.staff}</span>
+                        </div>
+                    </td>
+                    <td class="px-8 py-6 text-right">
+                        <button onclick="window.location.href='${currentFile}?id=${job.id}'" class="px-6 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-black uppercase rounded-lg shadow-lg hover:shadow-primary/30 hover:bg-primary hover:text-white transition-all transform hover:-translate-y-0.5">Control</button>
+                    </td>
+                `;
+                targetTbody.appendChild(tr);
+            });
+
+            document.getElementById('export-count').innerText = exportCount;
+            document.getElementById('import-count').innerText = importCount;
+        }
+
+        window.onload = loadJobs;
+    </script>
+</body>
+
+</html>

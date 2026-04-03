@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="../js/tailwind-config.js"></script>
+    <title>Create Job - Logistics Admin Portal</title>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col">
+            <div class="p-6 flex items-center gap-3">
+                <div class="bg-primary p-1.5 rounded-lg text-white">
+                    <span class="material-symbols-outlined text-2xl">local_shipping</span>
+                </div>
+                <h2 class="text-lg font-bold tracking-tight">Logistics Admin</h2>
+            </div>
+            <nav class="flex-1 px-4 py-4 space-y-1">
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span class="text-sm font-medium">Dashboard</span>
+                </a>
+                <div class="space-y-1">
+                    <div class="flex items-center gap-3 px-3 py-2 text-primary bg-primary/10 rounded-xl">
+                        <span class="material-symbols-outlined">work</span>
+                        <span class="text-sm font-semibold">Jobs</span>
+                    </div>
+                    <div class="ml-9 space-y-1 mt-1">
+                        <a class="block px-3 py-2 text-sm font-semibold text-primary" href="#">Create Job</a>
+                        <a class="block px-3 py-2 text-sm text-slate-600 dark:text-slate-400 hover:text-primary"
+                            href="#">All Jobs</a>
+                    </div>
+                </div>
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined">warehouse</span>
+                    <span class="text-sm font-medium">Inventory</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined">bar_chart</span>
+                    <span class="text-sm font-medium">Reports</span>
+                </a>
+            </nav>
+            <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 p-2">
+                    <img alt="Profile" class="size-10 rounded-full border-2 border-primary"
+                        data-alt="User profile avatar of admin user"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGmZt6v8jnq-QAxWkcfnHxUY2jeJjDkkBOpEgxPEkTT5Xb1zPyYxyY_rlg59LKomutAa6_GAgVMEyj7GKNZSYOLDw0ap6C2n2Ne14vDlwl90mfNmQRPuIvZ4R5ayZNiKVMHzBnwMot1Vljq4bcpK_YRJR2A-N-S4jbir73Rl6E37uvBqN6LSoPhLGZpfcR-2KLzh-QnB7_ZPWZyS7hkTuFNEORy4alDNI9ZP8RrG65_q6fbO4I_VcWCla8pae2pBrQan44r7pSm10" />
+                    <div class="flex-1 overflow-hidden">
+                        <p class="text-sm font-bold truncate">Alex Morgan</p>
+                        <p class="text-xs text-slate-500 truncate">System Admin</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-y-auto">
+            <!-- Header -->
+            <header
+                class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-between px-8 sticky top-0 z-10">
+                <div class="flex items-center gap-2 text-slate-500 text-sm">
+                    <span>Jobs</span>
+                    <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    <span class="text-slate-900 dark:text-slate-100 font-medium">Create Job</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+                        <input
+                            class="pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary w-64"
+                            placeholder="Search orders..." type="text" />
+                    </div>
+                    <button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full relative">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span
+                            class="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-white dark:border-slate-900"></span>
+                    </button>
+                    <button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
+                        <span class="material-symbols-outlined">settings</span>
+                    </button>
+                </div>
+            </header>
+            <!-- Page Content -->
+            <div class="p-8 max-w-5xl mx-auto w-full">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold tracking-tight">Create New Job</h1>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1">Initialize a new logistics workflow for freight
+                        movement.</p>
+                </div>
+                <!-- Form Section -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-8">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Job Number (Auto Generated) -->
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Job
+                                    Number</label>
+                                <div class="relative">
+                                    <input
+                                        class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-500 cursor-not-allowed"
+                                        readonly="" type="text" value="JOB-2023-0892" />
+                                    <span
+                                        class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">lock</span>
+                                </div>
+                                <p class="text-[11px] text-slate-400 italic">Auto-generated based on current sequence
+                                </p>
+                            </div>
+                            <!-- Job Date -->
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Job Date</label>
+                                <div class="relative">
+                                    <input
+                                        class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary"
+                                        type="date" />
+                                </div>
+                            </div>
+                            <!-- Client Name -->
+                            <div class="space-y-2 md:col-span-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Client
+                                    Name</label>
+                                <select
+                                    class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:20px_20px] bg-[right_1rem_center] bg-no-repeat">
+                                    <option value="">Select a client...</option>
+                                    <option value="global_freight">Global Freight Solutions</option>
+                                    <option value="nexus_logistics">Nexus Logistics Inc.</option>
+                                    <option value="ocean_maritime">Ocean Maritime Co.</option>
+                                    <option value="apex_trading">Apex Trading Corp.</option>
+                                </select>
+                            </div>
+                            <!-- Job Type -->
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Job Type</label>
+                                <select
+                                    class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:20px_20px] bg-[right_1rem_center] bg-no-repeat">
+                                    <option value="export">Export</option>
+                                    <option value="import">Import</option>
+                                </select>
+                            </div>
+                            <!-- Process Type -->
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Process
+                                    Type</label>
+                                <select
+                                    class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:20px_20px] bg-[right_1rem_center] bg-no-repeat">
+                                    <!-- Options dynamic based on Job Type -->
+                                    <optgroup label="Export Options">
+                                        <option value="dock_stuffing">Dock Stuffing</option>
+                                        <option value="factory_stuffing">Factory Stuffing</option>
+                                    </optgroup>
+                                    <optgroup label="Import Options">
+                                        <option value="dock_delivery">Dock Delivery</option>
+                                        <option value="factory_delivery">Factory Delivery</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <!-- Remarks -->
+                            <div class="space-y-2 md:col-span-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Remarks</label>
+                                <textarea
+                                    class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary resize-none"
+                                    placeholder="Enter special instructions or notes about the job..."
+                                    rows="4"></textarea>
+                            </div>
+                        </div>
+                        <!-- Form Actions -->
+                        <div
+                            class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row gap-4 justify-end">
+                            <button
+                                class="px-6 py-3 rounded-xl font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-2"
+                                type="button">
+                                <span class="material-symbols-outlined text-xl">drafts</span>
+                                Save Draft
+                            </button>
+                            <button
+                                class="px-8 py-3 rounded-xl font-semibold text-white bg-primary hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
+                                type="submit">
+                                <span class="material-symbols-outlined text-xl">add_task</span>
+                                Create Job
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Footer Stats or Info -->
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-primary/5 border border-primary/10 rounded-xl flex items-center gap-4">
+                        <div class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">info</span>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-medium">Drafts Saved</p>
+                            <p class="text-sm font-bold">14 Today</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-primary/5 border border-primary/10 rounded-xl flex items-center gap-4">
+                        <div class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">schedule</span>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-medium">Avg. Process Time</p>
+                            <p class="text-sm font-bold">2.4 Minutes</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-primary/5 border border-primary/10 rounded-xl flex items-center gap-4">
+                        <div class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">verified</span>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-medium">Compliance Rate</p>
+                            <p class="text-sm font-bold">99.2%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

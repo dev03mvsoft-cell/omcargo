@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Master Console - Oman Cargo Mover</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <script src="admin/js/tailwind-config.js"></script>
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: 'liga';
+        }
+    </style>
+    <style type="text/tailwindcss">
+        @layer components {
+            .glass-card { 
+                @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/20 dark:border-slate-800/50 shadow-2xl shadow-slate-200/40 dark:shadow-none transition-all duration-500; 
+            }
+            .nav-link { 
+                @apply flex items-center gap-3 px-5 py-3.5 rounded-2xl text-slate-500 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-800 hover:text-primary dark:hover:text-primary hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 font-bold; 
+            }
+            .nav-link.active { 
+                @apply bg-primary text-white shadow-2xl shadow-primary/30; 
+            }
+            .stat-card { 
+                @apply p-8 rounded-[2.5rem] glass-card hover:scale-[1.03] hover:-translate-y-2 cursor-pointer overflow-hidden relative; 
+            }
+        }
+        @layer utilities {
+            @keyframes shimmer {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(100%); }
+            }
+            .animate-shimmer {
+                animation: shimmer 2.5s infinite linear;
+            }
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside
+            class="w-72 flex-shrink-0 hidden lg:flex flex-col gap-4 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sticky top-0 h-screen overflow-y-auto custom-scrollbar">
+            <div class="flex items-center gap-3 px-2 mb-4">
+                <div
+                    class="bg-primary size-10 rounded-lg text-white flex items-center justify-center shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined block text-2xl">local_shipping</span>
+                </div>
+                <div>
+                    <h1
+                        class="text-lg font-black text-slate-900 dark:text-white leading-none uppercase tracking-tighter">
+                        Oman Cargo</h1>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Global Console Hub
+                    </p>
+                </div>
+            </div>
+            <nav class="flex-1 space-y-1">
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mb-3">Operational Hub</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-bold transition-all text-sm shadow-sm"
+                    href="index.html">
+                    <span class="material-symbols-outlined text-xl text-white">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="admin/jobs/operational-dashboard.html">
+                    <span class="material-symbols-outlined text-xl">assignment_turned_in</span>
+                    <span>Operational Control</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="admin/jobs/all-jobs.html">
+                    <span class="material-symbols-outlined text-xl">work</span>
+                    <span>Job Management</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="admin/jobs/create-job.html">
+                    <span class="material-symbols-outlined text-xl">add_circle</span>
+                    <span>Create Job</span>
+                </a>
+
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">Master Control</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="admin/clients/index.html">
+                    <span class="material-symbols-outlined text-xl">person_search</span>
+                    <span>Client Information</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="admin/vendors/transport-directory/index.html">
+                    <span class="material-symbols-outlined text-xl">local_shipping</span>
+                    <span>Transport Directory</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="admin/vendors/shipping-line/index.html">
+                    <span class="material-symbols-outlined text-xl">directions_boat</span>
+                    <span>Shipping Line</span>
+                </a>
+
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">System Hub</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="admin/settings/console-settings/index.html">
+                    <span class="material-symbols-outlined text-xl">settings_applications</span>
+                    <span>Console Settings</span>
+                </a>
+
+                <div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800">
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-all font-bold text-sm"
+                        href="auth/login/index.html">
+                        <span class="material-symbols-outlined text-xl text-red-500">logout</span>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 lg:p-12 overflow-hidden flex flex-col gap-12">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                <div>
+                    <h2 class="text-4xl font-black text-slate-800 dark:text-white tracking-tight uppercase">Master
+                        Console <span class="text-primary">Hub</span></h2>
+                    <p class="text-slate-500 font-bold mt-2 uppercase tracking-widest text-xs flex items-center gap-2">
+                        <span class="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Oman Cargo Mover Operations • System Ver. 4.0
+                    </p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <span
+                            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                        <input type="text" placeholder="Global Search..."
+                            class="pl-12 pr-6 py-4 bg-white dark:bg-slate-900 rounded-2xl border-none focus:ring-2 focus:ring-primary/20 text-sm font-bold w-64 lg:w-80 shadow-xl shadow-slate-200/20 dark:shadow-none transition-all" />
+                    </div>
+                    <a href="client/index.html"
+                        class="flex items-center gap-3 px-6 py-4 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-2xl shadow-slate-200/20 hover:scale-[1.03] active:scale-95 transition-all group">
+                        <span
+                            class="material-symbols-outlined text-xl group-hover:rotate-12 transition-transform">person_pin</span>
+                        Client Dashboard
+                    </a>
+                </div>
+            </div>
+
+            <!-- Console Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Jobs Card -->
+                <div onclick="window.location.href='admin/jobs/all-jobs.html'" class="stat-card group">
+                    <div class="flex items-start justify-between relative z-10">
+                        <div
+                            class="size-16 rounded-3xl bg-blue-500/10 text-blue-500 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">work</span>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-3xl font-black">124</p>
+                            <p class="text-xs text-slate-400 font-black uppercase tracking-widest">Active Jobs</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 relative z-10">
+                        <h4 class="text-xl font-black">Job Management</h4>
+                        <p class="text-slate-500 text-xs font-bold mt-2 leading-relaxed opacity-60">Create, track, and
+                            manage all export/import workflows and logistics scheduling.</p>
+                    </div>
+                    <div class="mt-6 flex gap-2 relative z-10">
+                        <a href="admin/jobs/create-job.html"
+                            class="px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-black uppercase tracking-widest hover:bg-primary transition-colors">Create
+                            Job</a>
+                        <a href="admin/jobs/all-jobs.html"
+                            class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-black uppercase tracking-widest hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">All
+                            List</a>
+                    </div>
+                    <span
+                        class="material-symbols-outlined absolute -bottom-8 -right-8 text-9xl opacity-[0.03] group-hover:opacity-[0.07] rotate-12 group-hover:rotate-0 transition-all duration-700">clinical_notes</span>
+                </div>
+
+                <!-- Clients Card -->
+                <div onclick="window.location.href='admin/clients/index.html'" class="stat-card group">
+                    <div class="flex items-start justify-between relative z-10">
+                        <div
+                            class="size-16 rounded-3xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">group</span>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-3xl font-black">482</p>
+                            <p class="text-xs text-slate-400 font-black uppercase tracking-widest">Total Clients</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 relative z-10">
+                        <h4 class="text-xl font-black">Client Information</h4>
+                        <p class="text-slate-500 text-xs font-bold mt-2 leading-relaxed opacity-60">Manage client
+                            profiles, KYC documentation, accounts, and contact history.</p>
+                    </div>
+                    <div class="mt-6 flex gap-2 relative z-10">
+                        <a href="admin/clients/add/index.html"
+                            class="px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-black uppercase tracking-widest hover:bg-emerald-500 transition-colors">Add
+                            Client</a>
+                        <a href="admin/clients/index.html"
+                            class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-black uppercase tracking-widest hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Directory</a>
+                    </div>
+                    <span
+                        class="material-symbols-outlined absolute -bottom-8 -right-8 text-9xl opacity-[0.03] group-hover:opacity-[0.07] rotate-12 group-hover:rotate-0 transition-all duration-700">contacts</span>
+                </div>
+
+                <!-- Transport Card -->
+                <div onclick="window.location.href='admin/vendors/transport-directory/index.html'"
+                    class="stat-card group">
+                    <div class="flex items-start justify-between relative z-10">
+                        <div
+                            class="size-16 rounded-3xl bg-amber-500/10 text-amber-500 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">local_shipping</span>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-3xl font-black">42</p>
+                            <p class="text-xs text-slate-400 font-black uppercase tracking-widest">Transport Partners
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-8 relative z-10">
+                        <h4 class="text-xl font-black">Transport Directory</h4>
+                        <p class="text-slate-500 text-xs font-bold mt-2 leading-relaxed opacity-60">Coordinate with
+                            authorized transport companies, fleet managers, and logistics agencies.</p>
+                    </div>
+                    <div class="mt-6 flex gap-2 relative z-10">
+                        <a href="admin/vendors/transport-directory/index.html"
+                            class="px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-black uppercase tracking-widest hover:bg-amber-500 transition-colors">Manage</a>
+                    </div>
+                    <span
+                        class="material-symbols-outlined absolute -bottom-8 -right-8 text-9xl opacity-[0.03] group-hover:opacity-[0.07] rotate-12 group-hover:rotate-0 transition-all duration-700">partner_exchange</span>
+                </div>
+
+                <!-- Shipping Card -->
+                <div onclick="window.location.href='admin/vendors/shipping-line/index.html'" class="stat-card group">
+                    <div class="flex items-start justify-between relative z-10">
+                        <div
+                            class="size-16 rounded-3xl bg-blue-600/10 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">directions_boat</span>
+                        </div>
+                        <div class="text-right text-blue-600">
+                            <p class="text-3xl font-black">24</p>
+                            <p class="text-xs font-black uppercase tracking-widest">Major Lines</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 relative z-10">
+                        <h4 class="text-xl font-black">Shipping Line</h4>
+                        <p class="text-slate-500 text-xs font-bold mt-2 leading-relaxed opacity-60">Manage partnerships
+                            with global maritime carriers, container liners, and shipping alliances.</p>
+                    </div>
+                    <div class="mt-6 flex gap-2 relative z-10">
+                        <a href="admin/vendors/shipping-line/index.html"
+                            class="px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-black uppercase tracking-widest hover:bg-blue-600 transition-colors">Directory</a>
+                    </div>
+                    <span
+                        class="material-symbols-outlined absolute -bottom-8 -right-8 text-9xl opacity-[0.03] group-hover:opacity-[0.07] rotate-12 group-hover:rotate-0 transition-all duration-700">sailing</span>
+                </div>
+
+                <!-- Roles Card -->
+                <div onclick="window.location.href='admin/settings/console-settings/roles.html'"
+                    class="stat-card group">
+                    <div class="flex items-start justify-between relative z-10">
+                        <div
+                            class="size-16 rounded-3xl bg-purple-500/10 text-purple-500 flex items-center justify-center group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">shield_person</span>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-3xl font-black">12</p>
+                            <p class="text-xs text-slate-400 font-black uppercase tracking-widest">Active Roles</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 relative z-10">
+                        <h4 class="text-xl font-black">Roles & Permissions</h4>
+                        <p class="text-slate-500 text-xs font-bold mt-2 leading-relaxed opacity-60">Configure system
+                            access, duty assignments, and security levels for employees.</p>
+                    </div>
+                    <div class="mt-6 flex gap-2 relative z-10">
+                        <a href="admin/settings/console-settings/roles.html"
+                            class="px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-black uppercase tracking-widest hover:bg-purple-500 transition-colors">Access
+                            Matrix</a>
+                    </div>
+                    <span
+                        class="material-symbols-outlined absolute -bottom-8 -right-8 text-9xl opacity-[0.03] group-hover:opacity-[0.07] rotate-12 group-hover:rotate-0 transition-all duration-700">key</span>
+                </div>
+
+                <!-- Settings Card -->
+                <div onclick="window.location.href='admin/settings/console-settings/index.html'"
+                    class="stat-card group md:col-span-2 lg:col-span-1">
+                    <div class="flex items-start justify-between relative z-10">
+                        <div
+                            class="size-16 rounded-3xl bg-rose-500/10 text-rose-500 flex items-center justify-center group-hover:bg-rose-500 group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">settings_applications</span>
+                        </div>
+                        <div class="text-right text-rose-500">
+                            <p class="text-3xl font-black">+24%</p>
+                            <p class="text-xs font-black uppercase tracking-widest">System Health</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 relative z-10">
+                        <h4 class="text-xl font-black">Console Settings</h4>
+                        <p class="text-slate-500 text-xs font-bold mt-2 leading-relaxed opacity-60">Manage system-wide
+                            configurations, personnel records, and operational parameters.</p>
+                    </div>
+                    <div class="mt-6 flex gap-2 relative z-10">
+                        <a href="admin/settings/console-settings/index.html"
+                            class="px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-black uppercase tracking-widest hover:bg-rose-500 transition-colors">Manage</a>
+                    </div>
+                    <span
+                        class="material-symbols-outlined absolute -bottom-8 -right-8 text-9xl opacity-[0.03] group-hover:opacity-[0.07] rotate-12 group-hover:rotate-0 transition-all duration-700">settings_suggest</span>
+                </div>
+            </div>
+
+            <!-- Team Workload Section -->
+            <div class="glass-card rounded-[3rem] p-10 mt-4">
+                <div class="flex items-center justify-between mb-10">
+                    <div>
+                        <h3 class="text-2xl font-black uppercase tracking-tight">Team Workload <span
+                                class="text-primary">& Assignments</span></h3>
+                        <p class="text-xs text-slate-500 font-bold uppercase tracking-[0.2em] mt-2">Real-time Job
+                            Progress Tracking</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            class="size-12 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:text-primary transition-all shadow-lg shadow-slate-200/20">
+                            <span class="material-symbols-outlined">filter_list</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Alex Rivera -->
+                    <div
+                        class="p-6 rounded-3xl border border-slate-100 dark:border-slate-800 hover:border-primary/20 hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-all duration-300">
+                        <div class="flex flex-wrap items-center gap-8">
+                            <div class="flex items-center gap-4 min-w-[240px]">
+                                <img class="size-14 rounded-2xl object-cover border-4 border-white dark:border-slate-800 shadow-xl"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlrQSkEOzCcFhaAORWY4MbSgIRVpBpkQddGQTnXBF6PL1JNs0a93nWoQpOgEHFMhZb_V9BwlI-Atsykvq2dzfpWArFM9mH1dC7exMm2pR-Fey-jAF_l7cWtq-R_ypL3Ocj1uISISCUgfroRCqDkS2khYcjODPVuVMGdb4deuGDQS_sbXRof-8BxKxJCfCZVS9OHnC6_DJn_vJYCQ1jV9qwr_Fq3kiSSykbYwo_rm8X2P7DCJqQYiHV3rY-h3pAALClzovSWcYrbjg"
+                                    alt="Assignee" />
+                                <div>
+                                    <h5 class="text-lg font-black leading-tight">Alex Rivera</h5>
+                                    <p class="text-xs text-primary font-black uppercase tracking-widest mt-1">Operations
+                                        Lead</p>
+                                </div>
+                            </div>
+
+                            <div class="flex-1 min-w-[300px]">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="text-xs font-black text-slate-800 dark:text-white uppercase">SAMSUNG
+                                            TECH CORP</span>
+                                        <span class="text-xs font-bold text-slate-400">• #JOB-9821</span>
+                                    </div>
+                                    <span class="text-xs font-black text-primary uppercase">75% Complete</span>
+                                </div>
+                                <div class="w-full h-3 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full shadow-lg shadow-primary/40 relative"
+                                        style="width: 75%">
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mt-3">
+                                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Current Stage:
+                                        <span class="text-slate-800 dark:text-slate-200">Documentation
+                                            Verification</span>
+                                    </p>
+                                    <p class="text-xs font-bold text-emerald-500 uppercase">On Track</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-2">
+                                <button
+                                    class="px-6 py-2.5 rounded-xl border-2 border-slate-100 dark:border-slate-800 text-xs font-black uppercase tracking-widest hover:border-primary hover:text-primary transition-all">Details</button>
+                                <button
+                                    class="p-2.5 rounded-xl bg-slate-900 text-white hover:bg-primary transition-colors">
+                                    <span class="material-symbols-outlined text-sm">chat_bubble</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sarah Chen -->
+                    <div
+                        class="p-6 rounded-3xl border border-slate-100 dark:border-slate-800 hover:border-primary/20 hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-all duration-300">
+                        <div class="flex flex-wrap items-center gap-8">
+                            <div class="flex items-center gap-4 min-w-[240px]">
+                                <div
+                                    class="size-14 rounded-2xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center font-black text-xl border-4 border-white dark:border-slate-800 shadow-xl">
+                                    SC</div>
+                                <div>
+                                    <h5 class="text-lg font-black leading-tight">Sarah Chen</h5>
+                                    <p class="text-xs text-purple-500 font-black uppercase tracking-widest mt-1">
+                                        Documentation Expert</p>
+                                </div>
+                            </div>
+
+                            <div class="flex-1 min-w-[300px]">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xs font-black text-slate-800 dark:text-white uppercase">TOYOTA
+                                            GLOBAL SERVICES</span>
+                                        <span class="text-xs font-bold text-slate-400">• #JOB-7742</span>
+                                    </div>
+                                    <span class="text-xs font-black text-purple-500 uppercase">40% Complete</span>
+                                </div>
+                                <div class="w-full h-3 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-purple-500 rounded-full shadow-lg shadow-purple-500/40 relative"
+                                        style="width: 40%">
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mt-3">
+                                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Current Stage:
+                                        <span class="text-slate-800 dark:text-slate-200">Customs Clearance
+                                            Pending</span>
+                                    </p>
+                                    <p class="text-xs font-bold text-amber-500 uppercase">Awaiting Action</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-2">
+                                <button
+                                    class="px-6 py-2.5 rounded-xl border-2 border-slate-100 dark:border-slate-800 text-xs font-black uppercase tracking-widest hover:border-primary hover:text-primary transition-all">Details</button>
+                                <button
+                                    class="p-2.5 rounded-xl bg-slate-900 text-white hover:bg-primary transition-colors">
+                                    <span class="material-symbols-outlined text-sm">chat_bubble</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

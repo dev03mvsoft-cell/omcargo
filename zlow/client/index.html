@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Customer Portal - Oman Cargo Mover</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: 'liga';
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+    <script src="../admin/js/tailwind-config.js"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .glass-card { @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/20 dark:shadow-none transition-all; }
+            .nav-link { 
+                @apply flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 transition-all font-bold text-sm; 
+            }
+            .nav-link.active { @apply bg-primary text-white shadow-lg shadow-primary/30; }
+            .status-tag { @apply px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest border; }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Client Sidebar -->
+        <aside
+            class="w-72 flex-shrink-0 p-6 hidden lg:flex flex-col gap-8 sticky top-0 h-screen overflow-y-auto custom-scrollbar bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 z-50">
+            <div class="flex items-center gap-4 px-4">
+                <div class="size-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-xl shadow-primary/20">
+                    <span class="material-symbols-outlined text-2xl">local_shipping</span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-black text-slate-900 dark:text-white leading-none tracking-tight">OMAN CARGO</h1>
+                    <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1">Client Connect</p>
+                </div>
+            </div>
+
+            <nav class="space-y-2">
+                <p class="px-4 text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Main Menu</p>
+                <a href="index.html" class="nav-link active">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="live-tracking.html" class="nav-link">
+                    <span class="material-symbols-outlined">map</span>
+                    <span>Live Tracking</span>
+                </a>
+
+                <p class="px-4 text-[10px] font-black text-slate-400 uppercase tracking-widest mt-8 mb-4">Operations</p>
+                <a href="active-jobs.html" class="nav-link">
+                    <span class="material-symbols-outlined">package_2</span>
+                    <span>My Shipments</span>
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="material-symbols-outlined">description</span>
+                    <span>Archive & Docs</span>
+                </a>
+
+                <p class="px-4 text-[10px] font-black text-slate-400 uppercase tracking-widest mt-8 mb-4">Account</p>
+                <a href="profile.html" class="nav-link">
+                    <span class="material-symbols-outlined">person</span>
+                    <span>My Profile</span>
+                </a>
+                <a href="../auth/login/index.html" class="nav-link text-rose-500 hover:bg-rose-50">
+                    <span class="material-symbols-outlined">logout</span>
+                    <span>Sign Out</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="flex-1 p-4 lg:p-8 flex flex-col gap-8 overflow-hidden">
+            <!-- Header -->
+            <header class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Ahlan wa Sahlan, <span class="text-primary">Reliance Industries</span></h2>
+                    <p class="text-slate-400 font-bold text-xs uppercase tracking-widest mt-1">Customer ID: #OCM-88229 | Last login today at 10:42 AM</p>
+                </div>
+            </header>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass-card p-6 rounded-[2rem]">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="size-10 rounded-2xl bg-blue-50 dark:bg-blue-900/10 text-blue-500 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">package_2</span>
+                        </div>
+                        <span class="status-tag bg-blue-50 text-blue-500 border-blue-100">Active</span>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-800 dark:text-white">12</h4>
+                    <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1">Live Shipments</p>
+                </div>
+                <div class="glass-card p-6 rounded-[2rem]">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="size-10 rounded-2xl bg-emerald-50 dark:bg-emerald-900/10 text-emerald-500 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">task_alt</span>
+                        </div>
+                        <span class="status-tag bg-emerald-50 text-emerald-600 border-emerald-100">Completed</span>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-800 dark:text-white">482</h4>
+                    <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1">Total Deliveries</p>
+                </div>
+                <div class="glass-card p-6 rounded-[2rem]">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="size-10 rounded-2xl bg-amber-50 dark:bg-amber-900/10 text-amber-500 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">description</span>
+                        </div>
+                        <span class="status-tag bg-amber-50 text-amber-600 border-amber-100">Review</span>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-800 dark:text-white">03</h4>
+                    <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1">Pending Documents</p>
+                </div>
+                <div class="glass-card p-6 rounded-[2rem]">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="size-10 rounded-2xl bg-slate-50 dark:bg-slate-800 text-slate-400 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+                        </div>
+                        <span class="status-tag bg-slate-50 text-slate-500 border-slate-200">Current</span>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-800 dark:text-white">$4,280</h4>
+                    <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1">Outstanding Balance</p>
+                </div>
+            </div>
+
+            <!-- Dashboard Body -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 flex-1">
+                <!-- Live Tracking Feed -->
+                <div class="lg:col-span-2 flex flex-col gap-6">
+                    <div class="glass-card rounded-[2.5rem] p-8 flex flex-col flex-1 min-h-0">
+                        <div class="flex items-center justify-between mb-8">
+                            <div>
+                                <h3 class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-[0.2em]">Current Cargo Movement</h3>
+                                <p class="text-slate-400 font-bold text-[10px] uppercase tracking-widest mt-1">Active Priority Shipments</p>
+                            </div>
+                            <button class="text-primary font-black text-[10px] uppercase tracking-widest hover:underline">View Map Mode</button>
+                        </div>
+
+                        <div class="flex-1 overflow-y-auto custom-scrollbar space-y-6 pr-4">
+                            <!-- Job 1 -->
+                            <div class="bg-slate-50 dark:bg-slate-800/40 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 group hover:border-primary/30 transition-all cursor-pointer" onclick="window.location.href='live-tracking.html'">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div class="flex items-center gap-4">
+                                        <div class="size-12 rounded-2xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center text-primary">
+                                            <span class="material-symbols-outlined">directions_boat</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-black text-slate-900 dark:text-white uppercase tracking-tight">JOB-99221 / <span class="text-primary">MUM → MCT</span></h4>
+                                            <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest">Cargo: Industrial Machinery (40FT HIGH CUBE)</p>
+                                        </div>
+                                    </div>
+                                    <span class="px-3 py-1 bg-primary text-white text-[9px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-primary/20">On Vessel</span>
+                                </div>
+
+                                <!-- Mini Tracking Stepper -->
+                                <div class="relative py-4">
+                                    <div class="absolute top-[26px] left-0 w-full h-1 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div class="w-[65%] h-full bg-primary shadow-[0_0_12px_rgba(59,130,246,0.6)]"></div>
+                                    </div>
+                                    <div class="relative flex justify-between">
+                                        <div class="size-4 rounded-full bg-primary shadow-lg ring-4 ring-primary/20 flex items-center justify-center"><span class="material-symbols-outlined text-[8px] text-white">done</span></div>
+                                        <div class="size-4 rounded-full bg-primary shadow-lg ring-4 ring-primary/20 flex items-center justify-center"><span class="material-symbols-outlined text-[8px] text-white">done</span></div>
+                                        <div class="size-6 -mt-1 rounded-full bg-white border-2 border-primary flex items-center justify-center animate-pulse"><div class="size-2 rounded-full bg-primary"></div></div>
+                                        <div class="size-4 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                                        <div class="size-4 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                                    </div>
+                                    <div class="flex justify-between mt-4 text-[9px] font-black text-slate-400 uppercase tracking-widest">
+                                        <span>Origin Gate</span>
+                                        <span>Vessel On-board</span>
+                                        <span class="text-primary opacity-100">At Sea (Transit)</span>
+                                        <span>Destination Port</span>
+                                        <span>Final Delivery</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Job 2 -->
+                            <div class="bg-slate-50 dark:bg-slate-800/40 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 group hover:border-emerald-500/30 transition-all cursor-pointer" onclick="window.location.href='live-tracking.html'">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div class="flex items-center gap-4">
+                                        <div class="size-12 rounded-2xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center text-emerald-500">
+                                            <span class="material-symbols-outlined">local_shipping</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-black text-slate-900 dark:text-white uppercase tracking-tight">JOB-99228 / <span class="text-emerald-500">SOH → MUK</span></h4>
+                                            <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest">Cargo: Raw Chemicals (LTL CONSOLIDATION)</p>
+                                        </div>
+                                    </div>
+                                    <span class="px-3 py-1 bg-emerald-500 text-white text-[9px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-emerald-500/20">Final Mile</span>
+                                </div>
+
+                                <!-- Mini Tracking Stepper -->
+                                <div class="relative py-4">
+                                    <div class="absolute top-[26px] left-0 w-full h-1 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div class="w-[90%] h-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.6)] text-white"></div>
+                                    </div>
+                                    <div class="relative flex justify-between">
+                                        <div class="size-4 rounded-full bg-emerald-500 flex items-center justify-center text-white"><span class="material-symbols-outlined text-[8px]">done</span></div>
+                                        <div class="size-4 rounded-full bg-emerald-500 flex items-center justify-center text-white"><span class="material-symbols-outlined text-[8px]">done</span></div>
+                                        <div class="size-4 rounded-full bg-emerald-500 flex items-center justify-center text-white"><span class="material-symbols-outlined text-[8px]">done</span></div>
+                                        <div class="size-6 -mt-1 rounded-full bg-white border-2 border-emerald-500 flex items-center justify-center animate-pulse"><div class="size-2 rounded-full bg-emerald-500"></div></div>
+                                        <div class="size-4 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                                    </div>
+                                    <div class="flex justify-between mt-4 text-[9px] font-black text-slate-400 uppercase tracking-widest text-center">
+                                        <span class="w-16">Factory Stuffing</span>
+                                        <span class="w-16">Port Gate In</span>
+                                        <span class="w-16">Authorized</span>
+                                        <span class="text-emerald-600 w-16 opacity-100">Out for Delivery</span>
+                                        <span class="w-16">Proof of Del.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile & Account Details (Right Side) -->
+                <div class="space-y-8">
+                    <div class="glass-card rounded-[2.5rem] p-8">
+                        <h3 class="text-xs font-black text-slate-900 dark:text-white uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">shield_person</span> My Profile
+                        </h3>
+                        <div class="flex flex-col items-center text-center">
+                            <div class="size-20 rounded-[2rem] bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-700 shadow-xl flex items-center justify-center text-primary font-black text-2xl mb-4">RI</div>
+                            <h4 class="font-black text-slate-900 dark:text-white uppercase tracking-tight">Reliance Industries</h4>
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Premium Corporate Client</p>
+                            
+                            <div class="mt-8 pt-8 border-t border-slate-50 dark:border-slate-800 w-full space-y-4">
+                                <div class="flex justify-between text-left">
+                                    <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Primary Email</span>
+                                    <span class="text-[11px] font-bold text-slate-800 dark:text-slate-200">logistics@reliance.com</span>
+                                </div>
+                                <div class="flex justify-between text-left">
+                                    <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Contact Phone</span>
+                                    <span class="text-[11px] font-bold text-slate-800 dark:text-slate-200">+91 22 2445 1000</span>
+                                </div>
+                                <div class="flex justify-between text-left">
+                                    <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">GST Number</span>
+                                    <span class="text-[11px] font-bold text-slate-800 dark:text-slate-200">27AAACR1234F1Z5</span>
+                                </div>
+                            </div>
+                            <button onclick="window.location.href='profile.html'" class="w-full mt-8 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 text-[10px] font-black uppercase tracking-widest hover:bg-slate-50 transition-all">Edit System Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-[2.5rem] p-8">
+                        <h3 class="text-xs font-black text-slate-900 dark:text-white uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">file_present</span> Quick Documents
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl group cursor-pointer hover:bg-white dark:hover:bg-slate-800 transition-all border border-transparent hover:border-primary/20">
+                                <div class="flex items-center gap-3">
+                                    <div class="size-8 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center text-rose-500 shadow-sm"><span class="material-symbols-outlined text-sm">pdf_off</span></div>
+                                    <div>
+                                        <p class="text-[11px] font-black text-slate-800 dark:text-white uppercase leading-none">Bill of Lading</p>
+                                        <p class="text-[9px] text-slate-400 font-bold uppercase mt-1">JOB-99221</p>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">download</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl group cursor-pointer hover:bg-white dark:hover:bg-slate-800 transition-all border border-transparent hover:border-primary/20">
+                                <div class="flex items-center gap-3">
+                                    <div class="size-8 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center text-blue-500 shadow-sm"><span class="material-symbols-outlined text-sm">description</span></div>
+                                    <div>
+                                        <p class="text-[11px] font-black text-slate-800 dark:text-white uppercase leading-none">Invoice OC122</p>
+                                        <p class="text-[9px] text-slate-400 font-bold uppercase mt-1">Pending Payment</p>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">download</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

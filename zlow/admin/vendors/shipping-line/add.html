@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Register Shipping Line - Oman Cargo Mover</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/operations.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: 'liga';
+        }
+    </style>
+    <script src="../../js/tailwind-config.js"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .simple-card { @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition-all; }
+            .nav-link { 
+                @apply flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-all font-bold text-sm; 
+            }
+            .nav-link.active { @apply bg-primary text-white; }
+            .form-input { 
+                @apply block w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-4 focus:ring-primary/10 focus:border-primary focus:outline-none transition-all text-sm font-bold placeholder:text-slate-400 placeholder:font-normal;
+            }
+            .form-label {
+                @apply block text-[11px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside
+            class="w-72 flex-shrink-0 hidden lg:flex flex-col gap-4 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sticky top-0 h-screen overflow-y-auto custom-scrollbar">
+            <div class="flex items-center gap-3 px-2 mb-4">
+                <div
+                    class="bg-primary size-10 rounded-lg text-white flex items-center justify-center shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined block text-2xl">local_shipping</span>
+                </div>
+                <div>
+                    <h1
+                        class="text-lg font-black text-slate-900 dark:text-white leading-none uppercase tracking-tighter">
+                        Oman Cargo</h1>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Global Console Hub
+                    </p>
+                </div>
+            </div>
+            <nav class="flex-1 space-y-1">
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mb-3">Operational Hub</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../../../dashboard/index.html">
+                    <span class="material-symbols-outlined text-xl">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../../jobs/operational-dashboard.html">
+                    <span class="material-symbols-outlined text-xl">assignment_turned_in</span>
+                    <span>Operational Control</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../../jobs/all-jobs.html">
+                    <span class="material-symbols-outlined text-xl">work</span>
+                    <span>Job Management</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../../jobs/create-job.html">
+                    <span class="material-symbols-outlined text-xl">add_circle</span>
+                    <span>Create Job</span>
+                </a>
+
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">Master Control</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../../clients/index.html">
+                    <span class="material-symbols-outlined text-xl">person_search</span>
+                    <span>Client Information</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../transport-directory/index.html">
+                    <span class="material-symbols-outlined text-xl">local_shipping</span>
+                    <span>Transport Directory</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-bold transition-all text-sm shadow-sm"
+                    href="index.html">
+                    <span class="material-symbols-outlined text-xl text-white">directions_boat</span>
+                    <span>Shipping Line</span>
+                </a>
+
+                <p class="px-2 text-xs font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">System Hub</p>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-bold text-sm"
+                    href="../../settings/console-settings/index.html">
+                    <span class="material-symbols-outlined text-xl">settings_applications</span>
+                    <span>Console Settings</span>
+                </a>
+
+                <div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800">
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-all font-bold text-sm"
+                        href="../../../auth/login/index.html">
+                        <span class="material-symbols-outlined text-xl text-red-500">logout</span>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-hidden flex flex-col gap-8">
+            <header class="flex items-center gap-4">
+                <a href="index.html" class="size-10 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-slate-50 transition-all text-slate-500 shadow-sm">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </a>
+                <div>
+                    <h2 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Register Shipping Line</h2>
+                    <p class="text-slate-500 font-bold text-xs uppercase tracking-widest mt-1">Adding global maritime carrier to the Oman Cargo network</p>
+                </div>
+            </header>
+
+            <div class="max-w-5xl">
+                <form id="shipping-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Left Column: Primary Details -->
+                        <div class="space-y-6">
+                            <div class="simple-card p-6 rounded-2xl space-y-4">
+                                <h3 class="text-xs font-black uppercase text-primary tracking-[0.2em] flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm">info</span> Primary Identity
+                                </h3>
+                                
+                                <div>
+                                    <label class="form-label">Carrier Legal Name</label>
+                                    <input type="text" placeholder="e.g. MAERSK LINE" class="form-input" required />
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="form-label">SCAC / Carrier Code</label>
+                                        <input type="text" placeholder="e.g. MAEU" class="form-input" required />
+                                    </div>
+                                    <div>
+                                        <label class="form-label">IATA Code (If applicable)</label>
+                                        <input type="text" placeholder="e.g. MSK" class="form-input" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="simple-card p-6 rounded-2xl space-y-4">
+                                <h3 class="text-xs font-black uppercase text-primary tracking-[0.2em] flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm">location_on</span> HQ Information
+                                </h3>
+                                
+                                <div>
+                                    <label class="form-label">Headquarters Location</label>
+                                    <input type="text" placeholder="e.g. Copenhagen, Denmark" class="form-input" />
+                                </div>
+
+                                <div>
+                                    <label class="form-label">Regional Office Address (Oman/Local)</label>
+                                    <textarea rows="3" placeholder="Local office contact address..." class="form-input resize-none"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Contact & Alliance -->
+                        <div class="space-y-6">
+                            <div class="simple-card p-6 rounded-2xl space-y-4">
+                                <h3 class="text-xs font-black uppercase text-primary tracking-[0.2em] flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm">contact_phone</span> Strategic Contact
+                                </h3>
+                                
+                                <div>
+                                    <label class="form-label">Key Account Manager</label>
+                                    <input type="text" placeholder="Full Name" class="form-input" />
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="form-label">Business Email</label>
+                                        <input type="email" placeholder="kam@carrier.com" class="form-input" />
+                                    </div>
+                                    <div>
+                                        <label class="form-label">Emergency Phone</label>
+                                        <input type="tel" placeholder="+968 XXXX XXXX" class="form-input" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="simple-card p-6 rounded-2xl space-y-4">
+                                <h3 class="text-xs font-black uppercase text-primary tracking-[0.2em] flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm">hub</span> Classification
+                                </h3>
+                                
+                                <div>
+                                    <label class="form-label">Service Modality</label>
+                                    <select class="form-input">
+                                        <option value="liner">Global Container Liner</option>
+                                        <option value="feeder">Regional Feeder</option>
+                                        <option value="breakbulk">Breakbulk Carrier</option>
+                                        <option value="all">Multi-Modal Carrier</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="form-label">Alliance Membership</label>
+                                    <input type="text" placeholder="e.g. 2M Alliance, Ocean Alliance" class="form-input" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-end gap-3 pt-4">
+                        <button type="button" onclick="history.back()" class="px-8 py-3 text-slate-500 font-black uppercase text-[11px] tracking-widest hover:text-slate-800 transition-colors">Discard</button>
+                        <button type="submit" class="px-10 py-3 bg-slate-900 dark:bg-slate-100 dark:text-slate-900 text-white font-black uppercase text-[11px] tracking-widest rounded-xl shadow-2xl hover:scale-[1.02] active:scale-95 transition-all">
+                            Complete Registration
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('shipping-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Registering Carrier...',
+                text: 'Updating global maritime registry',
+                icon: 'info',
+                timer: 2000,
+                showConfirmButton: false,
+                willClose: () => {
+                    window.location.href = 'index.html';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

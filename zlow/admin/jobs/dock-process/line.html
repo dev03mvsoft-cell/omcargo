@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Line Status - Oman Cargo Mover</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/operations.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: 'liga';
+        }
+    </style>
+    <script src="../../js/tailwind-config.js"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .simple-card { @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition-all; }
+            .nav-link { 
+                   @apply flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-all font-bold text-sm; 
+            }
+            .nav-link.active { @apply bg-primary text-white; }
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside
+            class="w-72 flex-shrink-0 bg-white border-r border-slate-200 p-6 hidden lg:flex flex-col gap-6 sticky top-0 h-screen overflow-y-auto custom-scrollbar">
+            <div class="flex items-center gap-3 px-2">
+                <div class="size-10 rounded-lg bg-primary flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-2xl">local_shipping</span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-black text-slate-900 leading-none uppercase tracking-tighter">Oman Cargo
+                    </h1>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Operations Console
+                    </p>
+                </div>
+            </div>
+            <nav class="space-y-1">
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mb-3">Operational Hub</p>
+                <a href="../../dashboard/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="../operational-dashboard.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">assignment</span>
+                    <span>Control Panel</span>
+                </a>
+                <a href="../all-jobs.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">work</span>
+                    <span>Job Management</span>
+                </a>
+
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">Master Control
+                </p>
+                <a href="../../clients/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">person_search</span>
+                    <span>Client Information</span>
+                </a>
+                <a href="../../vendors/transport-directory/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">local_shipping</span>
+                    <span>Transport Directory</span>
+                </a>
+
+                <p class="px-2 text-[11px] font-black text-slate-500 uppercase tracking-widest mt-6 mb-3">System Hub</p>
+                <a href="../../settings/console-settings/index.html" class="nav-link text-slate-400">
+                    <span class="material-symbols-outlined text-xl">settings_applications</span>
+                    <span>Console Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-hidden flex flex-col gap-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="../operational-dashboard.html"
+                        class="inline-flex items-center gap-1 text-primary font-black uppercase tracking-widest text-[11px] mb-2 hover:underline">
+                        <span class="material-symbols-outlined text-[12px]">arrow_back</span> Back to Hub
+                    </a>
+                    <h2 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Final Line
+                        Status</h2>
+                    <p class="text-slate-500 font-bold text-xs uppercase tracking-widest mt-1" id="job-id-display">
+                        Loading...</p>
+                </div>
+                <div
+                    class="px-3 py-1.5 rounded-md bg-slate-900 text-white text-[11px] font-black uppercase tracking-widest shadow-lg shadow-slate-900/20">
+                    Stage 6: Final Reconciliation
+                </div>
+            </div>
+
+            <!-- Simple Stepper -->
+            <div
+                class="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 overflow-x-auto custom-scrollbar">
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs">
+                        <span class="material-symbols-outlined text-xs">check</span>
+                    </div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Carting</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs">
+                        <span class="material-symbols-outlined text-xs">check</span>
+                    </div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Checklist</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs">
+                        <span class="material-symbols-outlined text-xs">check</span>
+                    </div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Booking</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs">
+                        <span class="material-symbols-outlined text-xs">check</span>
+                    </div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">Gate In</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 opacity-50 shrink-0">
+                    <div class="size-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs">
+                        <span class="material-symbols-outlined text-xs">check</span>
+                    </div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-400">On Board</span>
+                </div>
+                <div class="w-8 h-px bg-slate-200"></div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <div
+                        class="size-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-black">
+                        6</div>
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-white">Line
+                        Process</span>
+                </div>
+            </div>
+
+            <!-- Manifest Table -->
+            <div class="simple-card rounded-xl flex-1 flex flex-col min-h-0 overflow-hidden">
+                <div
+                    class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-800/30">
+                    <h3 class="text-xs font-black uppercase text-slate-600 tracking-widest">Final Cargo Manifest</h3>
+                    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Terminal Loading Verified
+                    </p>
+                </div>
+
+                <div class="flex-1 overflow-x-auto custom-scrollbar">
+                    <table class="w-full text-left border-collapse min-w-[1800px]">
+                        <thead>
+                            <tr
+                                class="bg-slate-50 dark:bg-slate-800 text-[11px] font-black uppercase tracking-widest text-slate-500 border-b border-slate-200">
+                                <th class="px-4 py-3 w-12">#</th>
+                                <th class="px-4 py-3">Container No.</th>
+                                <th class="px-4 py-3">Bill of Lading</th>
+                                <th class="px-4 py-3">Seal No.</th>
+                                <th class="px-4 py-3">Net Wt (MT)</th>
+                                <th class="px-4 py-3">Gross Wt (MT)</th>
+                                <th class="px-4 py-3">Destination</th>
+                                <th class="px-4 py-3">Gate Pass</th>
+                                <th class="px-4 py-3 text-center">Status</th>
+                                <th class="px-4 py-3 text-right">Verification</th>
+                            </tr>
+                        </thead>
+                        <tbody id="container-table-body" class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <!-- Dynamic Rows -->
+                        </tbody>
+                        <tfoot class="bg-slate-50 dark:bg-slate-800/50 font-black text-xs border-t-2 border-slate-200">
+                            <tr>
+                                <td colspan="4" class="px-4 py-3 text-slate-500 uppercase">Manifest Summary</td>
+                                <td class="px-4 py-3 text-slate-900" id="footer-total-net">0.00 MT</td>
+                                <td class="px-4 py-3 text-emerald-600" id="footer-total-gross">0.00 MT</td>
+                                <td colspan="4" class="px-4 py-3 text-right" id="footer-total-units">0 Units</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Complete Section -->
+            <div
+                class="simple-card rounded-xl p-8 text-center bg-white-900 text-white border-none relative overflow-hidden">
+                <div class="relative z-10">
+                    <div
+                        class="size-16 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto mb-4 border border-emerald-500/20">
+                        <span class="material-symbols-outlined text-2xl">verified</span>
+                    </div>
+                    <h3 class="text-xl font-black uppercase tracking-tight mb-2">Final Archive</h3>
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-widest max-w-xs mx-auto mb-6">
+                        Confirm all unit data matches the physical manifest</p>
+
+                    <button onclick="finalizeJob()"
+                        class="px-12 py-4 bg-emerald-500 text-white text-xs font-black uppercase tracking-widest rounded shadow-xl shadow-emerald-500/20 hover:scale-105 transition-all">
+                        Complete & Lock Manifest
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('id') || 'Unknown JOB';
+        document.getElementById('job-id-display').innerText = `JOB ID: ${jobId}`;
+
+        let containerCount = 0;
+        let totalNet = 0;
+        let totalGross = 0;
+
+        function addContainerRow(initialData = null) {
+            containerCount++;
+            const tbody = document.getElementById('container-table-body');
+            const row = document.createElement('tr');
+            row.className = 'hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-all';
+
+            const randomSeal = 'SL' + Math.floor(100000 + Math.random() * 900000);
+            const netWeight = initialData?.netWeight ? parseFloat(initialData.netWeight) : (26 + Math.random() * 2);
+            const grossWeight = initialData?.grossWeight ? parseFloat(initialData.grossWeight) : (netWeight + 2.2);
+
+            totalNet += netWeight;
+            totalGross += grossWeight;
+
+            row.innerHTML = `
+                <td class="px-4 py-4 text-xs font-bold text-slate-400">${containerCount}</td>
+                <td class="px-4 py-4">
+                    <span class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white">${initialData?.truckNumber || 'ABCD' + Math.floor(1000000 + Math.random() * 9000000)}</span>
+                </td>
+                <td class="px-4 py-4 text-xs font-black text-primary uppercase">OMC${Math.floor(100000 + Math.random() * 900000)}</td>
+                <td class="px-4 py-4 text-xs font-black text-slate-800 dark:text-white">${randomSeal}</td>
+                <td class="px-4 py-4 text-xs font-black text-slate-600">${netWeight.toFixed(2)} MT</td>
+                <td class="px-4 py-4 text-xs font-black text-emerald-600">${grossWeight.toFixed(2)} MT</td>
+                <td class="px-4 py-4 text-xs font-black text-blue-500 uppercase">JEBEL ALI (AEJEA)</td>
+                <td class="px-4 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">GP-${Math.floor(1000 + Math.random() * 9000)}</td>
+                <td class="px-4 py-4 text-center">
+                    <span class="px-2 py-1 rounded bg-emerald-50 text-emerald-600 text-xs font-black uppercase">CLEARED</span>
+                </td>
+                <td class="px-4 py-4 text-right">
+                    <button class="size-8 rounded bg-emerald-500 text-white flex items-center justify-center mx-auto hover:bg-emerald-600 transition-all shadow-sm">
+                        <span class="material-symbols-outlined text-xs">verified</span>
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(row);
+
+            document.getElementById('footer-total-units').innerText = `${containerCount} Units`;
+            document.getElementById('footer-total-net').innerText = `${totalNet.toFixed(2)} MT`;
+            document.getElementById('footer-total-gross').innerText = `${totalGross.toFixed(2)} MT`;
+        }
+
+        window.onload = () => {
+            const savedJobs = JSON.parse(localStorage.getItem('omancargo_jobs') || '[]');
+            const job = savedJobs.find(j => j.id === jobId);
+
+            if (job && job.units && job.units.length > 0) {
+                job.units.forEach(unit => addContainerRow(unit));
+            } else {
+                addContainerRow();
+            }
+        };
+
+        function finalizeJob() {
+            const savedJobs = JSON.parse(localStorage.getItem('omancargo_jobs') || '[]');
+            const jobIndex = savedJobs.findIndex(j => j.id === jobId);
+            if (jobIndex !== -1) {
+                savedJobs[jobIndex].status = 'Completed';
+                localStorage.setItem('omancargo_jobs', JSON.stringify(savedJobs));
+            }
+
+            Swal.fire({
+                title: 'Export Finalized',
+                text: 'Job archived in Terminal History',
+                icon: 'success',
+                timer: 1500,
+                showConfirmButton: false,
+                background: '#fff',
+                color: '#1a1f2e',
+                customClass: { popup: 'rounded-xl' }
+            }).then(() => {
+                window.location.href = '../all-jobs.html';
+            });
+        }
+    </script>
+</body>
+
+</html>
