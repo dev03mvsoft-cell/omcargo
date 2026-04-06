@@ -108,8 +108,8 @@ include 'includes/header.php';
                             </td>
                             <td align="right" style="padding: 18px 16px;">
                                 <div style="display: flex; gap: 8px; justify-content: flex-end;">
-                                    <a href="job-assign-slip.php" class="btn" style="padding: 6px 10px; font-size: 9px; border: 1px solid var(--border); background: #fff; color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 6px;">
-                                        <i class="fa-solid fa-eye"></i> SLIP
+                                    <a href="job-assign-slip.php" class="btn" style="padding: 6px 14px; font-size: 10px; border: 1.5px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 6px; font-weight: 800;">
+                                        <i class="fa-solid fa-file-shield"></i> VIEW SLIP
                                     </a>
                                     <a href="job-status.php" class="btn" style="padding: 6px 10px; font-size: 9px; border: 1px solid var(--border); background: var(--primary-light); color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 6px;">
                                         <i class="fa-solid fa-pen-to-square"></i> STATUS
@@ -174,8 +174,8 @@ include 'includes/header.php';
                             </td>
                             <td align="right" style="padding: 18px 16px;">
                                 <div style="display: flex; gap: 8px; justify-content: flex-end;">
-                                    <a href="job-assign-slip.php" class="btn" style="padding: 6px 10px; font-size: 9px; border: 1px solid var(--border); background: #fff; color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 6px;">
-                                        <i class="fa-solid fa-eye"></i> SLIP
+                                    <a href="job-assign-slip.php" class="btn" style="padding: 6px 14px; font-size: 10px; border: 1.5px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 6px; font-weight: 800;">
+                                        <i class="fa-solid fa-file-shield"></i> VIEW SLIP
                                     </a>
                                     <a href="job-status.php" class="btn" style="padding: 6px 10px; font-size: 9px; border: 1px solid var(--border); background: var(--primary-light); color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 6px;">
                                         <i class="fa-solid fa-pen-to-square"></i> STATUS

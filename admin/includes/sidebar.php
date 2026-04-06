@@ -9,7 +9,7 @@
                  CLIENT PORTAL MENU (DYNAMIC)
             =========================================== -->
             <p style="font-size: 9px; font-weight: 850; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; padding: 0 16px; margin: 25px 0 15px 0; border-bottom: 1.5px solid #f8fafc; padding-bottom: 8px;">CLIENT CONSOLE</p>
-            
+
             <a href="<?php echo $path_prefix; ?>../client-index.php" class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'client-index.php') ? 'active' : ''; ?>" style="margin-bottom: 6px; padding: 12px 16px; border-radius: 8px; transition: all 0.2s; display: flex; align-items: center; gap: 12px; text-decoration: none;">
                 <i class="fa-solid fa-gauge-high" style="font-size: 14px;"></i>
                 <span style="font-size: 13px; font-weight: 700;">Main Dashboard</span>
@@ -55,7 +55,7 @@
                  ADMINISTRATOR MENU (DEFAULT)
             =========================================== -->
             <p style="font-size: 9px; font-weight: 850; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; padding: 0 16px; margin: 25px 0 15px 0; border-bottom: 1.5px solid #f8fafc; padding-bottom: 8px;">MAIN OPERATIONS</p>
-            
+
             <a href="<?php echo $path_prefix; ?>index.php" class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php' && !isset($is_client_portal)) ? 'active' : ''; ?>" style="margin-bottom: 6px; padding: 12px 16px; border-radius: 8px; transition: all 0.2s; display: flex; align-items: center; gap: 12px; text-decoration: none;">
                 <i class="fa-solid fa-house" style="font-size: 14px;"></i>
                 <span style="font-size: 13px; font-weight: 700;">Dashboard Overview</span>
@@ -71,9 +71,9 @@
                 <span style="font-size: 13px; font-weight: 700;">Active Taskings</span>
             </a>
 
-            <a href="<?php echo $path_prefix; ?>job-assign-slip.php" class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'job-assign-slip.php') ? 'active' : ''; ?>" style="margin-bottom: 6px; padding: 12px 16px; border-radius: 8px; display: flex; align-items: center; gap: 12px; text-decoration: none;">
+            <a href="<?php echo $path_prefix; ?>job-registry.php" class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'job-registry.php') ? 'active' : ''; ?>" style="margin-bottom: 6px; padding: 12px 16px; border-radius: 8px; display: flex; align-items: center; gap: 12px; text-decoration: none;">
                 <i class="fa-solid fa-magnifying-glass-location" style="font-size: 14px;"></i>
-                <span style="font-size: 13px; font-weight: 700;">Operational Registry</span>
+                <span style="font-size: 13px; font-weight: 700;">All Operations</span>
             </a>
 
             <p style="font-size: 9px; font-weight: 850; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; padding: 0 16px; margin: 30px 0 15px 0; border-bottom: 1.5px solid #f8fafc; padding-bottom: 8px;">MASTER REGISTRY</p>
