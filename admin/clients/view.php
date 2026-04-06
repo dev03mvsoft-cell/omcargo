@@ -17,7 +17,7 @@ $client = [
     'last_active' => '16 MAY 2026'
 ];
 ?>
-<?php include 'includes/sidebar.php'; ?>
+<?php include '../includes/sidebar.php'; ?>
 
 <style>
     :root { --p-x: 30px; }
@@ -47,7 +47,7 @@ $client = [
             </div>
         </div>
         <div style="display: flex; gap: 12px; align-items: center;">
-            <a href="edit.php" class="btn" style="background: #000; color: #fff; font-size: 13px; font-weight: 850; padding: 12px 30px; border-radius: 8px; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+            <a href="edit.php" class="btn" style="background: var(--primary); color: #fff; font-size: 13px; font-weight: 850; padding: 12px 30px; border-radius: 8px; text-decoration: none; display: flex; align-items: center; gap: 8px;">
                 <i class="fa-solid fa-pen-to-square"></i> EDIT PROFILE
             </a>
         </div>

@@ -30,7 +30,7 @@ include '../includes/header.php';
         </div>
         <div style="display: flex; gap: 12px; align-items: center;">
             <button type="button" onclick="window.history.back()" class="btn" style="background: #fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 12px; font-weight: 800; padding: 10px 20px; border-radius: 6px;">CANCEL</button>
-            <button type="submit" form="client-form" class="btn" style="background: #000; color: #fff; font-size: 12px; font-weight: 850; padding: 10px 30px; border-radius: 6px; border: none;">SAVE CLIENT PROFILE</button>
+            <button type="submit" form="client-form" class="btn" style="background: var(--primary); color: #fff; font-size: 13px; font-weight: 850; padding: 12px 30px; border-radius: 8px; border: none; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">SAVE CLIENT PROFILE</button>
         </div>
     </header>
 

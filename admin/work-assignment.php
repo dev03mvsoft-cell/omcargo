@@ -182,6 +182,38 @@ include 'includes/header.php';
                                     </a>
                                 </div>
                             </td>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 18px 16px; font-weight: 700; font-size: 12px; color: var(--text-muted);">04</td>
+                            <td style="padding: 18px 16px;">
+                                <div style="font-weight: 800; font-size: 12px; color: var(--primary);">OCM-IMP-24-001</div>
+                            </td>
+                            <td style="padding: 18px 16px; font-size: 11px; font-weight: 600;">06-04-2026</td>
+                            <td style="padding: 18px 16px;">
+                                <div style="font-weight: 700; font-size: 12px; color: #1e293b;">B P SPICES 208</div>
+                                <div style="font-size: 9px; color: var(--text-muted); font-weight: 500;">IMPORT DE-STUFFING</div>
+                            </td>
+                            <td style="padding: 18px 16px;">
+                                <div style="font-weight: 700; font-size: 11px; font-family: monospace;">AAAL/IMP/001</div>
+                            </td>
+                            <td style="padding: 18px 16px;">
+                                <span class="badge" style="background: #fdf2f8; color: #db2777; font-size: 9px;">IMPORT</span>
+                            </td>
+                            <td style="padding: 18px 16px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="width: 28px; height: 28px; border-radius: 50%; background: #fdf2f8; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 9px; color: #db2777;">RS</div>
+                                    <div style="font-weight: 700; font-size: 11px;">Rahul Sharma</div>
+                                </div>
+                            </td>
+                            <td align="right" style="padding: 18px 16px;">
+                                <div style="display: flex; gap: 8px; justify-content: flex-end;">
+                                    <a href="import/job-assign-slip.php" class="btn" style="padding: 6px 14px; font-size: 10px; border: 1.5px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 6px; font-weight: 800;">
+                                        <i class="fa-solid fa-file-shield"></i> VIEW SLIP
+                                    </a>
+                                    <a href="import/status.php" class="btn" style="padding: 6px 10px; font-size: 9px; border: 1px solid var(--border); background: var(--primary-light); color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                                        <i class="fa-solid fa-pen-to-square"></i> STATUS
+                                    </a>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

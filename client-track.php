@@ -24,7 +24,7 @@ $doc_count = $is_done ? '4 / 4' : '3 / 4';
             <div style="min-width: 0;">
                 <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                     <h1 class="page-title" style="font-size: 16px; font-weight: 850; color: #01172a; margin: 0; letter-spacing: -0.3px;">Tracking: <span style="color: #64748b;">OCM-<?php echo $order_id; ?></span></h1>
-                    <?php if($is_done): ?>
+                    <?php if ($is_done): ?>
                         <span style="font-size: 9px; font-weight: 950; background: #ecfdf5; color: #059669; padding: 4px 10px; border-radius: 100px; border: 1px solid #d1fae5;">COMPLETED</span>
                     <?php else: ?>
                         <span style="font-size: 9px; font-weight: 950; background: #eff6ff; color: #2563eb; padding: 4px 10px; border-radius: 100px; border: 1px solid #dbeafe;">IN-TRANSIT</span>
@@ -43,7 +43,7 @@ $doc_count = $is_done ? '4 / 4' : '3 / 4';
 
     <div class="content-padding" style="padding: 30px 40px;">
         <div style="display: grid; grid-template-columns: 1fr 360px; gap: 30px;">
-            
+
             <!-- LEFT COLUMN: PROGRESS & HISTORY -->
             <div>
                 <!-- GLOBAL PROGRESS CARD -->
@@ -53,7 +53,7 @@ $doc_count = $is_done ? '4 / 4' : '3 / 4';
                         <span style="font-size: 13px; font-weight: 950; color: <?php echo $is_done ? '#10b981' : '#2563eb'; ?>;"><?php echo $progress; ?>% <?php echo $is_done ? 'DELIVERED' : 'COMPLETED'; ?></span>
                     </div>
                     <div style="height: 10px; background: #f1f5f9; border-radius: 100px; position: relative; overflow: hidden; border: 1px solid #e2e8f0;">
-                         <div style="position: absolute; height: 100%; width: <?php echo $progress; ?>%; background: <?php echo $is_done ? '#10b981' : 'linear-gradient(90deg, #3b82f6, #2563eb)'; ?>; border-radius: 100px;"></div>
+                        <div style="position: absolute; height: 100%; width: <?php echo $progress; ?>%; background: <?php echo $is_done ? '#10b981' : 'linear-gradient(90deg, #3b82f6, #2563eb)'; ?>; border-radius: 100px;"></div>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-top: 12px;">
                         <span style="font-size: 9px; font-weight: 800; color: #94a3b8;">PICKUP</span>
@@ -77,7 +77,7 @@ $doc_count = $is_done ? '4 / 4' : '3 / 4';
                 <!-- JOURNEY TIMELINE -->
                 <div style="background: #fff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 35px;">
                     <h3 style="font-size: 12px; font-weight: 850; color: #01172a; margin: 0 0 30px 0; text-transform: uppercase; letter-spacing: 0.5px;">Logistics Journey Lifecycle</h3>
-                    
+
                     <div style="position: relative; padding-left: 45px;">
                         <!-- Timeline Vertical Line -->
                         <div style="position: absolute; left: 21px; top: 0; bottom: 0; width: 2px; background: #e2e8f0;"></div>
@@ -85,9 +85,9 @@ $doc_count = $is_done ? '4 / 4' : '3 / 4';
                         <!-- Step 5 (Final) -->
                         <div style="position: relative; margin-bottom: 35px;">
                             <div style="position: absolute; left: -33px; top: 0; width: 18px; height: 18px; background: <?php echo $is_done ? '#10b981' : '#fff'; ?>; border: 2px solid <?php echo $is_done ? '#10b981' : '#e2e8f0'; ?>; border-radius: 50%; z-index: 1; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 9px;">
-                                <?php if($is_done) echo '<i class="fa-solid fa-check"></i>'; ?>
+                                <?php if ($is_done) echo '<i class="fa-solid fa-check"></i>'; ?>
                             </div>
-                            <div style="<?php if(!$is_done) echo 'opacity: 0.5;'; ?>">
+                            <div style="<?php if (!$is_done) echo 'opacity: 0.5;'; ?>">
                                 <p style="font-size: 9px; font-weight: 850; color: <?php echo $is_done ? '#10b981' : '#94a3b8'; ?>; text-transform: uppercase; margin: 0;">Step 05</p>
                                 <h4 style="font-size: 13px; font-weight: 800; color: #1e293b; margin: 4px 0;">FINAL GATE OUT</h4>
                                 <p style="font-size: 11px; color: #64748b; font-weight: 500;"><?php echo $is_done ? '30 Mar 2024' : 'Awaiting Arrival'; ?></p>
@@ -96,10 +96,10 @@ $doc_count = $is_done ? '4 / 4' : '3 / 4';
 
                         <!-- Step 4 (Current) -->
                         <div style="position: relative; margin-bottom: 35px;">
-                            <div style="position: absolute; left: -33px; top: 0; width: 18px; height: 18px; background: <?php echo $is_done ? '#10b981' : '#fff'; ?>; border: 2px solid <?php echo $is_done ? '#10b981' : '#3b82f6'; ?>; border-radius: 50%; z-index: 1; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 9px; <?php if(!$is_done) echo 'animation: pulse 2s infinite;'; ?>">
-                                <?php if($is_done) echo '<i class="fa-solid fa-check"></i>'; ?>
+                            <div style="position: absolute; left: -33px; top: 0; width: 18px; height: 18px; background: <?php echo $is_done ? '#10b981' : '#fff'; ?>; border: 2px solid <?php echo $is_done ? '#10b981' : '#3b82f6'; ?>; border-radius: 50%; z-index: 1; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 9px; <?php if (!$is_done) echo 'animation: pulse 2s infinite;'; ?>">
+                                <?php if ($is_done) echo '<i class="fa-solid fa-check"></i>'; ?>
                             </div>
-                            <?php if($is_done): ?><div style="position: absolute; left: -25px; top: 18px; bottom: -35px; width: 2px; background: #10b981; z-index: 0;"></div><?php endif; ?>
+                            <?php if ($is_done): ?><div style="position: absolute; left: -25px; top: 18px; bottom: -35px; width: 2px; background: #10b981; z-index: 0;"></div><?php endif; ?>
                             <div>
                                 <p style="font-size: 9px; font-weight: 850; color: <?php echo $is_done ? '#10b981' : '#3b82f6'; ?>; text-transform: uppercase; margin: 0;">Step 04 <?php echo $is_done ? '(DONE)' : '(ACTIVE)'; ?></p>
                                 <h4 style="font-size: 13px; font-weight: 800; color: #1e293b; margin: 4px 0;">PORT UNLOADING</h4>
@@ -166,25 +166,25 @@ $doc_count = $is_done ? '4 / 4' : '3 / 4';
                     <h3 style="font-size: 11px; font-weight: 850; color: #01172a; margin: 0 0 20px 0; text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
                         <i class="fa-solid fa-file-invoice" style="color: #2563eb;"></i> DOCUMENTATION CENTER
                     </h3>
-                    
+
                     <div style="display: flex; flex-direction: column; gap: 10px;">
                         <!-- Doc Items -->
-                        <?php 
+                        <?php
                         $docs = ["Bill of Lading", "Packing List", "Insurance Cert", "Commercial Inv."];
-                        foreach($docs as $doc): 
+                        foreach ($docs as $doc):
                             $is_missing = (!$is_done && $doc == "Insurance Cert");
                         ?>
-                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: <?php echo $is_missing ? '#fffbeb' : '#f8fafc'; ?>; border-radius: 8px; border: 1.5px <?php echo $is_missing ? 'dashed #f59e0b' : 'solid #f1f5f9'; ?>;">
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <i class="fa-solid <?php echo $is_missing ? 'fa-circle-exclamation' : 'fa-circle-check'; ?>" style="color: <?php echo $is_missing ? '#f59e0b' : '#10b981'; ?>; font-size: 14px;"></i>
-                                <span style="font-size: 11px; font-weight: 700; color: #1e293b;"><?php echo $doc; ?></span>
+                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: <?php echo $is_missing ? '#fffbeb' : '#f8fafc'; ?>; border-radius: 8px; border: 1.5px <?php echo $is_missing ? 'dashed #f59e0b' : 'solid #f1f5f9'; ?>;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <i class="fa-solid <?php echo $is_missing ? 'fa-circle-exclamation' : 'fa-circle-check'; ?>" style="color: <?php echo $is_missing ? '#f59e0b' : '#10b981'; ?>; font-size: 14px;"></i>
+                                    <span style="font-size: 11px; font-weight: 700; color: #1e293b;"><?php echo $doc; ?></span>
+                                </div>
+                                <?php if ($is_missing): ?>
+                                    <span style="font-size: 8px; font-weight: 900; color: #ea580c; border-bottom: 1px solid #ea580c; cursor: pointer;">UPLOAD</span>
+                                <?php else: ?>
+                                    <i class="fa-solid fa-cloud-arrow-down" style="color: #3b82f6; cursor: pointer; font-size: 14px;"></i>
+                                <?php endif; ?>
                             </div>
-                            <?php if($is_missing): ?>
-                                <span style="font-size: 8px; font-weight: 900; color: #ea580c; border-bottom: 1px solid #ea580c; cursor: pointer;">UPLOAD</span>
-                            <?php else: ?>
-                                <i class="fa-solid fa-cloud-arrow-down" style="color: #3b82f6; cursor: pointer; font-size: 14px;"></i>
-                            <?php endif; ?>
-                        </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -192,7 +192,7 @@ $doc_count = $is_done ? '4 / 4' : '3 / 4';
                 <!-- CARGO METADATA -->
                 <div style="background: #01172a; border-radius: 12px; padding: 25px; color: #fff; box-shadow: 0 10px 15px -3px rgba(1, 23, 42, 0.3);">
                     <h3 style="font-size: 10px; font-weight: 850; color: #64748b; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 1px;">Shipment Metadata</h3>
-                    
+
                     <div style="display: flex; flex-direction: column; gap: 18px;">
                         <div>
                             <p style="font-size: 8px; font-weight: 700; color: #475569; margin: 0; text-transform: uppercase;">Port of Loading</p>
@@ -220,11 +220,22 @@ $doc_count = $is_done ? '4 / 4' : '3 / 4';
 </main>
 
 <style>
-@keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
-    70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
-}
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+        }
+
+        70% {
+            transform: scale(1.1);
+            box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+        }
+
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+        }
+    }
 </style>
 
 <?php include 'admin/includes/footer.php'; ?>

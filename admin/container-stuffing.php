@@ -125,8 +125,8 @@ include 'includes/header.php';
             <p style="font-size: 10px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">STAGE 04: CARGO LOADING AUDIT</p>
         </div>
         <div style="display: flex; gap: 15px;">
-            <button onclick="window.location.href='booking-status.php'" class="btn" style="background:#fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 800;">BACK</button>
-            <button onclick="submitStuffing()" class="btn btn-primary" style="padding: 10px 25px; font-size: 11px; font-weight: 800;">FINALIZE LOADING</button>
+            <button onclick="window.location.href='booking-status.php'" class="btn" style="background:#fff; border: 1.5px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 850; padding: 12px 25px; border-radius: 10px;">BACK</button>
+            <button onclick="submitStuffing()" class="btn" style="background: var(--primary); color: #fff; padding: 12px 35px; font-size: 11px; font-weight: 850; border-radius: 10px; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">FINALIZE LOADING</button>
         </div>
     </header>
 
@@ -178,7 +178,7 @@ include 'includes/header.php';
             <div class="section-title" style="margin-bottom: 0;">
                 <i class="fa-solid fa-boxes-packing"></i> Cargo Stuffing Registry
             </div>
-            <button onclick="addStuffingRow()" class="btn" style="background:#fff; border: 1px solid #2563eb; color: #2563eb; font-size: 10px; font-weight: 800; padding: 8px 15px;">+ ADD LOAD ROW</button>
+            <button onclick="addStuffingRow()" class="btn" style="background:#fff; border: 1.5px solid #000; color: #000; font-size: 10px; font-weight: 850; padding: 8px 18px; border-radius: 8px;">+ ADD LOAD ROW</button>
         </div>
 
         <div style="overflow-x: auto; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; margin-bottom: 40px;">
@@ -297,7 +297,7 @@ include 'includes/header.php';
             title: 'Stuffing Finalized',
             text: 'Cargo Loading List locked. Moving to Stage 05: Gate In.',
             icon: 'success',
-            confirmButtonColor: '#2563eb'
+            confirmButtonColor: '#000'
         }).then(() => {
             window.location.href = 'gate-in.php';
         });

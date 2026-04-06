@@ -54,7 +54,7 @@ include 'includes/header.php';
             <!-- 2. AI HUB -->
             <div class="extraction-header">
                 <h3 style="font-size: 1.125rem; font-weight: 800; color: var(--text-main); margin-bottom: 16px;">Scan Document to Fetch Data</h3>
-                <div style="display: flex; gap: 16px;"><input type="file" class="form-input" style="background: white; flex: 1;"><button type="button" onclick="startScan()" class="btn btn-primary" style="padding: 0 40px;"><i class="fa-solid fa-bolt"></i> START DEEP SYNC</button></div>
+                <div style="display: flex; gap: 16px;"><input type="file" class="form-input" style="background: white; flex: 1;"><button type="button" onclick="startScan()" class="btn" style="background: #000; color: #fff; padding: 0 40px; border-radius: 12px; font-weight: 850; border: none; font-size: 11px;"><i class="fa-solid fa-bolt"></i> START DEEP SYNC</button></div>
             </div>
 
             <div class="grid-custom">
@@ -164,7 +164,7 @@ include 'includes/header.php';
                 </div>
             </div>
 
-            <div style="display: flex; justify-content: flex-end; padding: 40px 0;"><button type="submit" class="btn btn-primary" style="padding: 16px 80px;">GENERATE ASSIGNMENT SLIP</button></div>
+            <div style="display: flex; justify-content: flex-end; padding: 40px 0;"><button type="submit" class="btn" style="background: #000; color: #fff; padding: 16px 80px; border-radius: 12px; font-weight: 850; border: none; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">GENERATE ASSIGNMENT SLIP</button></div>
         </form>
     </div>
 </main>
@@ -222,8 +222,12 @@ include 'includes/header.php';
         const mod = document.getElementById('modality-select').value;
         const protocol = document.getElementById('protocol-select').value;
 
-        if (mod === 'export' && protocol === 'factory_stuffing') {
-            window.location.href = 'factory-stuffing/job-create.php';
+        if (mod === 'export') {
+            if (protocol === 'factory_stuffing') {
+                window.location.href = 'factory-stuffing/job-create.php';
+            }
+        } else if (mod === 'import') {
+            window.location.href = 'import/job-create.php';
         }
     }
 
