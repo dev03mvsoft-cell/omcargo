@@ -5,206 +5,201 @@ include 'includes/header.php';
 ?>
 <?php include 'includes/sidebar.php'; ?>
 
+<style>
+    :root {
+        --p-x: 30px;
+    }
+
+
+
+    .main-area {
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+    }
+</style>
+
+<!-- MAIN AREA START -->
 <main class="main-area">
-    <header class="header">
+    <header class="header" style="background: #fff; border-bottom: 1px solid #f1f5f9; padding: 20px var(--p-x); position: sticky; top: 0; z-index: 1000;">
         <div>
-            <h1 class="page-title">Job Assignment Slip</h1>
-            <p style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Shipment Preview & Operational Assignment</p>
+            <h1 class="page-title" style="font-size: 18px; font-weight: 800; margin: 0; letter-spacing: -0.5px;">Operational Registry</h1>
+            <p style="font-size: 11px; color: var(--text-muted); font-weight: 600; margin-top: 2px;">Monitor client-wise shipment lifecycles across global ports</p>
         </div>
-        <div>
-            <button onclick="window.print()" class="btn" style="background: #f1f5f9; color: var(--text-main); font-size: 11px; border: 1px solid var(--border);">
-                <i class="fa-solid fa-print" style="margin-right: 8px;"></i> PRINT SLIP
-            </button>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <div class="hide-mobile" style="text-align: right; border-right: 1px solid #f1f5f9; padding-right: 20px;">
+                <p style="font-size: 9px; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin: 0;">Registry Sync</p>
+                <p style="font-size: 10px; color: #10b981; font-weight: 800; margin: 0;">LIVE • 200 OK</p>
+            </div>
+            <button type="button" onclick="window.history.back()" class="btn" style="background: #fff; border: 1.5px solid #e2e8f0; color: #64748b; font-size: 13px; font-weight: 700; padding: 10px 25px; border-radius: 8px;">BACK</button>
         </div>
     </header>
+    <div class="content-padding" style="padding: 30px var(--p-x);">
+        <style>
+            .filter-input-group {
+                transition: all 0.2s;
+                border: 1.5px solid #e2e8f0;
+                border-radius: 8px;
+                background: #fff;
+                position: relative;
+            }
 
-    <div class="content-padding">
-        <div class="assignment-slip">
-            <!-- Header Section -->
-            <div class="slip-header">
-                <div>
-                    <h2 style="font-size: 24px; font-weight: 700; color: #000; margin: 0; text-transform: uppercase;">Job Assignment Card</h2>
-                    <p style="font-size: 11px; font-weight: 500; color: #64748b; margin-top: 4px;">REFERENCE: OCM-EXP-2024-0001</p>
-                </div>
-                <div style="text-align: right;">
-                    <div style="font-size: 10px; font-weight: 700; color: var(--primary);">INTERNAL DOCUMENT</div>
-                    <div style="font-size: 14px; font-weight: 700; border: 2px solid #000; padding: 4px 12px; display: inline-block; margin-top: 8px;">DRAFT SLIP</div>
-                </div>
+            .filter-input-group:focus-within {
+                border-color: #000;
+            }
+
+            .filter-input-group input {
+                width: 100%;
+                border: none;
+                outline: none;
+                background: transparent;
+                padding: 12px 12px 12px 48px;
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+            .filter-input-group i {
+                position: absolute;
+                left: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #64748b;
+                font-size: 14px;
+                pointer-events: none;
+            }
+
+            input::-webkit-calendar-picker-indicator {
+                opacity: 0;
+                cursor: pointer;
+                position: absolute;
+                right: 10px;
+                z-index: 10;
+                width: 20px;
+                height: 20px;
+            }
+
+            @media (max-width: 768px) {
+                .search-filter-hub {
+                    grid-template-columns: 1fr !important;
+                }
+            }
+        </style>
+
+        <!-- Search & Filter Hub (Fixed Responsiveness & Gap) -->
+        <div class="search-filter-hub" style="display: grid; grid-template-columns: 1fr 240px; gap: 15px; margin-bottom: 40px; background: #f8fafc; padding: 15px; border-radius: 12px; border: 1.5px solid #f1f5f9;">
+            <div class="filter-input-group">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search Client, Container or Reference...">
+            </div>
+            <div class="filter-input-group">
+                <i class="fa-solid fa-calendar-alt"></i>
+                <input type="date" value="2026-05-16" style="font-weight: 850;">
+                <i class="fa-solid fa-chevron-down" style="left: auto; right: 16px; font-size: 10px; color: #94a3b8;"></i>
+            </div>
+        </div>
+
+        <!-- 16th MAY Group (CURRENT DATA TOP) -->
+        <div style="margin-bottom: 50px;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px;">
+                <h3 style="font-size: 13px; font-weight: 950; color: #1e293b; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Saturday, 16 May 2026</h3>
+                <span style="font-size: 10px; font-weight: 800; color: #10b981;">CURRENT • 4 PROJECTS ACTIVE</span>
             </div>
 
-            <!-- Main Layout: Exhaustive Metadata Sync -->
-            <div class="slip-grid">
-                <div class="slip-cell" style="grid-column: span 2;">
-                    <span class="slip-label">Shipper / Exporter Details</span>
-                    <div class="slip-value">
-                        <strong>GLOBAL LOGIX OMAN (GLO)</strong><br>
-                        PLOT NO 12, INDUSTRIAL AREA, MUSCAT, OMAN<br>
-                        GSTIN: 07HOGPK0877E1ZS | IEC: HOGPK0877E<br>
-                        Email: info@globallogix.om | Contact: +968 98104432
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 20px;">
+                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                        <h4 style="font-size: 14px; font-weight: 800; margin: 0;">RAYSUT CEMENT</h4>
+                        <span style="font-size: 8px; font-weight: 950; background: #eff6ff; color: #2563eb; padding: 3px 8px; border-radius: 4px; border: 1px solid #dbeafe;">DOCK FLOW</span>
                     </div>
-                    <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid #000;">
-                        <div style="padding: 10px; border-right: 1px solid #000;">
-                            <span class="slip-label">Consignee (Receiver)</span>
-                            <div class="slip-value">
-                                <strong>ANATOLIA TILE & STONE, INC.</strong><br>
-                                8300 HUNTINGTON ROAD, VAUGHAN, ON L4H 4Z6, CANADA<br>
-                                Contact: +1 905-771-3800 | Email: customs@anatolia.ca
-                            </div>
-                        </div>
-                        <div style="padding: 10px;">
-                            <span class="slip-label">Notify Party</span>
-                            <div class="slip-value">
-                                <strong>ANATOLIA TILE & STONE, INC.</strong><br>
-                                8300 HUNTINGTON ROAD, VAUGHAN, ON L4H 4Z6, CANADA<br>
-                                IEC CODE: HOGPK0877E
-                            </div>
-                        </div>
-                    </div>
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">SEA EXPORT • SALALAH</p>
+                    <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
                 </div>
-                <!-- Exhaustive Right Metadata -->
-                <div class="slip-cell" style="padding: 0;">
-                    <table class="meta-table">
-                        <tr>
-                            <td width="55%"><strong>Invoice No.</strong></td>
-                            <td style="color:red; font-weight:600;">AAAL/24-25/004</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Invoice Date</strong></td>
-                            <td style="color:red; font-weight:800;">17-01-2025</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Time of Invoice</strong></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Shipping Bill No. & Date</strong></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Purchase Order No.</strong></td>
-                            <td style="color:red; font-weight:800;">7000033957</td>
-                        </tr>
-                        <tr>
-                            <td><strong>P.O Date</strong></td>
-                            <td style="color:red; font-weight:800;">12-05-2024</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Reverse Charge</strong></td>
-                            <td style="color:red; font-weight:800;">Not Applicable</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Transport Mode</strong></td>
-                            <td style="color:red; font-weight:800;">By Road to Port</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Port Code</strong></td>
-                            <td style="color:red; font-weight:800;">INMUN1</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Delivery Terms</strong></td>
-                            <td style="color:red; font-weight:800;">FOB MUNDRA</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Place of Receipt</strong></td>
-                            <td style="color:red; font-weight:800;">MUNDRA, INDIA</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Loading Port</strong></td>
-                            <td style="color:red; font-weight:800;">MUNDRA, INDIA</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Container No.</strong></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Carrier/Shipping Line</strong></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Date of Supply</strong></td>
-                            <td style="color:red; font-weight:800;">17-01-2025</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Port of Discharge</strong></td>
-                            <td style="color:red; font-weight:800;">SAINT JOHN, NB</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Place of Delivery</strong></td>
-                            <td style="color:red; font-weight:800;">TORONTO CY, CANADA</td>
-                        </tr>
-
-                    </table>
+                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                        <h4 style="font-size: 14px; font-weight: 800; margin: 0;">OMAN TRADING CO</h4>
+                        <span style="font-size: 8px; font-weight: 950; background: #fff7ed; color: #ea580c; padding: 3px 8px; border-radius: 4px; border: 1px solid #ffedd5;">FACTORY FLOW</span>
+                    </div>
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">DOMESTIC LOGISTICS</p>
+                    <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">FACTORY AUDIT</a>
+                </div>
+                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                        <h4 style="font-size: 14px; font-weight: 800; margin: 0;">GLOBAL MARITIME</h4>
+                        <span style="font-size: 8px; font-weight: 950; background: #eff6ff; color: #2563eb; padding: 3px 8px; border-radius: 4px; border: 1px solid #dbeafe;">DOCK FLOW</span>
+                    </div>
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">SEA IMPORT • MUNDRA</p>
+                    <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
+                </div>
+                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; border-left: 4px solid #ef4444;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                        <h4 style="font-size: 14px; font-weight: 800; margin: 0;">PETROLEUM OMAN</h4>
+                        <span style="font-size: 8px; font-weight: 950; background: #fff7ed; color: #ea580c; padding: 3px 8px; border-radius: 4px; border: 1px solid #ffedd5;">FACTORY FLOW</span>
+                    </div>
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">SPECIAL CARGO • HAZMAT</p>
+                    <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #ef4444; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);">FACTORY AUDIT</a>
                 </div>
             </div>
+        </div>
 
-            <!-- Commodity Manifest: NO AMOUNT/VALUE AS REQUESTED -->
-            <h4 style="font-size: 11px; font-weight: 700; text-transform: uppercase;">Commodity Manifest (Operational)</h4>
-            <table class="manifest-table">
-                <thead>
-                    <tr>
-                        <th width="60">SR.</th>
-                        <th width="350">DESCRIPTION OF GOODS</th>
-                        <th width="100">HSN</th>
-                        <th width="60">UOM</th>
-                        <th width="100">QUANTITY</th>
-                        <th width="150">NET WEIGHT</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td align="center">01</td>
-                        <td>FLAT PEBBLE MATTE MOSAIC TILE (NATURAL STONE)</td>
-                        <td align="center">68021000</td>
-                        <td align="center">PCS</td>
-                        <td align="center">10,800</td>
-                        <td align="center">24,475 KGS</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="4" align="right" style="padding: 10px; font-weight: 700;">TOTAL PACKAGES:</td>
-                        <td align="center" style="font-weight: 700; background: #f8fafc;">24 PKGS</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" align="right" style="padding: 10px; font-weight: 700;">GROSS WEIGHT:</td>
-                        <td align="center" style="font-weight: 600; background: #fff;">24,475 KGS</td>
-                        <td></td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <!-- Document Checklist -->
-            <div style="margin-top: 40px;">
-                <h4 style="font-size: 11px; font-weight: 950; text-transform: uppercase; margin-bottom: 20px;">
-                    <i class="fa-solid fa-file-shield" style="margin-right: 8px;"></i> Uploaded Document Registry
-                </h4>
-                <div class="doc-list">
-                    <div class="doc-item"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> COMMERCIAL_INVOICE.PDF</div>
-                    <div class="doc-item"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> PACKING_LIST.PDF</div>
-                    <div class="doc-item"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> BILL_OF_LADING_DRAFT.PDF</div>
-                    <div class="doc-item"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> COO_CERTIFICATE.PDF</div>
-                </div>
+        <!-- 15th MAY Group -->
+        <div style="margin-bottom: 50px;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px;">
+                <h3 style="font-size: 13px; font-weight: 950; color: #1e293b; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Friday, 15 May 2026</h3>
+                <span style="font-size: 10px; font-weight: 800; color: #94a3b8;">COMPLETED • 4 PARTIES</span>
             </div>
 
-            <!-- Employee Assignment -->
-            <div class="assignee-box">
-                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                    <div style="flex: 1;">
-                        <label style="font-size: 10px; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 12px; display: block;">Strategic Assignment</label>
-                        <div style="display: flex; gap: 15px; align-items: center;">
-                            <select class="form-input" style="background: white; width: 300px; font-weight: 600;">
-                                <option>SELECT EMPLOYEE / AGENT</option>
-                                <option selected>RAHUL SHARMA (SENIOR OPERATIONS)</option>
-                                <option>AMIT VERMA (DOCUMENTATION HUB)</option>
-                                <option>PRIYA SINGH (CUSTOMS CLEARANCE)</option>
-                            </select>
-                            <button id="assign-btn" class="btn btn-primary" style="padding: 12px 30px; font-size: 11px;">ASSIGN</button>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 20px;">
+                <!-- Card 1 -->
+                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                        <h4 style="font-size: 14px; font-weight: 800; margin: 0; color: #0f172a;">AL-FALAK TRADING</h4>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                            <span style="font-size: 9px; font-weight: 850; background: #eff6ff; color: #2563eb; padding: 2px 6px; border-radius: 4px;">FAC-24-005</span>
+                            <span style="font-size: 7px; font-weight: 950; color: #ea580c; text-transform: uppercase; letter-spacing: 0.5px;">FACTORY FLOW</span>
                         </div>
                     </div>
-                    <div onclick="window.location.href='work-assignment.php'" style="text-align: right; cursor: pointer;" title="Go to Work Assignments">
-                        <p style="font-size: 10px; font-weight: 600; color: var(--text-muted); margin-bottom: 4px;">SLIP GENERATED AT</p>
-                        <p style="font-size: 12px; font-weight: 700;">02-04-2026 | 13:45</p>
+                    <p style="font-size: 11px; color: #64748b; font-weight: 600; margin: 0;">SEA EXPORT • MUNDRA PORT</p>
+                    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e2e8f0;">
+                        <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">FACTORY AUDIT</a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                        <h4 style="font-size: 14px; font-weight: 800; margin: 0; color: #0f172a;">GLOBAL LOGIX OMAN</h4>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                            <span style="font-size: 9px; font-weight: 850; background: #eff6ff; color: #2563eb; padding: 2px 6px; border-radius: 4px;">EXP-24-001</span>
+                            <span style="font-size: 7px; font-weight: 950; color: #2563eb; text-transform: uppercase; letter-spacing: 0.5px;">DOCK FLOW</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 11px; color: #64748b; font-weight: 600; margin: 0;">AIR EXPORT • MUSCAT AIRPORT</p>
+                    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e2e8f0;">
+                        <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                        <h4 style="font-size: 14px; font-weight: 800; margin: 0; color: #0f172a;">NEXUS TRANSPORT</h4>
+                        <span style="font-size: 9px; font-weight: 850; background: #f1f5f9; color: #64748b; padding: 4px 8px; border-radius: 4px;">DOM-24-012</span>
+                    </div>
+                    <p style="font-size: 11px; color: #64748b; font-weight: 600; margin: 0;">ROAD TRANSPORT • INTERNAL</p>
+                    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e2e8f0;">
+                        <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">IN TRANSIT</a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                        <h4 style="font-size: 14px; font-weight: 800; margin: 0; color: #0f172a;">OMAN CEMENT CO.</h4>
+                        <span style="font-size: 9px; font-weight: 850; background: #f1f5f9; color: #64748b; padding: 4px 8px; border-radius: 4px;">U-RRG-44</span>
+                    </div>
+                    <p style="font-size: 11px; color: #64748b; font-weight: 600; margin: 0;">BULK IMPORT • SOHAR PORT</p>
+                    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e2e8f0;">
+                        <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #10b981; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);">COMPLETED</a>
                     </div>
                 </div>
             </div>
@@ -236,3 +231,4 @@ include 'includes/header.php';
 </script>
 
 <?php include 'includes/footer.php'; ?>
+'includes/footer.php'; ?>

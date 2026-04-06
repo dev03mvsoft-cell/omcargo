@@ -5,19 +5,19 @@ include 'includes/header.php';
 ?>
 <?php include 'includes/sidebar.php'; ?>
 
+<!-- MAIN AREA START -->
 <main class="main-area">
-    <header class="header">
+    <header class="header" style="background: #fff; border-bottom: 1px solid #f1f5f9; padding: 20px 40px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center;">
         <div>
-            <h1 class="page-title">Active Work Assignments</h1>
-            <p style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Monitor employee task distribution across global ports</p>
+            <h1 class="page-title" style="font-size: 18px; font-weight: 800; margin: 0; letter-spacing: -0.5px;">Active Work Assignments</h1>
+            <p style="font-size: 11px; color: var(--text-muted); font-weight: 600; margin-top: 2px;">Monitor employee task distribution across global ports</p>
         </div>
-        <div style="display: flex; gap: 12px;">
-            <button class="btn btn-primary" style="padding: 10px 24px; font-size: 11px; background: var(--primary);">
-                <i class="fa-solid fa-file-export" style="margin-right: 8px;"></i> EXPORT MODULE
-            </button>
-            <button class="btn" style="padding: 10px 24px; font-size: 11px; background: #f1f5f9; color: var(--text-main); border: 1px solid var(--border);">
-                <i class="fa-solid fa-file-import" style="margin-right: 8px;"></i> IMPORT MODULE
-            </button>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <div style="text-align: right; border-right: 1px solid #f1f5f9; padding-right: 20px;">
+                <p style="font-size: 9px; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin: 0;">Task Latency</p>
+                <p style="font-size: 10px; color: #10b981; font-weight: 800; margin: 0;">LIVE • ASSIGNMENT ENGINE</p>
+            </div>
+            <button type="button" onclick="window.history.back()" class="btn" style="background: #fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 800; padding: 8px 20px;">BACK</button>
         </div>
     </header>
 
@@ -57,7 +57,7 @@ include 'includes/header.php';
                 </div>
             </div>
             <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
-                <button class="btn btn-primary" style="padding: 8px 30px; font-size: 10px;">APPLY FILTERS</button>
+                <button class="btn btn-primary" style="background: #2563eb; color: #fff; padding: 12px 30px; font-size: 13px; font-weight: 700; border-radius: 8px; border: none; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">APPLY FILTERS</button>
             </div>
         </div>
 
@@ -119,6 +119,39 @@ include 'includes/header.php';
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border);">
                             <td style="padding: 18px 16px; font-weight: 700; font-size: 12px; color: var(--text-muted);">02</td>
+                            <td style="padding: 18px 16px;">
+                                <div style="font-weight: 800; font-size: 12px; color: #f59e0b;">OCM-FAC-24-005</div>
+                            </td>
+                            <td style="padding: 18px 16px; font-size: 11px; font-weight: 600;">03-04-2026</td>
+                            <td style="padding: 18px 16px;">
+                                <div style="font-weight: 700; font-size: 12px; color: #1e293b;">AL-FALAK TRADING</div>
+                                <div style="font-size: 9px; color: var(--text-muted); font-weight: 500;">FACTORY STUFFING</div>
+                            </td>
+                            <td style="padding: 18px 16px;">
+                                <div style="font-weight: 700; font-size: 11px; font-family: monospace;">AFTL/24/9903</div>
+                            </td>
+                            <td style="padding: 18px 16px;">
+                                <span class="badge" style="background: #fff7ed; color: #ea580c; font-size: 9px;">FACTORY</span>
+                            </td>
+                            <td style="padding: 18px 16px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="width: 28px; height: 28px; border-radius: 50%; background: #fff7ed; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 9px; color: #ea580c;">PS</div>
+                                    <div style="font-weight: 700; font-size: 11px;">Priya Singh</div>
+                                </div>
+                            </td>
+                            <td align="right" style="padding: 18px 16px;">
+                                <div style="display: flex; gap: 8px; justify-content: flex-end;">
+                                    <a href="factory-stuffing/job-assign-slip.php" class="btn" style="padding: 6px 10px; font-size: 9px; border: 1px solid var(--border); background: #fff; color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                                        <i class="fa-solid fa-eye"></i> SLIP
+                                    </a>
+                                    <a href="factory-stuffing/checklist.php" class="btn" style="padding: 6px 10px; font-size: 9px; border: 1px solid var(--border); background: #fff7ed; color: #ea580c; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                                        <i class="fa-solid fa-pen-to-square"></i> STATUS
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 18px 16px; font-weight: 700; font-size: 12px; color: var(--text-muted);">03</td>
                             <td style="padding: 18px 16px;">
                                 <div style="font-weight: 800; font-size: 12px; color: var(--primary);">OCM-EXP-24-012</div>
                             </td>

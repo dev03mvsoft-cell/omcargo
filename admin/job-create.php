@@ -7,10 +7,18 @@ include 'includes/header.php';
 
 <!-- MAIN AREA START -->
 <main class="main-area">
-    <header class="header">
+    <header class="header" style="background: #fff; border-bottom: 1px solid #f1f5f9; padding: 20px 40px; position: sticky; top: 0; z-index: 1000;">
         <div>
-            <h1 class="page-title">Create New Shipment Job</h1>
-            <p style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Standard Operational Manifest Protocol</p>
+            <span style="font-size: 9px; font-weight: 850; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 4px;">STAGE 01: SHIPMENT INITIALIZATION</span>
+            <h1 class="page-title" style="font-size: 18px; font-weight: 800; margin: 0; letter-spacing: -0.5px;">Create New Shipment Job</h1>
+            <p style="font-size: 11px; color: var(--text-muted); font-weight: 600; margin-top: 2px;">Standard Operational Manifest Protocol</p>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <div style="text-align: right; border-right: 1px solid #f1f5f9; padding-right: 20px; display: none; @media (min-width: 1024px) { display: block; }">
+                <p style="font-size: 9px; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin: 0;">System Status</p>
+                <p style="font-size: 10px; color: #10b981; font-weight: 800; margin: 0;">LIVE • ENGINE ACTIVE</p>
+            </div>
+            <button type="button" onclick="window.history.back()" class="btn" style="background: #fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 800; padding: 8px 20px;">BACK</button>
         </div>
     </header>
 

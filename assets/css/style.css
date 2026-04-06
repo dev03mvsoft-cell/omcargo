@@ -47,7 +47,11 @@ body {
     flex-shrink: 0;
 }
 
-@media (max-width: 1024px) { .sidebar { display: none; } }
+@media (max-width: 1024px) {
+    .sidebar {
+        display: none;
+    }
+}
 
 .sidebar-logo {
     display: flex;
@@ -56,7 +60,7 @@ body {
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--text-main);
-    margin-bottom: 48px;
+    margin-bottom: 8px;
 }
 
 .nav-item {
@@ -72,7 +76,10 @@ body {
     margin-bottom: 6px;
 }
 
-.nav-item.active { background: var(--primary-light); color: var(--primary); }
+.nav-item.active {
+    background: var(--primary-light);
+    color: var(--primary);
+}
 
 /* Main Area */
 .main-area {
@@ -104,7 +111,11 @@ body {
     max-width: 1400px;
 }
 
-@media (max-width: 768px) { .content-padding { padding: 24px; } }
+@media (max-width: 768px) {
+    .content-padding {
+        padding: 24px;
+    }
+}
 
 /* Section Management - NO MERGING */
 .form-section {
@@ -117,7 +128,7 @@ body {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card:hover { 
+.card:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
 }
@@ -140,7 +151,7 @@ body {
     right: -10%;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
 }
 
@@ -155,9 +166,23 @@ body {
     letter-spacing: 0.025em;
 }
 
-.badge-warning { background: #fffbeb; color: #b45309; border: 1px solid #fef3c7; }
-.badge-success { background: #ecfdf5; color: #065f46; border: 1px solid #d1fae5; }
-.badge-danger { background: #fef2f2; color: #991b1b; border: 1px solid #fee2e2; }
+.badge-warning {
+    background: #fffbeb;
+    color: #b45309;
+    border: 1px solid #fef3c7;
+}
+
+.badge-success {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #d1fae5;
+}
+
+.badge-danger {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fee2e2;
+}
 
 .status-dot {
     width: 6px;
@@ -173,7 +198,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--primary);
-    margin-bottom: 16px; /* Reduced gap after title */
+    margin-bottom: 16px;
+    /* Reduced gap after title */
     display: flex;
     align-items: center;
     gap: 8px;
@@ -183,23 +209,34 @@ body {
 .grid-primary {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px; /* X and Y gap between big sections */
+    gap: 32px;
+    /* X and Y gap between big sections */
 }
 
-@media (min-width: 1024px) { .grid-primary { grid-template-columns: 1.4fr 1fr; } }
+@media (min-width: 1024px) {
+    .grid-primary {
+        grid-template-columns: 1.4fr 1fr;
+    }
+}
 
 /* Individual Input Spacing */
 .form-group {
-    margin-bottom: 16px !important; /* Reduced vertical gap between fields */
+    margin-bottom: 16px !important;
+    /* Reduced vertical gap between fields */
 }
 
 .sub-field-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px; /* Force internal gap in grids */
+    gap: 24px;
+    /* Force internal gap in grids */
 }
 
-@media (min-width: 640px) { .sub-field-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 640px) {
+    .sub-field-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 
 /* Input Protocol */
 .form-label {
@@ -207,7 +244,8 @@ body {
     font-size: 11px;
     font-weight: 600;
     color: var(--text-muted);
-    margin-bottom: 10px; /* Gap between label and input */
+    margin-bottom: 10px;
+    /* Gap between label and input */
     text-transform: uppercase;
     letter-spacing: 0.05em;
     padding-left: 4px;
@@ -215,7 +253,8 @@ body {
 
 .form-input {
     width: 100%;
-    padding: 14px 16px; /* High internal padding */
+    padding: 14px 16px;
+    /* High internal padding */
     background-color: #f8fafc;
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -275,8 +314,22 @@ body {
 }
 
 /* Buttons */
-.btn { padding: 14px 28px; border-radius: 12px; font-weight: 600; cursor: pointer; border: none; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
-.btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 6px -1px rgba(37,99,235,0.2); }
+.btn {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
 
 /* Assignment Slip UI */
 .assignment-slip {
