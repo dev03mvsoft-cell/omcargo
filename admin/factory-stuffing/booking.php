@@ -6,26 +6,119 @@ include $path_prefix . 'includes/header.php';
 <?php include $path_prefix . 'includes/sidebar.php'; ?>
 
 <style>
-    .booking-hub { padding: 40px; background: #fff; }
-    
+    .booking-hub {
+        padding: 40px;
+        background: #fff;
+    }
+
     /* Minimalist Stepper */
-    .minimal-stepper { display: flex; gap: 40px; margin-bottom: 50px; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; }
-    .m-step { font-size: 11px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 15px; }
-    .m-step.completed { color: #059669; }
-    .m-step.active { color: var(--primary); }
-    .m-step.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--primary); }
+    .minimal-stepper {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 50px;
+        border-bottom: 1px solid #f1f5f9;
+        padding-bottom: 15px;
+    }
+
+    .m-step {
+        font-size: 11px;
+        font-weight: 800;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .m-step.completed {
+        color: #059669;
+    }
+
+    .m-step.active {
+        color: var(--primary);
+    }
+
+    .m-step.active::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+    }
 
     /* Modern Simple Table */
-    .simple-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; border: 1px solid #e2e8f0; }
-    .simple-table th { padding: 12px 15px; background: #f8fafc; font-size: 10px; font-weight: 800; color: #475569; text-transform: uppercase; text-align: left; border-bottom: 2px solid #e2e8f0; }
-    .simple-table td { padding: 12px 15px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; font-size: 11px; font-weight: 600; }
-    
-    .input-simple { width: 100%; border: 1px solid #e2e8f0; border-radius: 4px; padding: 8px 10px; font-size: 11px; font-weight: 700; color: #1e293b; background: #fff; }
-    .input-simple:focus { border-color: var(--primary); outline: none; }
-    
-    .section-title { font-size: 12px; font-weight: 950; color: #1e293b; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-    .s-label { font-size: 9px; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 5px; display: block; }
-    .blue-pill { background: #eff6ff; color: #2563eb; padding: 4px 10px; border-radius: 4px; font-size: 9px; font-weight: 800; }
+    .simple-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .simple-table th {
+        padding: 12px 15px;
+        background: #f8fafc;
+        font-size: 10px;
+        font-weight: 800;
+        color: #475569;
+        text-transform: uppercase;
+        text-align: left;
+        border-bottom: 2px solid #e2e8f0;
+    }
+
+    .simple-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .input-simple {
+        width: 100%;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        padding: 8px 10px;
+        font-size: 11px;
+        font-weight: 700;
+        color: #1e293b;
+        background: #fff;
+    }
+
+    .input-simple:focus {
+        border-color: var(--primary);
+        outline: none;
+    }
+
+    .section-title {
+        font-size: 12px;
+        font-weight: 950;
+        color: #1e293b;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .s-label {
+        font-size: 9px;
+        font-weight: 800;
+        color: #94a3b8;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .blue-pill {
+        background: #eff6ff;
+        color: #2563eb;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 9px;
+        font-weight: 800;
+    }
 </style>
 
 <main class="main-area">
@@ -36,7 +129,7 @@ include $path_prefix . 'includes/header.php';
         </div>
         <div style="display: flex; gap: 15px;">
             <button onclick="window.history.back()" class="btn" style="background:#fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 800;">BACK</button>
-            <button onclick="submitBooking()" class="btn btn-primary" style="padding: 10px 25px; font-size: 11px; font-weight: 800; background: #000;">SAVE & FINALIZE BOOKING</button>
+            <button onclick="submitBooking()" class="btn btn-primary" style="padding: 10px 25px; font-size: 11px; font-weight: 800; background: var(--primary);">SAVE & FINALIZE BOOKING</button>
         </div>
     </header>
 
@@ -59,7 +152,7 @@ include $path_prefix . 'includes/header.php';
 
         <!-- 3. Booking Header Summary -->
         <div class="section-title">Booking Identification Summary</div>
-        <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 40px; border: 1px solid #e2e8f0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; margin-bottom: 40px; border: 1px solid #e2e8f0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 50px;">
             <div>
                 <label class="s-label">Carrier Reference</label>
                 <input type="text" id="booking-ref" class="input-simple" value="37724937" style="font-weight: 800; color: var(--primary);">
@@ -79,7 +172,7 @@ include $path_prefix . 'includes/header.php';
         </div>
 
         <!-- 4. Locations & Addresses -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; margin-bottom: 40px;">
             <div>
                 <div class="section-title" style="font-size: 10px;"><i class="fa-solid fa-truck-pickup"></i> Export Empty Pick-up</div>
                 <textarea class="input-simple" style="height: 100px; font-weight: 700; font-size: 10px; line-height: 1.6;">TRANSWORLD TERMINALS
@@ -245,28 +338,28 @@ APSEZ-CT2, MUNDRA, GUJARAT 370421</textarea>
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const rawData = localStorage.getItem('currentFactoryJob');
-    if (!rawData) {
-        Swal.fire('Session Expired', 'Job metadata not found.', 'warning').then(() => {
-            window.location.href = 'job-create.php';
-        });
-        return;
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const rawData = localStorage.getItem('currentFactoryJob');
+        if (!rawData) {
+            Swal.fire('Session Expired', 'Job metadata not found.', 'warning').then(() => {
+                window.location.href = 'job-create.php';
+            });
+            return;
+        }
 
-    const job = JSON.parse(rawData);
-    
-    // Header Sync
-    document.getElementById('vessel-disp').value = `${job.vesselName || 'TBD'} / ${job.voyageNo || 'TBD'}`;
-    if (job.bookingNo && job.bookingNo !== 'TBD') {
-        document.getElementById('booking-ref').value = job.bookingNo;
-    }
+        const job = JSON.parse(rawData);
 
-    // Tracking Table Hydration
-    const tbody = document.getElementById('tracking-body');
-    if (job.items && job.items.length > 0) {
-        job.items.forEach((item, idx) => {
-            const row = `
+        // Header Sync
+        document.getElementById('vessel-disp').value = `${job.vesselName || 'TBD'} / ${job.voyageNo || 'TBD'}`;
+        if (job.bookingNo && job.bookingNo !== 'TBD') {
+            document.getElementById('booking-ref').value = job.bookingNo;
+        }
+
+        // Tracking Table Hydration
+        const tbody = document.getElementById('tracking-body');
+        if (job.items && job.items.length > 0) {
+            job.items.forEach((item, idx) => {
+                const row = `
                 <tr style="border-bottom: 1px solid #cbd5e1;">
                     <td align="center" style="padding: 10px; border-right: 1px solid #cbd5e1; font-weight: 800; color: #94a3b8;">${(idx+1).toString().padStart(2, '0')}</td>
                     <td style="padding: 10px; border-right: 1px solid #cbd5e1; font-weight: 600;">${item.desc || 'N/A'}</td>
@@ -287,22 +380,22 @@ document.addEventListener('DOMContentLoaded', () => {
                         <input type="text" class="input-simple" placeholder="ADD Remark..." style="border:none; background: transparent; padding: 0;">
                     </td>
                 </tr>`;
-            tbody.insertAdjacentHTML('beforeend', row);
-        });
-    } else {
-        tbody.innerHTML = '<tr><td colspan="11" align="center" style="padding: 30px; color: #94a3b8; font-weight: 800;">NO CONTAINER RECORDS DETECTED</td></tr>';
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+        } else {
+            tbody.innerHTML = '<tr><td colspan="11" align="center" style="padding: 30px; color: #94a3b8; font-weight: 800;">NO CONTAINER RECORDS DETECTED</td></tr>';
+        }
+    });
+
+    function toggleTransport(show) {
+        const details = document.getElementById('transport-details');
+        details.style.display = show ? 'grid' : 'none';
     }
-});
 
-function toggleTransport(show) {
-    const details = document.getElementById('transport-details');
-    details.style.display = show ? 'grid' : 'none';
-}
-
-function addRoutingRow() {
-    const tbody = document.getElementById('routing-registry');
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
+    function addRoutingRow() {
+        const tbody = document.getElementById('routing-registry');
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
         <td><input type="text" class="input-simple" placeholder="PORT/CITY"></td>
         <td><input type="text" class="input-simple" placeholder="PORT/CITY"></td>
         <td><input type="text" class="input-simple" placeholder="VESSEL/ROTATION"></td>
@@ -310,33 +403,33 @@ function addRoutingRow() {
         <td><input type="date" class="input-simple"></td>
         <td align="center"><i class="fa-solid fa-trash-can" style="color: #ef4444; cursor: pointer; font-size: 13px;" onclick="this.closest('tr').remove()"></i></td>
     `;
-    tbody.appendChild(tr);
-}
+        tbody.appendChild(tr);
+    }
 
-function addDeadlineRow() {
-    const tbody = document.getElementById('deadline-registry');
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
+    function addDeadlineRow() {
+        const tbody = document.getElementById('deadline-registry');
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
         <td><input type="text" class="input-simple" placeholder="TYPE"></td>
         <td><input type="text" class="input-simple" placeholder="LOCATION"></td>
         <td><input type="datetime-local" class="input-simple"></td>
         <td><input type="text" class="input-simple" placeholder="ACTION"></td>
         <td align="center"><i class="fa-solid fa-trash-can" style="color: #ef4444; cursor: pointer; font-size: 13px;" onclick="this.closest('tr').remove()"></i></td>
     `;
-    tbody.appendChild(tr);
-}
+        tbody.appendChild(tr);
+    }
 
-function submitBooking() {
-    Swal.fire({
-        title: 'Booking Synchronized!',
-        text: 'All routing and container metadata has been locked. Moving to Gate-in Verification.',
-        icon: 'success',
-        confirmButtonColor: '#000',
-        confirmButtonText: 'Proceed to Terminal'
-    }).then(() => {
-        window.location.href = 'gate-in.php';
-    });
-}
+    function submitBooking() {
+        Swal.fire({
+            title: 'Booking Synchronized!',
+            text: 'All routing and container metadata has been locked. Moving to Gate-in Verification.',
+            icon: 'success',
+            confirmButtonColor: '#000',
+            confirmButtonText: 'Proceed to Terminal'
+        }).then(() => {
+            window.location.href = 'gate-in.php';
+        });
+    }
 </script>
 
 <?php include $path_prefix . 'includes/footer.php'; ?>

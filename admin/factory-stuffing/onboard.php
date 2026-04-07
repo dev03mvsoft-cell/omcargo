@@ -6,27 +6,141 @@ include $path_prefix . 'includes/header.php';
 <?php include $path_prefix . 'includes/sidebar.php'; ?>
 
 <style>
-    .onboard-hub { padding: 40px; background: #fff; }
-    
+    .onboard-hub {
+        padding: 40px;
+        background: #fff;
+    }
+
     /* Minimalist Stepper */
-    .minimal-stepper { display: flex; gap: 40px; margin-bottom: 50px; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; }
-    .m-step { font-size: 11px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 15px; }
-    .m-step.completed { color: #059669; }
-    .m-step.active { color: var(--primary); }
-    .m-step.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--primary); }
+    .minimal-stepper {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 50px;
+        border-bottom: 1px solid #f1f5f9;
+        padding-bottom: 15px;
+    }
 
-    .s-label { font-size: 10px; font-weight: 900; color: #94a3b8; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-    .input-simple { width: 100%; border: 1px solid #e2e8f0; border-radius: 6px; padding: 14px 18px; font-size: 13px; font-weight: 700; color: #1e293b; background: #fcfdfe; transition: all 0.3s; }
-    .input-simple:focus { border-color: var(--primary); outline: none; background: #fff; box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.05); }
+    .m-step {
+        font-size: 11px;
+        font-weight: 800;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        padding-bottom: 15px;
+    }
 
-    .section-title { font-size: 11px; font-weight: 950; color: #1e293b; text-transform: uppercase; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
-    .section-title::before { content: ''; width: 3px; height: 14px; background: #059669; border-radius: 10px; }
+    .m-step.completed {
+        color: #059669;
+    }
 
-    .doc-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 10px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
-    .doc-table th { padding: 15px; background: #f8fafc; font-size: 10px; font-weight: 800; color: #475569; text-transform: uppercase; text-align: left; border-bottom: 2px solid #e2e8f0; }
-    .doc-table td { padding: 18px 15px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; font-size: 12px; font-weight: 700; color: #1e293b; }
+    .m-step.active {
+        color: var(--primary);
+    }
 
-    .btn-upload { cursor: pointer; color: #2563eb; font-size: 12px; background: #eff6ff; padding: 10px 20px; border-radius: 6px; font-weight: 900; display: inline-flex; align-items: center; gap: 10px; transition: all 0.2s; border: 1px solid #dbeafe; }
+    .m-step.active::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+    }
+
+    .s-label {
+        font-size: 10px;
+        font-weight: 900;
+        color: #94a3b8;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .input-simple {
+        width: 100%;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        padding: 14px 18px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #1e293b;
+        background: #fcfdfe;
+        transition: all 0.3s;
+    }
+
+    .input-simple:focus {
+        border-color: var(--primary);
+        outline: none;
+        background: #fff;
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.05);
+    }
+
+    .section-title {
+        font-size: 11px;
+        font-weight: 950;
+        color: #1e293b;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .section-title::before {
+        content: '';
+        width: 3px;
+        height: 14px;
+        background: #059669;
+        border-radius: 10px;
+    }
+
+    .doc-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 10px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .doc-table th {
+        padding: 15px;
+        background: #f8fafc;
+        font-size: 10px;
+        font-weight: 800;
+        color: #475569;
+        text-transform: uppercase;
+        text-align: left;
+        border-bottom: 2px solid #e2e8f0;
+    }
+
+    .doc-table td {
+        padding: 18px 15px;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+        font-size: 12px;
+        font-weight: 700;
+        color: #1e293b;
+    }
+
+    .btn-upload {
+        cursor: pointer;
+        color: #2563eb;
+        font-size: 12px;
+        background: #eff6ff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: 900;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.2s;
+        border: 1px solid #dbeafe;
+    }
 </style>
 
 <main class="main-area">
@@ -40,7 +154,7 @@ include $path_prefix . 'includes/header.php';
         </div>
         <div style="display: flex; gap: 15px;">
             <button onclick="window.history.back()" class="btn" style="background:#fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 800;">EDIT ARRIVAL</button>
-            <button onclick="finishShipment()" class="btn" style="background: #000; color: #fff; padding: 12px 35px; font-size: 11px; font-weight: 800; border-radius: 6px;">COMPLETE SHIPMENT</button>
+            <button onclick="finishShipment()" class="btn" style="background: var(--primary); color: #fff; padding: 12px 35px; font-size: 11px; font-weight: 800; border-radius: 6px;">COMPLETE SHIPMENT</button>
         </div>
     </header>
 
@@ -125,23 +239,23 @@ include $path_prefix . 'includes/header.php';
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const rawData = localStorage.getItem('currentFactoryJob');
-    if (rawData) {
-        const job = JSON.parse(rawData);
-        document.getElementById('vessel-name').value = job.vesselName || '';
-        document.getElementById('voyage-no').value = job.voyageNo || '';
-        document.getElementById('disp-job-meta').innerText = `STAGE 05 • JOB ID: ${job.jobId} • LOGISTICS SYNCED`;
-    }
-});
+    document.addEventListener('DOMContentLoaded', () => {
+        const rawData = localStorage.getItem('currentFactoryJob');
+        if (rawData) {
+            const job = JSON.parse(rawData);
+            document.getElementById('vessel-name').value = job.vesselName || '';
+            document.getElementById('voyage-no').value = job.voyageNo || '';
+            document.getElementById('disp-job-meta').innerText = `STAGE 05 • JOB ID: ${job.jobId} • LOGISTICS SYNCED`;
+        }
+    });
 
-let dCount = 2;
+    let dCount = 2;
 
-function addDoc() {
-    dCount++;
-    const target = document.getElementById('doc-registry');
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
+    function addDoc() {
+        dCount++;
+        const target = document.getElementById('doc-registry');
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
         <td style="font-size: 12px; font-weight: 900; color: #94a3b8; text-align: center;">${dCount < 10 ? '0' + dCount : dCount}</td>
         <td><input type="text" class="input-simple" placeholder="E.G. CUSTOMS RELEASE" style="font-weight: 900; border: none; background: transparent; padding: 5px;"></td>
         <td>
@@ -155,20 +269,20 @@ function addDoc() {
         </td>
         <td align="center"><i class="fa-solid fa-trash-can" style="color: #fca5a5; cursor: pointer; font-size: 16px;" onclick="this.closest('tr').remove()"></i></td>
     `;
-    target.appendChild(tr);
-}
+        target.appendChild(tr);
+    }
 
-function finishShipment() {
-    Swal.fire({
-        title: 'Shipment Successfully On-Board',
-        text: 'The Factory Stuffing operational lifecycle is now completed and archived in the logistics hub.',
-        icon: 'success',
-        confirmButtonColor: '#000',
-        confirmButtonText: 'Archive & Close'
-    }).then(() => {
-        window.location.href = '../work-assignment.php';
-    });
-}
+    function finishShipment() {
+        Swal.fire({
+            title: 'Shipment Successfully On-Board',
+            text: 'The Factory Stuffing operational lifecycle is now completed and archived in the logistics hub.',
+            icon: 'success',
+            confirmButtonColor: '#000',
+            confirmButtonText: 'Archive & Close'
+        }).then(() => {
+            window.location.href = '../work-assignment.php';
+        });
+    }
 </script>
 
 <?php include $path_prefix . 'includes/footer.php'; ?>

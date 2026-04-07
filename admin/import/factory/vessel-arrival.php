@@ -93,37 +93,39 @@ include $path_prefix . 'includes/header.php';
                     <button type="button" class="btn" style="background: #f1f5f9; color: var(--primary); font-size: 13px; font-weight: 600; padding: 8px 15px; border-radius: 6px; border: 1px solid #e2e8f0; cursor: pointer;"><i class="fa-solid fa-plus"></i> ADD CONTAINER</button>
                 </div>
                 
-                <div class="card" style="border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;">
-                    <table class="table" style="width: 100%; border-collapse: collapse;">
+                <div class="card" style="padding: 25px; overflow-x: auto;">
+                    <table class="classic-table" style="border-collapse: separate; border-spacing: 0;">
                         <thead>
-                            <tr style="background: #f8fafc; border-bottom: 1px solid var(--border); text-align: left;">
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">S.No</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Container No</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Type / Size</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Expected Seal</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Status</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Action</th>
+                            <tr>
+                                <th width="60">S.No</th>
+                                <th width="180">Container No</th>
+                                <th>Type / Size</th>
+                                <th>Expected Seal</th>
+                                <th>Status</th>
+                                <th width="120" style="text-align: center;">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 18px 16px; font-size: 14px; font-weight: 500; color: var(--text-muted);">01</td>
-                                <td style="padding: 18px 16px;">
-                                    <input type="text" value="MAEU4430910" class="form-input" style="font-weight: 500; font-size: 14px; color: var(--primary); padding: 10px 14px; background: #fff; border: 1px solid var(--border); border-radius: 6px;">
+                            <tr>
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" value="01" class="data-input" readonly>
                                 </td>
-                                <td style="padding: 18px 16px;">
-                                    <select class="form-input" style="font-weight: 400; font-size: 14px; padding: 10px 14px; background: #fff; border: 1px solid var(--border); border-radius: 6px;">
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" value="MAEU4430910" class="data-input" style="font-weight: 500; color: var(--primary);">
+                                </td>
+                                <td style="border: 2px solid #000;">
+                                    <select class="data-input" style="font-weight: 400; background: transparent;">
                                         <option>40FT HIGH CUBE</option>
                                         <option>20FT STANDARD</option>
                                     </select>
                                 </td>
-                                <td style="padding: 18px 16px;">
-                                    <input type="text" value="MSK-90041" class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 0; background: transparent;">
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" value="MSK-90041" class="data-input" style="font-weight: 400; background: transparent;">
                                 </td>
-                                <td style="padding: 18px 16px;">
-                                    <span style="font-size: 9px; font-weight: 600; color: #10b981; background: #f0fdf4; padding: 4px 10px; border-radius: 4px; border: 1px solid #bbf7d0;">DISCHARGED</span>
+                                <td style="border: 2px solid #000;">
+                                    <span style="font-size: 10px; font-weight: 800; color: #10b981;">DISCHARGED</span>
                                 </td>
-                                <td style="padding: 18px 16px; text-align: center;">
+                                <td align="center" style="border: 2px solid #000;">
                                     <button type="button" style="background: transparent; border: none; cursor: pointer;">
                                         <i class="fa-solid fa-trash-can" style="color: #ef4444; font-size: 14px;"></i>
                                     </button>

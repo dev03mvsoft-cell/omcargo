@@ -6,14 +6,68 @@ include '../includes/header.php';
 <?php include '../includes/sidebar.php'; ?>
 
 <style>
-    :root { --p-x: 30px; }
-    @media (max-width: 768px) { :root { --p-x: 15px; } }
-    .main-area { background: #f8fafc; min-height: 100vh; }
-    .form-section { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 30px; margin-bottom: 30px; }
-    .form-label { display: block; font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px; }
-    .form-control { width: 100%; padding: 12px 15px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 13px; font-weight: 700; color: #01172a; outline: none; transition: all 0.2s; background: #fff; }
-    .form-control:focus { border-color: #000; box-shadow: 0 0 0 3px rgba(0,0,0,0.03); }
-    .btn-save { background: #000; color: #fff; border: none; font-size: 12px; font-weight: 850; padding: 12px 30px; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+    :root {
+        --p-x: 30px;
+    }
+
+    @media (max-width: 768px) {
+        :root {
+            --p-x: 15px;
+        }
+    }
+
+    .main-area {
+        background: #f8fafc;
+        min-height: 100vh;
+    }
+
+    .form-section {
+        background: #fff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+
+    .form-label {
+        display: block;
+        font-size: 11px;
+        font-weight: 800;
+        color: #64748b;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        letter-spacing: 0.5px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #01172a;
+        outline: none;
+        transition: all 0.2s;
+        background: #fff;
+    }
+
+    .form-control:focus {
+        border-color: #000;
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
+    }
+
+    .btn-save {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        font-size: 12px;
+        font-weight: 850;
+        padding: 12px 30px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
 </style>
 
 <main class="main-area">
@@ -35,7 +89,7 @@ include '../includes/header.php';
                 <div>
                     <div class="form-section">
                         <h3 style="font-size: 14px; font-weight: 900; color: #01172a; margin: 0 0 25px 0; border-bottom: 1.5px solid #f1f5f9; padding-bottom: 15px;">Transport Identification</h3>
-                        
+
                         <div style="display: grid; grid-template-columns: 1fr; gap: 25px;">
                             <div class="form-group">
                                 <label class="form-label">Transport Company Name</label>

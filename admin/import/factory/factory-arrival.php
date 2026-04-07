@@ -49,47 +49,47 @@ include $path_prefix . 'includes/header.php';
                     <button type="button" onclick="addContainerRow()" class="btn" style="background: #f1f5f9; color: var(--primary); font-size: 13px; font-weight: 600; padding: 8px 15px; border-radius: 6px; border: 1px solid #e2e8f0; cursor: pointer;"><i class="fa-solid fa-plus"></i> ADD CONTAINER</button>
                 </div>
 
-                <div class="card" style="border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;">
-                    <table class="table" id="arrival-container-table" style="width: 100%; border-collapse: collapse;">
+                <div class="card" style="padding: 25px; overflow-x: auto;">
+                    <table class="classic-table" id="arrival-container-table">
                         <thead>
-                            <tr style="background: #f8fafc; border-bottom: 1px solid var(--border); text-align: left;">
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Container ID</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Truck / Trailer</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Seal No</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Arrival Time</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Seal Status</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Remarks</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Gross Weight</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Evidence</th>
+                            <tr>
+                                <th>Container ID</th>
+                                <th>Truck / Trailer</th>
+                                <th>Seal No</th>
+                                <th>Arrival Time</th>
+                                <th>Seal Status</th>
+                                <th>Remarks</th>
+                                <th>Gross Weight</th>
+                                <th style="text-align: center;">Evidence</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 18px 16px;">
-                                    <div style="font-weight: 500; font-size: 14px; color: var(--primary);">MAEU4430910</div>
+                            <tr>
+                                <td style="border: 2px solid #000;">
+                                    <div style="font-weight: 500; font-size: 14px; color: var(--primary); text-align: center;">MAEU4430910</div>
                                 </td>
-                                <td style="padding: 18px 16px;">
-                                    <div style="font-weight: 500; font-size: 14px; color: #1e293b;">OM-TR-4550</div>
+                                <td style="border: 2px solid #000;">
+                                    <div style="font-weight: 500; font-size: 14px; color: #1e293b; text-align: center;">OM-TR-4550</div>
                                 </td>
-                                <td style="padding: 18px 16px;">
-                                    <input type="text" value="MSK-90041-A" class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff;">
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" value="MSK-90041-A" class="data-input" style="font-weight: 400; background: transparent;">
                                 </td>
-                                <td style="padding: 18px 16px;">
-                                    <input type="datetime-local" class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff;">
+                                <td style="border: 2px solid #000;">
+                                    <input type="datetime-local" class="data-input" style="font-weight: 400; font-size: 11px; background: transparent;">
                                 </td>
-                                <td style="padding: 18px 16px;">
-                                    <select class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff;">
+                                <td style="border: 2px solid #000;">
+                                    <select class="data-input" style="font-weight: 400; background: transparent;">
                                         <option>INTACT</option>
                                         <option>BROKEN</option>
                                     </select>
                                 </td>
-                                <td style="padding: 18px 16px;">
-                                    <input type="text" placeholder="Entry remarks..." class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff;">
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" placeholder="Entry remarks..." class="data-input" style="font-weight: 400; background: transparent;">
                                 </td>
-                                <td style="padding: 18px 16px;">
-                                    <div style="font-weight: 500; font-size: 14px; color: #1e293b;">45200 <span style="font-size: 9px; color: #94a3b8;">KGS</span></div>
+                                <td style="border: 2px solid #000;">
+                                    <div style="font-weight: 500; font-size: 14px; color: #1e293b; text-align: center;">45200 <span style="font-size: 9px; color: #94a3b8;">KGS</span></div>
                                 </td>
-                                <td style="padding: 18px 16px; text-align: center;">
+                                <td align="center" style="border: 2px solid #000;">
                                     <i class="fa-solid fa-camera" style="color: var(--primary); cursor: pointer; font-size: 14px;"></i>
                                 </td>
                             </tr>
@@ -105,39 +105,39 @@ include $path_prefix . 'includes/header.php';
                     <button type="button" onclick="addEvidenceRow()" class="btn" style="background: #f1f5f9; color: var(--primary); font-size: 13px; font-weight: 600; padding: 8px 15px; border-radius: 6px; border: 1px solid #e2e8f0; cursor: pointer;"><i class="fa-solid fa-plus"></i> ADD NEW DOC</button>
                 </div>
                 
-                <div class="card" style="border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;">
-                    <table class="table" id="arrival-evidence-table" style="width: 100%; border-collapse: collapse;">
+                <div class="card" style="padding: 25px; overflow-x: auto;">
+                    <table class="classic-table" id="arrival-evidence-table">
                         <thead>
-                            <tr style="background: #f8fafc; border-bottom: 1px solid var(--border); text-align: left;">
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Evidence Name</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Upload Remark / Notes</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Action</th>
+                            <tr>
+                                <th>Evidence Name</th>
+                                <th width="400">Upload Remark / Notes</th>
+                                <th width="150" style="text-align: center;">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 15px 16px;">
-                                    <input type="text" value="Container Seal Photo" class="form-input" style="font-weight: 500; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff; color: var(--primary);">
+                            <tr>
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" value="Container Seal Photo" class="data-input" style="font-weight: 500; color: var(--primary);">
                                 </td>
-                                <td style="padding: 15px 16px;">
-                                    <input type="text" placeholder="Enter condition remarks..." class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff;">
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" placeholder="Enter condition remarks..." class="data-input">
                                 </td>
-                                <td style="padding: 15px 16px; text-align: center;">
-                                    <button type="button" onclick="this.nextElementSibling.click()" style="background: var(--primary-light); color: var(--primary); border: 1.5px dashed var(--primary); padding: 5px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;">
+                                <td align="center" style="border: 2px solid #000;">
+                                    <button type="button" onclick="this.nextElementSibling.click()" style="background: #f0f9ff; color: #0369a1; border: 1.5px dashed #bae6fd; padding: 5px 12px; border-radius: 6px; font-size: 10px; font-weight: 700; cursor: pointer;">
                                         <i class="fa-solid fa-cloud-arrow-up"></i> UPLOAD
                                     </button>
                                     <input type="file" hidden>
                                 </td>
                             </tr>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 15px 16px;">
-                                    <input type="text" value="Gate-In Slip" class="form-input" style="font-weight: 500; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff; color: var(--primary);">
+                            <tr>
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" value="Gate-In Slip" class="data-input" style="font-weight: 500; color: var(--primary);">
                                 </td>
-                                <td style="padding: 15px 16px;">
-                                    <input type="text" placeholder="Enter slip reference..." class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff;">
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" placeholder="Enter slip reference..." class="data-input">
                                 </td>
-                                <td style="padding: 15px 16px; text-align: center;">
-                                    <button type="button" style="background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;">
+                                <td align="center" style="border: 2px solid #000;">
+                                    <button type="button" style="background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 10px; font-weight: 700; cursor: pointer;">
                                         <i class="fa-solid fa-paperclip"></i> ATTACH
                                     </button>
                                 </td>
@@ -163,16 +163,15 @@ include $path_prefix . 'includes/header.php';
 function addEvidenceRow() {
     const tbody = document.querySelector('#arrival-evidence-table tbody');
     const newRow = document.createElement('tr');
-    newRow.style.borderBottom = '1px solid var(--border)';
     newRow.innerHTML = `
-        <td style="padding: 15px 16px;">
-            <input type="text" placeholder="Enter doc name..." class="form-input" style="font-weight: 500; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff; color: var(--primary);">
+        <td style="border: 2px solid #000;">
+            <input type="text" placeholder="Enter doc name..." class="data-input" style="font-weight: 500; color: var(--primary);">
         </td>
-        <td style="padding: 15px 16px;">
-            <input type="text" placeholder="Enter upload remark..." class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff;">
+        <td style="border: 2px solid #000;">
+            <input type="text" placeholder="Enter upload remark..." class="data-input">
         </td>
-        <td style="padding: 15px 16px; text-align: center;">
-            <button type="button" onclick="this.nextElementSibling.click()" style="background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;">
+        <td align="center" style="border: 2px solid #000;">
+            <button type="button" onclick="this.nextElementSibling.click()" style="background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 10px; font-weight: 700; cursor: pointer;">
                 <i class="fa-solid fa-paperclip"></i> ATTACH
             </button>
             <input type="file" hidden>
@@ -184,36 +183,35 @@ function addEvidenceRow() {
 function addContainerRow() {
     const tbody = document.querySelector('#arrival-container-table tbody');
     const newRow = document.createElement('tr');
-    newRow.style.borderBottom = '1px solid var(--border)';
     newRow.innerHTML = `
-        <td style="padding: 18px 16px;">
-            <input type="text" placeholder="NEW-CONT-ID" class="form-input" style="font-weight: 500; font-size: 14px; color: var(--primary); border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff;">
+        <td style="border: 2px solid #000;">
+            <input type="text" placeholder="NEW-CONT-ID" class="data-input" style="font-weight: 500; color: var(--primary);">
         </td>
-        <td style="padding: 18px 16px;">
-            <input type="text" placeholder="TRUCK-NO" class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff;">
+        <td style="border: 2px solid #000;">
+            <input type="text" placeholder="TRUCK-NO" class="data-input">
         </td>
-        <td style="padding: 18px 16px;">
-            <input type="text" placeholder="SEAL-NO" class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; background: #fff;">
+        <td style="border: 2px solid #000;">
+            <input type="text" placeholder="SEAL-NO" class="data-input">
         </td>
-        <td style="padding: 18px 16px;">
-            <input type="datetime-local" class="form-input" style="font-weight: 400; font-size: 11px; border: none; padding: 0; background: transparent;">
+        <td style="border: 2px solid #000;">
+            <input type="datetime-local" class="data-input" style="font-weight: 400; font-size: 11px;">
         </td>
-        <td style="padding: 18px 16px;">
-            <select class="form-input" style="font-weight: 400; font-size: 11px; border: none; padding: 0; background: transparent;">
+        <td style="border: 2px solid #000;">
+            <select class="data-input" style="font-weight: 400;">
                 <option>INTACT</option>
                 <option>BROKEN</option>
             </select>
         </td>
-        <td style="padding: 18px 16px;">
-            <input type="text" placeholder="Remarks..." class="form-input" style="font-weight: 400; font-size: 14px; border: 1px solid var(--border); padding: 10px 14px; border-radius: 6px; background: #fff;">
+        <td style="border: 2px solid #000;">
+            <input type="text" placeholder="Remarks..." class="data-input">
         </td>
-        <td style="padding: 18px 16px;">
+        <td style="border: 2px solid #000;">
             <div style="display: flex; align-items: center; gap: 4px;">
-                <input type="number" placeholder="45000" class="form-input" style="font-weight: 500; font-size: 14px; border: 1px solid var(--border); padding: 10px 14px; border-radius: 6px; background: #fff; width: 80px;">
-                <span style="font-size: 13px; color: #94a3b8;">KGS</span>
+                <input type="number" placeholder="45000" class="data-input" style="width: 80px;">
+                <span style="font-size: 10px; font-weight: 800; color: #94a3b8;">KGS</span>
             </div>
         </td>
-        <td style="padding: 18px 16px; text-align: center;">
+        <td align="center" style="border: 2px solid #000;">
             <i class="fa-solid fa-camera" style="color: var(--primary); cursor: pointer; font-size: 14px;"></i>
         </td>
     `;

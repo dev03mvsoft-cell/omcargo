@@ -289,16 +289,12 @@ include $path_prefix . 'includes/header.php';
             }
         ],
         import: [{
-                val: 'factory_stuffing',
-                text: 'FACTORY STUFFING'
+                val: 'factory_import',
+                text: 'FACTORY IMPORT'
             },
             {
-                val: 'dock_stuffing',
-                text: 'DOCK STUFFING'
-            },
-            {
-                val: 'de_stuffing',
-                text: 'DE-STUFFING'
+                val: 'dock_import',
+                text: 'DOCK IMPORT'
             }
         ]
     };
@@ -325,9 +321,12 @@ include $path_prefix . 'includes/header.php';
         const mod = document.getElementById('modality-select').value;
         const protocol = document.getElementById('protocol-select').value;
 
-        // If user switches away from Factory Stuffing on this specialized page, redirect to main creator
-        if (protocol !== 'factory_stuffing') {
-            window.location.href = '../job-create.php';
+        if (mod === 'export') {
+            if (protocol !== 'factory_stuffing') {
+                window.location.href = '../job-create.php';
+            }
+        } else if (mod === 'import') {
+            window.location.href = '../import/job-create.php';
         }
     }
 

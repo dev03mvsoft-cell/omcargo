@@ -24,12 +24,49 @@ $transport = [
 <?php include '../includes/sidebar.php'; ?>
 
 <style>
-    :root { --p-x: 30px; }
-    @media (max-width: 768px) { :root { --p-x: 15px; } }
-    .main-area { background: #f8fafc; min-height: 100vh; }
-    .profile-card { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 30px; margin-bottom: 30px; }
-    .stat-box { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 15px; text-align: center; }
-    .label-pill { font-size: 10px; font-weight: 850; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; background: #f1f5f9; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    :root {
+        --p-x: 30px;
+    }
+
+    @media (max-width: 768px) {
+        :root {
+            --p-x: 15px;
+        }
+    }
+
+    .main-area {
+        background: #f8fafc;
+        min-height: 100vh;
+    }
+
+    .profile-card {
+        background: #fff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+
+    .stat-box {
+        background: #f8fafc;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .label-pill {
+        font-size: 10px;
+        font-weight: 850;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: #f1f5f9;
+        padding: 4px 10px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
 </style>
 
 <main class="main-area">
@@ -44,7 +81,7 @@ $transport = [
             </div>
         </div>
         <div style="display: flex; gap: 12px; align-items: center;">
-            <a href="edit.php" class="btn" style="background: #000; color: #fff; font-size: 13px; font-weight: 850; padding: 12px 30px; border-radius: 8px; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+            <a href="edit.php" class="btn" style="background: var(--primary);  color: #fff; font-size: 13px; font-weight: 850; padding: 12px 30px; border-radius: 8px; text-decoration: none; display: flex; align-items: center; gap: 8px;">
                 <i class="fa-solid fa-pen-to-square"></i> CONFIGURE PARTNER
             </a>
         </div>
@@ -56,7 +93,7 @@ $transport = [
                 <!-- Primary Profile -->
                 <div class="profile-card">
                     <h3 style="font-size: 15px; font-weight: 950; color: #01172a; margin: 0 0 25px 0; border-bottom: 1px dashed #e2e8f0; padding-bottom: 15px;">Corporate Node Analysis</h3>
-                    
+
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
                         <div>
                             <span class="label-pill">Primary Contact Gateway</span>
@@ -99,17 +136,17 @@ $transport = [
                 <div class="profile-card">
                     <h3 style="font-size: 15px; font-weight: 950; color: #01172a; margin: 0 0 20px 0;">Fleet Operational Logs</h3>
                     <div style="display: flex; flex-direction: column; gap: 1px; background: #e2e8f0; border: 1.5px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
-                        <?php for($i=1; $i<=4; $i++): ?>
-                        <div style="background: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;">
-                            <div>
-                                <p style="font-size: 11px; font-weight: 850; color: #1e293b; margin: 0;">#<?php echo rand(10000, 99999); ?> • JOB ASSIGNMENT</p>
-                                <p style="font-size: 9px; font-weight: 800; color: #94a3b8; margin: 4px 0 0 0;">SEA EXPORT / CONTAINER STUFFING</p>
+                        <?php for ($i = 1; $i <= 4; $i++): ?>
+                            <div style="background: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <p style="font-size: 11px; font-weight: 850; color: #1e293b; margin: 0;">#<?php echo rand(10000, 99999); ?> • JOB ASSIGNMENT</p>
+                                    <p style="font-size: 9px; font-weight: 800; color: #94a3b8; margin: 4px 0 0 0;">SEA EXPORT / CONTAINER STUFFING</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span style="font-size: 9px; font-weight: 900; color: #10b981; text-transform: uppercase;">DELIVERED</span>
+                                    <p style="font-size: 9px; font-weight: 700; color: #64748b; margin: 4px 0 0 0;">16 MAY 2026</p>
+                                </div>
                             </div>
-                            <div style="text-align: right;">
-                                <span style="font-size: 9px; font-weight: 900; color: #10b981; text-transform: uppercase;">DELIVERED</span>
-                                <p style="font-size: 9px; font-weight: 700; color: #64748b; margin: 4px 0 0 0;">16 MAY 2026</p>
-                            </div>
-                        </div>
                         <?php endfor; ?>
                     </div>
                 </div>

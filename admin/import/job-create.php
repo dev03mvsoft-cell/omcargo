@@ -37,15 +37,15 @@ include $path_prefix . 'includes/header.php';
                         </select>
                     </div>
                     <div class="form-group"><label>Modality</label>
-                        <select class="form-input" style="font-weight: 100;">
-                            <option>IMPORT</option>
-                            <option>EXPORT</option>
+                        <select id="modality-select" class="form-input" style="font-weight: 100;" onchange="updateProtocol()">
+                            <option value="import">IMPORT</option>
+                            <option value="export">EXPORT</option>
                         </select>
                     </div>
                     <div class="form-group"><label>Operational Protocol</label>
-                        <select class="form-input" style="font-weight: 100;">
-                            <option>DOCK IMPORT</option>
-                            <option>FACTORY IMPORT</option>
+                        <select id="protocol-select" class="form-input" style="font-weight: 100;" onchange="handleProtocolChange()">
+                            <option value="dock_import">DOCK IMPORT</option>
+                            <option value="factory_import">FACTORY IMPORT</option>
                         </select>
                     </div>
                 </div>
@@ -122,19 +122,19 @@ Mail: bpspices@yahoo.com</textarea>
                 </div>
 
                 <div style="overflow-x: auto; border: 1px solid #e2e8f0; border-radius: 8px;">
-                    <table style="width: 100%; border-collapse: collapse; min-width: 3000px; text-align: center;">
-                        <thead style="background: #f8fafc; border-bottom: 1px solid #e2e8f0;">
-                            <tr>
-                                <th width="50" style="padding: 12px; font-size: 9px; font-weight: 600; color: #64748b; text-transform: uppercase;">SR.</th>
-                                <th width="180" style="padding: 12px; font-size: 9px; font-weight: 600; color: #64748b; text-transform: uppercase; text-align: left;">CONTAINER NO</th>
-                                <th width="140" style="padding: 12px; font-size: 9px; font-weight: 600; color: #64748b; text-transform: uppercase;">SEAL ID</th>
-                                <th width="120" style="padding: 12px; font-size: 9px; font-weight: 600; color: #64748b; text-transform: uppercase;">TYPE</th>
-                                <th width="350" style="padding: 12px; font-size: 9px; font-weight: 600; color: #64748b; text-transform: uppercase; text-align: left;">DESCRIPTION</th>
-                                <th width="100" style="padding: 12px; font-size: 9px; font-weight: 600; color: #64748b; text-transform: uppercase;">HS CODE</th>
-                                <th width="80" style="padding: 12px; font-size: 9px; font-weight: 600; color: #64748b; text-transform: uppercase;">PKGS</th>
-                                <th width="120" style="padding: 12px; font-size: 9px; font-weight: 600; color: #64748b; text-transform: uppercase;">ACTUAL WT</th>
-                                <th width="150" style="padding: 12px; font-size: 9px; font-weight: 600; color: #64748b; text-transform: uppercase;">AUDIT STATUS</th>
-                                <th width="120" style="padding: 12px; font-size: 9px; font-weight: 600; color: #64748b; text-transform: uppercase;">ACTION</th>
+                    <table class="classic-table" style="min-width: 1400px; border-collapse: separate; border-spacing: 0;">
+                        <thead>
+                            <tr style="font-size: 10px;">
+                                <th width="60" style="position: sticky; left: 0; z-index: 10; background: #fff; border-right: 2px solid #e2e8f0;">Sr.</th>
+                                <th width="180" style="color: #ef4444;">Container No *</th>
+                                <th width="140">Seal ID</th>
+                                <th width="120">Type</th>
+                                <th width="350">Description of Goods</th>
+                                <th width="120">HS Code</th>
+                                <th width="100">PKGS</th>
+                                <th width="150">Actual WT</th>
+                                <th width="150">Audit Status</th>
+                                <th width="80">Action</th>
                             </tr>
                         </thead>
                         <tbody id="manifest-body">
@@ -152,6 +152,45 @@ Mail: bpspices@yahoo.com</textarea>
 </main>
 
 <script>
+    const protocols = {
+        import: [
+            { val: 'dock_import', text: 'DOCK IMPORT' },
+            { val: 'factory_import', text: 'FACTORY IMPORT' }
+        ],
+        export: [
+            { val: 'dock_stuffing', text: 'DOCK STUFFING' },
+            { val: 'factory_stuffing', text: 'FACTORY STUFFING' }
+        ]
+    };
+
+    function updateProtocol() {
+        const mod = document.getElementById('modality-select').value;
+        const target = document.getElementById('protocol-select');
+        if (!target) return;
+
+        target.innerHTML = '';
+        protocols[mod].forEach(p => {
+            const opt = document.createElement('option');
+            opt.value = p.val;
+            opt.text = p.text;
+            if (p.val === 'dock_import') opt.selected = true;
+            target.appendChild(opt);
+        });
+    }
+
+    function handleProtocolChange() {
+        const mod = document.getElementById('modality-select').value;
+        const protocol = document.getElementById('protocol-select').value;
+
+        if (mod === 'export') {
+            if (protocol === 'factory_stuffing') {
+                window.location.href = '../factory-stuffing/job-create.php';
+            } else {
+                window.location.href = '../job-create.php';
+            }
+        }
+    }
+
     let manifestItemCount = 0;
     const mockContainers = [{
             id: 'TEMU8169950',
@@ -243,18 +282,23 @@ Mail: bpspices@yahoo.com</textarea>
             wt: ''
         };
         return `
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-                <td style="padding: 15px; font-weight: 500; color: #94a3b8;">${sNo}</td>
-                <td style="padding: 15px; text-align: left;"><input type="text" name="t_cntr[]" class="form-input" value="${mock.id}" style="border: none; background: transparent; font-weight: 600; color: #2563eb; width: 100%; padding: 0;"></td>
-                <td style="padding: 15px;"><input type="text" name="t_seal[]" class="form-input" value="${mock.seal}" style="border: none; background: transparent; width: 100%; padding: 0; text-align: center;"></td>
-                <td style="padding: 15px; font-size: 11px; color: #64748b;">40FT HC</td>
-                <td style="padding: 15px; text-align: left;"><textarea name="t_desc[]" rows="1" class="form-input" style="border: none; background: transparent; width: 100%; padding: 0; resize: none;">CORIANDER SEEDS</textarea></td>
-                <td style="padding: 15px;"><input type="text" name="t_hsn[]" class="form-input" value="090921" style="border: none; background: transparent; width: 100%; padding: 0; text-align: center;"></td>
-                <td style="padding: 15px;"><input type="text" name="t_pkgs[]" class="form-input" value="${mock.pkgs}" style="border: none; background: transparent; width: 100%; padding: 0; text-align: center;"></td>
-                <td style="padding: 15px;"><input type="text" name="t_wt[]" class="form-input" value="${mock.wt}" style="border: none; background: transparent; font-weight: 600; width: 100%; padding: 0; text-align: center;"></td>
-                <td style="padding: 15px;"><span style="font-size: 10px; font-weight: 600; color: #10b981; background: #ecfdf5; padding: 4px 10px; border-radius: 100px;">SEAL INTACT</span></td>
-                <td style="padding: 15px;">
-                    <button type="button" onclick="removeItem(this)" style="border:none; background:transparent; color:#94a3b8;"><i class="fa-solid fa-trash"></i></button>
+            <tr>
+                <td align="center" style="position: sticky; left: 0; z-index: 5; background: #fff; border-right: 2px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;"><input type="text" class="data-input" value="${sNo}" readonly></td>
+                <td><input type="text" name="t_cntr[]" class="data-input" value="${mock.id}" style="border-bottom: 1px solid #ef4444; color: #2563eb; background: transparent;"></td>
+                <td><input type="text" name="t_seal[]" class="data-input" value="${mock.seal}" style="background: transparent;"></td>
+                <td>
+                    <select name="t_size[]" class="data-input" style="background: transparent;">
+                        <option>20FT STD</option>
+                        <option selected>40FT HC</option>
+                    </select>
+                </td>
+                <td><textarea name="t_desc[]" rows="1" class="data-input" style="text-align: left; font-size: 11px; resize: none;">CORIANDER SEEDS</textarea></td>
+                <td><input type="text" name="t_hsn[]" class="data-input" value="090921"></td>
+                <td><input type="text" name="t_pkgs[]" class="data-input" value="${mock.pkgs}"></td>
+                <td><input type="text" name="t_wt[]" class="data-input" value="${mock.wt}" style="background: transparent; font-weight: 600;"></td>
+                <td align="center"><span style="font-size: 10px; font-weight: 800; color: #10b981;">SEAL INTACT</span></td>
+                <td align="center">
+                    <button type="button" onclick="removeItem(this)" style="border:none; background:transparent; color:#ef4444;"><i class="fa-solid fa-trash"></i></button>
                 </td>
             </tr>`;
     }

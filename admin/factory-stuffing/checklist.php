@@ -135,7 +135,7 @@ include $path_prefix . 'includes/header.php';
         <!-- 2. Checklist Table -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
             <h3 style="font-size: 12px; font-weight: 900; color: #1e293b; text-transform: uppercase;">Required Documents</h3>
-            <button onclick="addItem()" class="btn btn-primary" style="font-size: 10px; padding: 5px 15px;">+ ADD ASSET</button>
+            <button onclick="addItem()" class="btn btn-primary" style="font-size: 15px; padding: 5px 15px;">ADD ASSET</button>
         </div>
 
         <table class="simple-table">

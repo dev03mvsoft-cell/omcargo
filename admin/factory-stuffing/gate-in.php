@@ -6,25 +6,103 @@ include $path_prefix . 'includes/header.php';
 <?php include $path_prefix . 'includes/sidebar.php'; ?>
 
 <style>
-    .gatein-hub { padding: 40px; background: #fff; }
-    
+    .gatein-hub {
+        padding: 40px;
+        background: #fff;
+    }
+
     /* Minimalist Stepper */
-    .minimal-stepper { display: flex; gap: 40px; margin-bottom: 50px; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; }
-    .m-step { font-size: 11px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 15px; }
-    .m-step.completed { color: #059669; }
-    .m-step.active { color: var(--primary); }
-    .m-step.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--primary); }
+    .minimal-stepper {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 50px;
+        border-bottom: 1px solid #f1f5f9;
+        padding-bottom: 15px;
+    }
+
+    .m-step {
+        font-size: 11px;
+        font-weight: 800;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .m-step.completed {
+        color: #059669;
+    }
+
+    .m-step.active {
+        color: var(--primary);
+    }
+
+    .m-step.active::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+    }
 
     /* Modern Simple Table */
-    .simple-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-    .simple-table th { padding: 10px 12px; background: #f8fafc; font-size: 9px; font-weight: 800; color: #475569; text-transform: uppercase; text-align: left; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
-    .simple-table td { padding: 12px 15px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
-    .simple-table tr:hover { background: #fcfdfe; }
-    
-    .input-simple { width: 100%; border: 1px solid #e2e8f0; border-radius: 4px; padding: 8px 10px; font-size: 11px; font-weight: 600; color: #1e293b; background: #fff; }
-    .input-simple:focus { border-color: var(--primary); outline: none; }
-    
-    .section-title { font-size: 11px; font-weight: 900; color: #1e293b; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+    .simple-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+    }
+
+    .simple-table th {
+        padding: 10px 12px;
+        background: #f8fafc;
+        font-size: 9px;
+        font-weight: 800;
+        color: #475569;
+        text-transform: uppercase;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+        white-space: nowrap;
+    }
+
+    .simple-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+    }
+
+    .simple-table tr:hover {
+        background: #fcfdfe;
+    }
+
+    .input-simple {
+        width: 100%;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        padding: 8px 10px;
+        font-size: 11px;
+        font-weight: 600;
+        color: #1e293b;
+        background: #fff;
+    }
+
+    .input-simple:focus {
+        border-color: var(--primary);
+        outline: none;
+    }
+
+    .section-title {
+        font-size: 11px;
+        font-weight: 900;
+        color: #1e293b;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
 </style>
 
 <main class="main-area">
@@ -35,7 +113,7 @@ include $path_prefix . 'includes/header.php';
         </div>
         <div style="display: flex; gap: 15px;">
             <button onclick="window.history.back()" class="btn" style="background:#fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 800;">BACK</button>
-            <button onclick="submitGateIn()" class="btn btn-primary" style="padding: 10px 25px; font-size: 11px; font-weight: 800; background: #000;">SYNC & PROCEED</button>
+            <button onclick="submitGateIn()" class="btn btn-primary" style="padding: 10px 25px; font-size: 11px; font-weight: 800; background: var(--primary);">Save</button>
         </div>
     </header>
 
@@ -96,21 +174,21 @@ include $path_prefix . 'includes/header.php';
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const rawData = localStorage.getItem('currentFactoryJob');
-    if (!rawData) {
-        Swal.fire('Session Expired', 'Job metadata not found.', 'warning').then(() => {
-            window.location.href = 'job-create.php';
-        });
-        return;
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const rawData = localStorage.getItem('currentFactoryJob');
+        if (!rawData) {
+            Swal.fire('Session Expired', 'Job metadata not found.', 'warning').then(() => {
+                window.location.href = 'job-create.php';
+            });
+            return;
+        }
 
-    const job = JSON.parse(rawData);
-    const tbody = document.getElementById('gatein-registry');
-    
-    if (job.items && job.items.length > 0) {
-        job.items.forEach((item, idx) => {
-            const row = `
+        const job = JSON.parse(rawData);
+        const tbody = document.getElementById('gatein-registry');
+
+        if (job.items && job.items.length > 0) {
+            job.items.forEach((item, idx) => {
+                const row = `
                 <tr>
                     <td style="font-size: 10px; font-weight: 800; color: #94a3b8;">${(idx+1).toString().padStart(2, '0')}</td>
                     <td><input type="text" class="input-simple" value="${item.container}" style="font-weight: 800; text-transform: uppercase;"></td>
@@ -129,43 +207,43 @@ document.addEventListener('DOMContentLoaded', () => {
                     </td>
                     <td><input type="text" class="input-simple" placeholder="..."></td>
                 </tr>`;
-            tbody.insertAdjacentHTML('beforeend', row);
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+            updateTerminalTally();
+        } else {
+            tbody.innerHTML = '<tr><td colspan="11" align="center" style="padding: 30px; color: #94a3b8;">NO CONTAINER RECORDS DETECTED</td></tr>';
+        }
+    });
+
+    function updateTerminalTally() {
+        const rows = document.querySelectorAll('#gatein-registry tr');
+        const statuses = document.querySelectorAll('.arrival-status');
+
+        let total = rows.length;
+        let arrived = 0;
+        let pending = 0;
+
+        statuses.forEach(s => {
+            if (s.value === 'yes') arrived++;
+            else pending++;
         });
-        updateTerminalTally();
-    } else {
-        tbody.innerHTML = '<tr><td colspan="11" align="center" style="padding: 30px; color: #94a3b8;">NO CONTAINER RECORDS DETECTED</td></tr>';
+
+        document.getElementById('disp-total').innerText = arrived + ' / ' + total;
+        document.getElementById('disp-arrived').innerText = arrived + ' UNITS';
+        document.getElementById('disp-pending').innerText = pending + ' UNITS';
     }
-});
 
-function updateTerminalTally() {
-    const rows = document.querySelectorAll('#gatein-registry tr');
-    const statuses = document.querySelectorAll('.arrival-status');
-    
-    let total = rows.length;
-    let arrived = 0;
-    let pending = 0;
-
-    statuses.forEach(s => {
-        if (s.value === 'yes') arrived++;
-        else pending++;
-    });
-
-    document.getElementById('disp-total').innerText = arrived + ' / ' + total;
-    document.getElementById('disp-arrived').innerText = arrived + ' UNITS';
-    document.getElementById('disp-pending').innerText = pending + ' UNITS';
-}
-
-function submitGateIn() {
-    Swal.fire({
-        title: 'Gate-In Verified',
-        text: 'Terminal arrival sequence synchronized via Factory Protocol. Moving to Stage 05: On-board.',
-        icon: 'success',
-        confirmButtonColor: '#000',
-        confirmButtonText: 'Next: On-board'
-    }).then(() => {
-        window.location.href = 'onboard.php';
-    });
-}
+    function submitGateIn() {
+        Swal.fire({
+            title: 'Gate-In Verified',
+            text: 'Terminal arrival sequence synchronized via Factory Protocol. Moving to Stage 05: On-board.',
+            icon: 'success',
+            confirmButtonColor: '#000',
+            confirmButtonText: 'Next: On-board'
+        }).then(() => {
+            window.location.href = 'onboard.php';
+        });
+    }
 </script>
 
 <?php include $path_prefix . 'includes/footer.php'; ?>

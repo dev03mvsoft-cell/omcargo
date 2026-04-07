@@ -26,7 +26,7 @@ include 'includes/header.php';
                 <p style="font-size: 9px; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin: 0;">STAGE STATUS</p>
                 <p style="font-size: 10px; color: #ef4444; font-weight: 800; margin: 0;">ACTION REQUIRED</p>
             </div>
-            <button class="btn btn-primary" style="font-size: 11px; font-weight: 800; padding: 8px 24px; background: #000;">NOTIFY AGENT</button>
+            <button class="btn btn-primary" style="font-size: 11px; font-weight: 800; padding: 8px 24px; background: var(--primary); ">NOTIFY AGENT</button>
         </div>
     </header>
 
@@ -53,42 +53,42 @@ include 'includes/header.php';
                     <div style="position: absolute; top: 12px; left: 50%; width: 100%; height: 2px; background: <?php echo $is_factory ? '#10b981' : '#e2e8f0'; ?>; z-index: 1;"></div>
                 </div>
 
-                <?php if($is_factory): ?>
-                <!-- FACTORY SPECIFIC NODES -->
-                <div style="text-align: center; flex: 1; position: relative;">
-                    <div style="width: 24px; height: 24px; background: #ef4444; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 10px; margin: 0 auto 8px; z-index: 2; position: relative;"><i class="fa-solid fa-industry"></i></div>
-                    <span style="font-size: 9px; font-weight: 850; color: #ef4444; text-transform: uppercase;">Factory Stuffing</span>
-                    <div style="position: absolute; top: 12px; left: 50%; width: 100%; height: 2px; background: #e2e8f0; z-index: 1;"></div>
-                </div>
-                <div style="text-align: center; flex: 1; position: relative;">
-                    <div style="width: 24px; height: 24px; background: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 50%; color: #94a3b8; display: flex; align-items: center; justify-content: center; font-size: 10px; margin: 0 auto 8px; z-index: 2; position: relative;">5</div>
-                    <span style="font-size: 9px; font-weight: 850; color: #94a3b8; text-transform: uppercase;">Gate-In (Port)</span>
-                    <div style="position: absolute; top: 12px; left: 50%; width: 100%; height: 2px; background: #e2e8f0; z-index: 1;"></div>
-                </div>
+                <?php if ($is_factory): ?>
+                    <!-- FACTORY SPECIFIC NODES -->
+                    <div style="text-align: center; flex: 1; position: relative;">
+                        <div style="width: 24px; height: 24px; background: #ef4444; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 10px; margin: 0 auto 8px; z-index: 2; position: relative;"><i class="fa-solid fa-industry"></i></div>
+                        <span style="font-size: 9px; font-weight: 850; color: #ef4444; text-transform: uppercase;">Factory Stuffing</span>
+                        <div style="position: absolute; top: 12px; left: 50%; width: 100%; height: 2px; background: #e2e8f0; z-index: 1;"></div>
+                    </div>
+                    <div style="text-align: center; flex: 1; position: relative;">
+                        <div style="width: 24px; height: 24px; background: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 50%; color: #94a3b8; display: flex; align-items: center; justify-content: center; font-size: 10px; margin: 0 auto 8px; z-index: 2; position: relative;">5</div>
+                        <span style="font-size: 9px; font-weight: 850; color: #94a3b8; text-transform: uppercase;">Gate-In (Port)</span>
+                        <div style="position: absolute; top: 12px; left: 50%; width: 100%; height: 2px; background: #e2e8f0; z-index: 1;"></div>
+                    </div>
                 <?php else: ?>
-                <!-- DOCK SPECIFIC NODES (AS REQUESTED) -->
-                <!-- Node 2 (Overwriting Checklist for Dock) -->
-                <script>
-                    // Small hack to fix labels for Dock Flow without massive PHP changes
-                    document.addEventListener("DOMContentLoaded", function() {
-                        const nodes = document.querySelectorAll('.card span');
-                        if(nodes.length >= 2) {
-                            nodes[1].innerText = 'Carting';
-                            nodes[3].innerText = 'Lining';
-                            nodes[4].innerText = 'Gate-In';
-                        }
-                    });
-                </script>
-                <div style="text-align: center; flex: 1; position: relative;">
-                    <div style="width: 24px; height: 24px; background: #ef4444; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 10px; margin: 0 auto 8px; z-index: 2; position: relative;"><i class="fa-solid fa-bars-staggered"></i></div>
-                    <span style="font-size: 9px; font-weight: 850; color: #ef4444; text-transform: uppercase;">Lining</span>
-                    <div style="position: absolute; top: 12px; left: 50%; width: 100%; height: 2px; background: #e2e8f0; z-index: 1;"></div>
-                </div>
-                <div style="text-align: center; flex: 1; position: relative;">
-                    <div style="width: 24px; height: 24px; background: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 50%; color: #94a3b8; display: flex; align-items: center; justify-content: center; font-size: 10px; margin: 0 auto 8px; z-index: 2; position: relative;">5</div>
-                    <span style="font-size: 9px; font-weight: 850; color: #94a3b8; text-transform: uppercase;">Gate-In</span>
-                    <div style="position: absolute; top: 12px; left: 50%; width: 100%; height: 2px; background: #e2e8f0; z-index: 1;"></div>
-                </div>
+                    <!-- DOCK SPECIFIC NODES (AS REQUESTED) -->
+                    <!-- Node 2 (Overwriting Checklist for Dock) -->
+                    <script>
+                        // Small hack to fix labels for Dock Flow without massive PHP changes
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const nodes = document.querySelectorAll('.card span');
+                            if (nodes.length >= 2) {
+                                nodes[1].innerText = 'Carting';
+                                nodes[3].innerText = 'Lining';
+                                nodes[4].innerText = 'Gate-In';
+                            }
+                        });
+                    </script>
+                    <div style="text-align: center; flex: 1; position: relative;">
+                        <div style="width: 24px; height: 24px; background: #ef4444; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 10px; margin: 0 auto 8px; z-index: 2; position: relative;"><i class="fa-solid fa-bars-staggered"></i></div>
+                        <span style="font-size: 9px; font-weight: 850; color: #ef4444; text-transform: uppercase;">Lining</span>
+                        <div style="position: absolute; top: 12px; left: 50%; width: 100%; height: 2px; background: #e2e8f0; z-index: 1;"></div>
+                    </div>
+                    <div style="text-align: center; flex: 1; position: relative;">
+                        <div style="width: 24px; height: 24px; background: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 50%; color: #94a3b8; display: flex; align-items: center; justify-content: center; font-size: 10px; margin: 0 auto 8px; z-index: 2; position: relative;">5</div>
+                        <span style="font-size: 9px; font-weight: 850; color: #94a3b8; text-transform: uppercase;">Gate-In</span>
+                        <div style="position: absolute; top: 12px; left: 50%; width: 100%; height: 2px; background: #e2e8f0; z-index: 1;"></div>
+                    </div>
                 <?php endif; ?>
 
                 <!-- Final Node: On-Board -->
@@ -104,53 +104,61 @@ include 'includes/header.php';
             <!-- Ship Info -->
             <div style="background: #fff; border: 1px solid #f1f5f9; border-radius: 12px; padding: 30px;">
                 <h4 style="font-size: 12px; font-weight: 950; text-transform: uppercase; margin-bottom: 25px; color: #1e293b; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;">Shipment Summary</h4>
-                <div style="margin-bottom: 20px;"><label style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; display: block;">Consignee</label><p style="font-size: 13px; font-weight: 700; margin: 6px 0; color: #01172a;">ANATOLIA TILE & STONE, CAN</p></div>
-                <div style="margin-bottom: 20px;"><label style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; display: block;">Container No</label><p style="font-size: 13px; font-weight: 700; margin: 6px 0; color: #0f172a;">MSKU 928374-1</p></div>
-                <div style="margin-bottom: 20px;"><label style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; display: block;">Vessel / Voyage</label><p style="font-size: 13px; font-weight: 700; margin: 6px 0; color: #0f172a;">MSC GULSUN / 241A</p></div>
-                <div style="margin-bottom: 20px;"><label style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; display: block;">Transporter</label><p style="font-size: 13px; font-weight: 700; margin: 6px 0; color: #0f172a;">GLOBAL LOGIX ROADWAYS</p></div>
-                
+                <div style="margin-bottom: 20px;"><label style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; display: block;">Consignee</label>
+                    <p style="font-size: 13px; font-weight: 700; margin: 6px 0; color: #01172a;">ANATOLIA TILE & STONE, CAN</p>
+                </div>
+                <div style="margin-bottom: 20px;"><label style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; display: block;">Container No</label>
+                    <p style="font-size: 13px; font-weight: 700; margin: 6px 0; color: #0f172a;">MSKU 928374-1</p>
+                </div>
+                <div style="margin-bottom: 20px;"><label style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; display: block;">Vessel / Voyage</label>
+                    <p style="font-size: 13px; font-weight: 700; margin: 6px 0; color: #0f172a;">MSC GULSUN / 241A</p>
+                </div>
+                <div style="margin-bottom: 20px;"><label style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; display: block;">Transporter</label>
+                    <p style="font-size: 13px; font-weight: 700; margin: 6px 0; color: #0f172a;">GLOBAL LOGIX ROADWAYS</p>
+                </div>
+
                 <div style="margin-top: 30px; padding-top: 25px; border-top: 1px dashed #e2e8f0;">
                     <button class="btn" style="width: 100%; border: 1.5px solid #000; color: #000; font-size: 11px; font-weight: 800; padding: 12px; border-radius: 8px;">DOWNLOAD MANIFEST</button>
                 </div>
             </div>
-            
-            <!-- STUCK FORM PREVIEW (DYNAMIC) -->
-            <?php if($is_factory): ?>
-            <div style="background: #fff; border: 2px solid #ef4444; border-radius: 12px; padding: 35px; position: relative;">
-                <div style="position: absolute; top: 0px; right: 40px; background: #ef4444; color: #fff; font-size: 9px; font-weight: 950; padding: 6px 15px; border-radius: 0 0 8px 8px; text-transform: uppercase;">STUCK POINT: FACTORY LOADING</div>
-                <h4 style="font-size: 15px; font-weight: 950; margin-bottom: 30px; color: #0f172a;"><i class="fa-solid fa-industry" style="margin-right: 10px; color: #ef4444;"></i> Factory Loading Status (STUCK)</h4>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
-                    <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">Loading Supervisor</label><input type="text" class="form-input" value="Suresh Kumar" readonly style="background: #f8fafc; font-size: 13px; font-weight: 700;"></div>
-                    <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">CLP Number (Action Required)</label><input type="text" class="form-input" placeholder="ENTER CLP NO..." style="border-color: #ef4444; font-size: 13px; font-weight: 850;"></div>
-                    <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">Container Seal Status</label><input type="text" class="form-input" value="PENDING VERIFICATION" readonly style="background: #fef2f2; color: #ef4444; font-size: 13px; font-weight: 700;"></div>
-                    <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">Stuffing Report (Scan)</label><input type="file" class="form-input" style="font-size: 12px; padding: 8px;"></div>
-                </div>
 
-                <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #f1f5f9; display: flex; justify-content: flex-end; gap: 15px;">
-                    <button class="btn" style="background: #f1f5f9; color: #64748b; font-size: 12px; font-weight: 800; padding: 12px 25px; border-radius: 8px;">NOTIFY FACTORY</button>
-                    <a href="factory-stuffing/loading.php" class="btn btn-primary" style="font-size: 12px; font-weight: 800; padding: 12px 50px; background: #000; color: #fff; border-radius: 8px; text-decoration: none;">OPEN FACTORY MODULE</a>
-                </div>
-            </div>
-            <?php else: ?>
-            <div style="background: #fff; border: 2px solid #ef4444; border-radius: 12px; padding: 35px; position: relative;">
-                <div style="position: absolute; top: 0px; right: 40px; background: #ef4444; color: #fff; font-size: 9px; font-weight: 950; padding: 6px 15px; border-radius: 0 0 8px 8px; text-transform: uppercase;">STUCK POINT: LINING</div>
-                <h4 style="font-size: 15px; font-weight: 950; margin-bottom: 30px; color: #01172a;"><i class="fa-solid fa-bars-staggered" style="margin-right: 10px; color: #ef4444;"></i> Cargo Lining & Staging (STUCK)</h4>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
-                    <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">Lining Supervisor</label><input type="text" class="form-input" value="Ahmed Al-Balushi" readonly style="background: #f8fafc; font-size: 13px; font-weight: 700;"></div>
-                    <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">Lining Order Number (Required)</label><input type="text" class="form-input" placeholder="ENTER LINING NO..." style="border-color: #ef4444; font-size: 13px; font-weight: 850;"></div>
-                    <div style="background: #fff7ed; border: 1px solid #ffedd5; border-radius: 8px; padding: 15px; grid-column: span 2;">
-                        <p style="font-size: 11px; font-weight: 700; color: #ea580c; margin-bottom: 5px;"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 8px;"></i> Lining Verification Alert</p>
-                        <p style="font-size: 10px; color: #92400e; font-weight: 600; margin: 0;">Cargo is pending 'Lining' clearance for Dock Stuffing. Please verify slot assignment at Port Area 4.</p>
+            <!-- STUCK FORM PREVIEW (DYNAMIC) -->
+            <?php if ($is_factory): ?>
+                <div style="background: #fff; border: 2px solid #ef4444; border-radius: 12px; padding: 35px; position: relative;">
+                    <div style="position: absolute; top: 0px; right: 40px; background: #ef4444; color: #fff; font-size: 9px; font-weight: 950; padding: 6px 15px; border-radius: 0 0 8px 8px; text-transform: uppercase;">STUCK POINT: FACTORY LOADING</div>
+                    <h4 style="font-size: 15px; font-weight: 950; margin-bottom: 30px; color: #0f172a;"><i class="fa-solid fa-industry" style="margin-right: 10px; color: #ef4444;"></i> Factory Loading Status (STUCK)</h4>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                        <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">Loading Supervisor</label><input type="text" class="form-input" value="Suresh Kumar" readonly style="background: #f8fafc; font-size: 13px; font-weight: 700;"></div>
+                        <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">CLP Number (Action Required)</label><input type="text" class="form-input" placeholder="ENTER CLP NO..." style="border-color: #ef4444; font-size: 13px; font-weight: 850;"></div>
+                        <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">Container Seal Status</label><input type="text" class="form-input" value="PENDING VERIFICATION" readonly style="background: #fef2f2; color: #ef4444; font-size: 13px; font-weight: 700;"></div>
+                        <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">Stuffing Report (Scan)</label><input type="file" class="form-input" style="font-size: 12px; padding: 8px;"></div>
+                    </div>
+
+                    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #f1f5f9; display: flex; justify-content: flex-end; gap: 15px;">
+                        <button class="btn" style="background: #f1f5f9; color: #64748b; font-size: 12px; font-weight: 800; padding: 12px 25px; border-radius: 8px;">NOTIFY FACTORY</button>
+                        <a href="factory-stuffing/loading.php" class="btn btn-primary" style="font-size: 12px; font-weight: 800; padding: 12px 50px; background: var(--primary);  color: #fff; border-radius: 8px; text-decoration: none;">OPEN FACTORY MODULE</a>
                     </div>
                 </div>
+            <?php else: ?>
+                <div style="background: #fff; border: 2px solid #ef4444; border-radius: 12px; padding: 35px; position: relative;">
+                    <div style="position: absolute; top: 0px; right: 40px; background: #ef4444; color: #fff; font-size: 9px; font-weight: 950; padding: 6px 15px; border-radius: 0 0 8px 8px; text-transform: uppercase;">STUCK POINT: LINING</div>
+                    <h4 style="font-size: 15px; font-weight: 950; margin-bottom: 30px; color: #01172a;"><i class="fa-solid fa-bars-staggered" style="margin-right: 10px; color: #ef4444;"></i> Cargo Lining & Staging (STUCK)</h4>
 
-                <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #f1f5f9; display: flex; justify-content: flex-end; gap: 15px;">
-                    <button class="btn" style="background: #f1f5f9; color: #64748b; font-size: 12px; font-weight: 800; padding: 12px 25px; border-radius: 8px;">NOTIFY YARD</button>
-                    <a href="dock-stuffing/staging.php" class="btn btn-primary" style="font-size: 12px; font-weight: 800; padding: 12px 50px; background: #000; color: #fff; border-radius: 8px; text-decoration: none;">OPEN LINING MODULE</a>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                        <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">Lining Supervisor</label><input type="text" class="form-input" value="Ahmed Al-Balushi" readonly style="background: #f8fafc; font-size: 13px; font-weight: 700;"></div>
+                        <div class="form-group"><label style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block;">Lining Order Number (Required)</label><input type="text" class="form-input" placeholder="ENTER LINING NO..." style="border-color: #ef4444; font-size: 13px; font-weight: 850;"></div>
+                        <div style="background: #fff7ed; border: 1px solid #ffedd5; border-radius: 8px; padding: 15px; grid-column: span 2;">
+                            <p style="font-size: 11px; font-weight: 700; color: #ea580c; margin-bottom: 5px;"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 8px;"></i> Lining Verification Alert</p>
+                            <p style="font-size: 10px; color: #92400e; font-weight: 600; margin: 0;">Cargo is pending 'Lining' clearance for Dock Stuffing. Please verify slot assignment at Port Area 4.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #f1f5f9; display: flex; justify-content: flex-end; gap: 15px;">
+                        <button class="btn" style="background: #f1f5f9; color: #64748b; font-size: 12px; font-weight: 800; padding: 12px 25px; border-radius: 8px;">NOTIFY YARD</button>
+                        <a href="dock-stuffing/staging.php" class="btn btn-primary" style="font-size: 12px; font-weight: 800; padding: 12px 50px; background: var(--primary);  color: #fff; border-radius: 8px; text-decoration: none;">OPEN LINING MODULE</a>
+                    </div>
                 </div>
-            </div>
             <?php endif; ?>
         </div>
 

@@ -147,55 +147,55 @@ include $path_prefix . 'includes/header.php';
                     <button type="button" onclick="addProductRow()" class="btn" style="background: #f1f5f9; color: var(--primary); font-size: 13px; font-weight: 600; padding: 8px 15px; border-radius: 6px; border: 1px solid #e2e8f0; cursor: pointer;"><i class="fa-solid fa-plus"></i> ADD PRODUCT LINE</button>
                 </div>
                 
-                <div class="card" style="border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;">
-                    <table class="table" id="destuff-tally-table" style="width: 100%; border-collapse: collapse; min-width: 1000px;">
+                <div class="card" style="padding: 25px; overflow-x: auto;">
+                    <table class="classic-table" id="destuff-tally-table" style="min-width: 1000px; border-collapse: separate; border-spacing: 0;">
                         <thead>
-                            <tr style="background: #f8fafc; border-bottom: 1px solid var(--border); text-align: left;">
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Truck / Trailer</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Product / SKU</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Unit Type</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Manifest</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Rec. (OK)</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Damaged</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Short/Exs</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Total</th>
+                            <tr>
+                                <th>Truck / Trailer</th>
+                                <th>Product / SKU</th>
+                                <th>Unit Type</th>
+                                <th width="100" style="text-align: center;">Manifest</th>
+                                <th width="100" style="text-align: center;">Rec. (OK)</th>
+                                <th width="100" style="text-align: center;">Damaged</th>
+                                <th width="100" style="text-align: center;">Short/Exs</th>
+                                <th width="100" style="text-align: center;">Total</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 15px 16px;"><input type="text" value="OM-TR-4550" class="form-input" style="font-weight: 500; font-size: 14px; padding: 10px 14px; background: #fff; border: 1px solid var(--border); border-radius: 6px; color: #1e293b;"></td>
-                                <td style="padding: 15px 16px;"><input type="text" value="INDUSTRIAL PUMPS CP-40" class="form-input" style="font-weight: 500; font-size: 14px; padding: 10px 14px; background: #fff; border: 1px solid var(--border); border-radius: 6px; color: var(--primary);"></td>
-                                <td style="padding: 15px 16px;">
-                                    <select class="form-input" style="font-weight: 400; font-size: 14px; padding: 10px 14px; background: #fff; border: 1px solid var(--border); border-radius: 6px;">
+                            <tr>
+                                <td style="border: 2px solid #000;"><input type="text" value="OM-TR-4550" class="data-input" style="font-weight: 500; color: #1e293b; background: transparent;"></td>
+                                <td style="border: 2px solid #000;"><input type="text" value="INDUSTRIAL PUMPS CP-40" class="data-input" style="font-weight: 500; color: var(--primary); background: transparent;"></td>
+                                <td style="border: 2px solid #000;">
+                                    <select class="data-input" style="font-weight: 400; background: transparent;">
                                         <option>BAGS</option>
                                         <option>BOXES</option>
                                         <option>PALLETS</option>
                                         <option>UNITS</option>
                                     </select>
                                 </td>
-                                <td style="padding: 15px 16px;"><input type="number" value="100" class="form-input" style="text-align: center; font-weight: 400; font-size: 14px; border: none; padding: 0; background: transparent;"></td>
-                                <td style="padding: 15px 16px;"><input type="number" value="98" class="form-input" style="text-align: center; font-weight: 500; font-size: 14px; border: none; padding: 0; background: #f0fdf4; color: #16a34a; border-radius: 4px;"></td>
-                                <td style="padding: 15px 16px;"><input type="number" value="2" class="form-input" style="text-align: center; font-weight: 500; font-size: 14px; border: none; padding: 0; background: #fef2f2; color: #dc2626; border-radius: 4px;"></td>
-                                <td style="padding: 15px 16px;"><input type="number" value="0" class="form-input" style="text-align: center; font-weight: 400; font-size: 14px; border: none; padding: 0; background: transparent;"></td>
-                                <td style="padding: 15px 16px;"><input type="number" value="100" class="form-input" style="text-align: center; font-weight: 600; font-size: 14px; border: none; padding: 0; background: transparent; color: var(--primary);"></td>
+                                <td style="border: 2px solid #000;"><input type="number" value="100" class="data-input" style="text-align: center; font-weight: 400; background: transparent;"></td>
+                                <td style="border: 2px solid #000;"><input type="number" value="98" class="data-input" style="text-align: center; font-weight: 500; background: transparent; color: #16a34a;"></td>
+                                <td style="border: 2px solid #000;"><input type="number" value="2" class="data-input" style="text-align: center; font-weight: 500; background: transparent; color: #dc2626;"></td>
+                                <td style="border: 2px solid #000;"><input type="number" value="0" class="data-input" style="text-align: center; font-weight: 400; background: transparent;"></td>
+                                <td style="border: 2px solid #000;"><input type="number" value="100" class="data-input" style="text-align: center; font-weight: 600; background: transparent; color: var(--primary);"></td>
                             </tr>
                         </tbody>
-                        <tfoot style="background: #f8fafc; border-top: 2px solid var(--border);">
+                        <tfoot style="background: #f8fafc;">
                             <tr>
-                                <td colspan="3" style="padding: 18px 16px; text-align: right; font-size: 13px; font-weight: 600; color: #475569; text-transform: uppercase;">Grand Total Tally</td>
-                                <td style="padding: 18px 16px; text-align: center;">
+                                <td colspan="3" style="border: 2px solid #000; padding: 18px 16px; text-align: right; font-size: 13px; font-weight: 600; color: #475569; text-transform: uppercase;">Grand Total Tally</td>
+                                <td style="border: 2px solid #000; padding: 18px 16px; text-align: center;">
                                     <div style="font-weight: 600; font-size: 14px; color: #1e293b;">100</div>
                                 </td>
-                                <td style="padding: 18px 16px; text-align: center;">
+                                <td style="border: 2px solid #000; padding: 18px 16px; text-align: center;">
                                     <div style="font-weight: 600; font-size: 14px; color: #16a34a;">98</div>
                                 </td>
-                                <td style="padding: 18px 16px; text-align: center;">
+                                <td style="border: 2px solid #000; padding: 18px 16px; text-align: center;">
                                     <div style="font-weight: 600; font-size: 14px; color: #dc2626;">2</div>
                                 </td>
-                                <td style="padding: 18px 16px; text-align: center;">
+                                <td style="border: 2px solid #000; padding: 18px 16px; text-align: center;">
                                     <div style="font-weight: 600; font-size: 14px; color: #475569;">0</div>
                                 </td>
-                                <td style="padding: 18px 16px; text-align: center;">
+                                <td style="border: 2px solid #000; padding: 18px 16px; text-align: center;">
                                     <div style="font-weight: 600; font-size: 14px; color: var(--primary);">100</div>
                                 </td>
                             </tr>
@@ -210,39 +210,39 @@ include $path_prefix . 'includes/header.php';
                     <button type="button" onclick="addDestuffDocRow()" class="btn" style="background: #f1f5f9; color: var(--primary); font-size: 13px; font-weight: 600; padding: 8px 15px; border-radius: 6px; border: 1px solid #e2e8f0; cursor: pointer;"><i class="fa-solid fa-plus"></i> ADD NEW DOC</button>
                 </div>
                 
-                <div class="card" style="border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;">
-                    <table class="table" id="destuff-evidence-table" style="width: 100%; border-collapse: collapse;">
+                <div class="card" style="padding: 25px; overflow-x: auto;">
+                    <table class="classic-table" id="destuff-evidence-table">
                         <thead>
-                            <tr style="background: #f8fafc; border-bottom: 1px solid var(--border); text-align: left;">
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Document Name</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Upload Remark / Notes</th>
-                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Action</th>
+                            <tr>
+                                <th>Document Name</th>
+                                <th width="400">Upload Remark / Notes</th>
+                                <th width="150" style="text-align: center;">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 15px 16px;">
-                                    <input type="text" value="Signed Tally Sheet" class="form-input" style="font-weight: 500; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff; color: var(--primary);">
+                            <tr>
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" value="Signed Tally Sheet" class="data-input" style="font-weight: 500; color: var(--primary); background: transparent;">
                                 </td>
-                                <td style="padding: 15px 16px;">
-                                    <input type="text" placeholder="Enter doc remarks..." class="form-input" style="font-weight: 400; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff;">
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" placeholder="Enter doc remarks..." class="data-input" style="font-weight: 400; background: transparent;">
                                 </td>
-                                <td style="padding: 15px 16px; text-align: center;">
-                                    <button type="button" onclick="this.nextElementSibling.click()" style="background: var(--primary-light); color: var(--primary); border: 1.5px dashed var(--primary); padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;">
+                                <td align="center" style="border: 2px solid #000;">
+                                    <button type="button" onclick="this.nextElementSibling.click()" style="background: #fdf2f8; color: #be185d; border-color: #fbcfe8; border-style: dashed; padding: 4px 10px; font-size: 10px; font-weight: 700; cursor: pointer;">
                                         <i class="fa-solid fa-cloud-arrow-up"></i> UPLOAD
                                     </button>
                                     <input type="file" hidden>
                                 </td>
                             </tr>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 15px 16px;">
-                                    <input type="text" value="Delivery Note (DO) Copy" class="form-input" style="font-weight: 500; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff; color: var(--primary);">
+                            <tr>
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" value="Delivery Note (DO) Copy" class="data-input" style="font-weight: 500; color: var(--primary); background: transparent;">
                                 </td>
-                                <td style="padding: 15px 16px;">
-                                    <input type="text" placeholder="Enter slip reference..." class="form-input" style="font-weight: 400; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff;">
+                                <td style="border: 2px solid #000;">
+                                    <input type="text" placeholder="Enter slip reference..." class="data-input" style="font-weight: 400; background: transparent;">
                                 </td>
-                                <td style="padding: 15px 16px; text-align: center;">
-                                    <button type="button" style="background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;">
+                                <td align="center" style="border: 2px solid #000;">
+                                    <button type="button" style="background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; padding: 4px 10px; font-size: 10px; font-weight: 700; cursor: pointer;">
                                         <i class="fa-solid fa-paperclip"></i> ATTACH
                                     </button>
                                 </td>
@@ -278,23 +278,22 @@ include $path_prefix . 'includes/header.php';
 function addProductRow() {
     const tbody = document.querySelector('#destuff-tally-table tbody');
     const newRow = document.createElement('tr');
-    newRow.style.borderBottom = '1px solid var(--border)';
     newRow.innerHTML = `
-        <td style="padding: 15px 16px;"><input type="text" placeholder="TRUCK-NO" class="form-input" style="font-weight: 500; font-size: 14px; border: none; padding: 0; background: transparent;"></td>
-        <td style="padding: 15px 16px;"><input type="text" placeholder="Product name..." class="form-input" style="font-weight: 500; font-size: 14px; border: none; padding: 0; background: transparent; color: var(--primary);"></td>
-        <td style="padding: 15px 16px;">
-            <select class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 0; background: transparent;">
+        <td style="border: 2px solid #000;"><input type="text" placeholder="TRUCK-NO" class="data-input" style="font-weight: 500; background: transparent;"></td>
+        <td style="border: 2px solid #000;"><input type="text" placeholder="Product name..." class="data-input" style="font-weight: 500; background: transparent; color: var(--primary);"></td>
+        <td style="border: 2px solid #000;">
+            <select class="data-input" style="font-weight: 400; background: transparent;">
                 <option>BAGS</option>
                 <option>BOXES</option>
                 <option>PALLETS</option>
                 <option>UNITS</option>
             </select>
         </td>
-        <td style="padding: 15px 16px;"><input type="number" placeholder="0" class="form-input" style="text-align: center; font-weight: 400; font-size: 14px; border: none; padding: 0; background: transparent;"></td>
-        <td style="padding: 15px 16px;"><input type="number" placeholder="0" class="form-input" style="text-align: center; font-weight: 500; font-size: 14px; border: none; padding: 0; background: #f0fdf4; color: #16a34a; border-radius: 4px;"></td>
-        <td style="padding: 15px 16px;"><input type="number" placeholder="0" class="form-input" style="text-align: center; font-weight: 500; font-size: 14px; border: none; padding: 0; background: #fef2f2; color: #dc2626; border-radius: 4px;"></td>
-        <td style="padding: 15px 16px;"><input type="number" placeholder="0" class="form-input" style="text-align: center; font-weight: 400; font-size: 14px; border: none; padding: 0; background: transparent;"></td>
-        <td style="padding: 15px 16px;"><input type="number" placeholder="0" class="form-input" style="text-align: center; font-weight: 600; font-size: 14px; border: none; padding: 0; background: transparent; color: var(--primary);"></td>
+        <td style="border: 2px solid #000;"><input type="number" placeholder="0" class="data-input" style="text-align: center; font-weight: 400; background: transparent;"></td>
+        <td style="border: 2px solid #000;"><input type="number" placeholder="0" class="data-input" style="text-align: center; font-weight: 500; background: transparent; color: #16a34a;"></td>
+        <td style="border: 2px solid #000;"><input type="number" placeholder="0" class="data-input" style="text-align: center; font-weight: 500; background: transparent; color: #dc2626;"></td>
+        <td style="border: 2px solid #000;"><input type="number" placeholder="0" class="data-input" style="text-align: center; font-weight: 400; background: transparent;"></td>
+        <td style="border: 2px solid #000;"><input type="number" placeholder="0" class="data-input" style="text-align: center; font-weight: 600; background: transparent; color: var(--primary);"></td>
     `;
     tbody.appendChild(newRow);
 }
@@ -302,16 +301,15 @@ function addProductRow() {
 function addDestuffDocRow() {
     const tbody = document.querySelector('#destuff-evidence-table tbody');
     const newRow = document.createElement('tr');
-    newRow.style.borderBottom = '1px solid var(--border)';
     newRow.innerHTML = `
-        <td style="padding: 15px 16px;">
-            <input type="text" placeholder="Enter doc name..." class="form-input" style="font-weight: 500; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff; color: var(--primary);">
+        <td style="border: 2px solid #000;">
+            <input type="text" placeholder="Enter doc name..." class="data-input" style="font-weight: 500; background: transparent; color: var(--primary);">
         </td>
-        <td style="padding: 15px 16px;">
-            <input type="text" placeholder="Enter upload remark..." class="form-input" style="font-weight: 400; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff;">
+        <td style="border: 2px solid #000;">
+            <input type="text" placeholder="Enter upload remark..." class="data-input" style="font-weight: 400; background: transparent;">
         </td>
-        <td style="padding: 15px 16px; text-align: center;">
-            <button type="button" onclick="this.nextElementSibling.click()" style="background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;">
+        <td align="center" style="border: 2px solid #000;">
+            <button type="button" onclick="this.nextElementSibling.click()" style="background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; padding: 4px 10px; font-size: 10px; font-weight: 700; cursor: pointer;">
                 <i class="fa-solid fa-paperclip"></i> ATTACH
             </button>
             <input type="file" hidden>

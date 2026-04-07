@@ -126,7 +126,7 @@ include '../includes/header.php';
         bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
-        background: #000;
+        background: var(--primary);
         color: #fff;
         padding: 12px 30px;
         border-radius: 40px;

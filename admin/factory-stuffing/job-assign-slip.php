@@ -29,7 +29,7 @@ include $path_prefix . 'includes/header.php';
                 </div>
                 <div style="text-align: right;">
                     <div style="font-size: 10px; font-weight: 800; color: var(--primary); letter-spacing: 1px;">STRATEGIC LOGISTICS</div>
-                    <div style="font-size: 14px; font-weight: 900; border: 2px solid #000; padding: 4px 15px; display: inline-block; margin-top: 8px; background: #000; color: #fff;">DRAFT ASSIGNMENT</div>
+                    <div style="font-size: 14px; font-weight: 900; border: 2px solid #000; padding: 4px 15px; display: inline-block; margin-top: 8px; background: var(--primary);  color: #fff;">DRAFT ASSIGNMENT</div>
                 </div>
             </div>
 
@@ -87,7 +87,7 @@ include $path_prefix . 'includes/header.php';
                                 <option value="AMIT VERMA">AMIT VERMA (DOCUMENTATION HUB)</option>
                                 <option value="PRIYA SINGH">PRIYA SINGH (FACTORY LIAISON)</option>
                             </select>
-                            <button id="assign-btn" onclick="assignJob()" class="btn" style="background: #000; color: #fff; padding: 0 45px; font-size: 11px; font-weight: 850; height: 45px; border-radius: 10px; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">DEPLOY AGENT</button>
+                            <button id="assign-btn" onclick="assignJob()" class="btn" style="background: var(--primary);  color: #fff; padding: 0 45px; font-size: 11px; font-weight: 850; height: 45px; border-radius: 10px; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">DEPLOY AGENT</button>
                         </div>
                     </div>
                     <div style="text-align: right;">
@@ -101,31 +101,31 @@ include $path_prefix . 'includes/header.php';
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const rawData = localStorage.getItem('currentFactoryJob');
-    if (!rawData) {
-        Swal.fire('Error', 'No Job Data Found in Terminal Session.', 'error').then(() => {
-            window.location.href = 'job-create.php';
-        });
-        return;
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const rawData = localStorage.getItem('currentFactoryJob');
+        if (!rawData) {
+            Swal.fire('Error', 'No Job Data Found in Terminal Session.', 'error').then(() => {
+                window.location.href = 'job-create.php';
+            });
+            return;
+        }
 
-    const job = JSON.parse(rawData);
-    
-    // Header Data
-    document.getElementById('disp-job-ref').innerText = `REF: ${job.jobId} | STATUS: DRAFT`;
-    document.getElementById('disp-vessel').innerText = `VESSEL: ${job.vesselName}`;
-    document.getElementById('disp-voyage').innerText = `VOYAGE: ${job.voyageNo}`;
-    document.getElementById('disp-booking').innerText = `BOOKING: ${job.bookingNo}`;
-    document.getElementById('disp-line').innerText = `LINE: ${job.shippingLine}`;
-    document.getElementById('disp-factory').innerText = `FAC: ${job.factoryName}`;
-    document.getElementById('disp-qty').innerText = `TOTAL CONTAINERS: ${job.totalContainers}`;
+        const job = JSON.parse(rawData);
 
-    // Manifest Data
-    const tbody = document.getElementById('disp-items');
-    if (job.items && job.items.length > 0) {
-        job.items.forEach((item, idx) => {
-            const row = `
+        // Header Data
+        document.getElementById('disp-job-ref').innerText = `REF: ${job.jobId} | STATUS: DRAFT`;
+        document.getElementById('disp-vessel').innerText = `VESSEL: ${job.vesselName}`;
+        document.getElementById('disp-voyage').innerText = `VOYAGE: ${job.voyageNo}`;
+        document.getElementById('disp-booking').innerText = `BOOKING: ${job.bookingNo}`;
+        document.getElementById('disp-line').innerText = `LINE: ${job.shippingLine}`;
+        document.getElementById('disp-factory').innerText = `FAC: ${job.factoryName}`;
+        document.getElementById('disp-qty').innerText = `TOTAL CONTAINERS: ${job.totalContainers}`;
+
+        // Manifest Data
+        const tbody = document.getElementById('disp-items');
+        if (job.items && job.items.length > 0) {
+            job.items.forEach((item, idx) => {
+                const row = `
                 <tr style="border-bottom: 1px solid #cbd5e1;">
                     <td align="center" style="padding: 10px; border-right: 1px solid #cbd5e1; font-weight: 800;">${item.srNo || (idx+1).toString().padStart(2, '0')}</td>
                     <td style="padding: 10px; border-right: 1px solid #cbd5e1; font-weight: 600;">${item.desc || 'N/A'}</td>
@@ -139,30 +139,30 @@ document.addEventListener('DOMContentLoaded', () => {
                         <strong>ADM:</strong> ${item.lrName || 'TBD'}<br><strong>NO:</strong> ${item.lrNo || 'TBD'}
                     </td>
                 </tr>`;
-            tbody.insertAdjacentHTML('beforeend', row);
-        });
-    } else {
-        tbody.innerHTML = '<tr><td colspan="7" align="center" style="padding: 20px;">NO CONTAINERS DEFINED IN MANIFEST</td></tr>';
-    }
-});
-
-function assignJob() {
-    const agent = document.getElementById('assignee-select').value;
-    if (!agent) {
-        Swal.fire('Warning', 'Please select an agent for field deployment.', 'warning');
-        return;
-    }
-
-    Swal.fire({
-        title: 'Deployment Successful!',
-        text: `Job REF: OCM-FAC-24 has been assigned to ${agent}. Moving to Stage 02: Verification Checklist.`,
-        icon: 'success',
-        confirmButtonColor: '#2563eb',
-        confirmButtonText: 'Next: Documentation'
-    }).then(() => {
-        window.location.href = 'checklist.php';
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+        } else {
+            tbody.innerHTML = '<tr><td colspan="7" align="center" style="padding: 20px;">NO CONTAINERS DEFINED IN MANIFEST</td></tr>';
+        }
     });
-}
+
+    function assignJob() {
+        const agent = document.getElementById('assignee-select').value;
+        if (!agent) {
+            Swal.fire('Warning', 'Please select an agent for field deployment.', 'warning');
+            return;
+        }
+
+        Swal.fire({
+            title: 'Deployment Successful!',
+            text: `Job REF: OCM-FAC-24 has been assigned to ${agent}. Moving to Stage 02: Verification Checklist.`,
+            icon: 'success',
+            confirmButtonColor: '#2563eb',
+            confirmButtonText: 'Next: Documentation'
+        }).then(() => {
+            window.location.href = 'checklist.php';
+        });
+    }
 </script>
 
 <?php include $path_prefix . 'includes/footer.php'; ?>

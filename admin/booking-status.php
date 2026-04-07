@@ -170,7 +170,7 @@ include 'includes/header.php';
 
         <!-- 3. Booking Header Summary -->
         <div class="section-title">Booking Identification Summary</div>
-        <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 40px; border: 1px solid #e2e8f0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; margin-bottom: 40px; border: 1px solid #e2e8f0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 50px;">
             <div>
                 <label class="s-label">Carrier Reference</label>
                 <input type="text" class="input-simple" value="37724937" style="font-weight: 800;">
@@ -190,7 +190,7 @@ include 'includes/header.php';
         </div>
 
         <!-- 4. Locations & Addresses -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; margin-bottom: 40px;">
             <div>
                 <div class="section-title" style="font-size: 10px;"><i class="fa-solid fa-truck-pickup"></i> Export Empty Pick-up</div>
                 <textarea class="input-simple" style="height: 100px; font-weight: 700; font-size: 10px; line-height: 1.6;">TRANSWORLD TERMINALS

@@ -21,12 +21,49 @@ $staff = [
 <?php include '../includes/sidebar.php'; ?>
 
 <style>
-    :root { --p-x: 30px; }
-    @media (max-width: 768px) { :root { --p-x: 15px; } }
-    .main-area { background: #f8fafc; min-height: 100vh; }
-    .profile-card { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 30px; margin-bottom: 30px; }
-    .stat-box { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 15px; text-align: center; }
-    .label-pill { font-size: 10px; font-weight: 850; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; background: #f1f5f9; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    :root {
+        --p-x: 30px;
+    }
+
+    @media (max-width: 768px) {
+        :root {
+            --p-x: 15px;
+        }
+    }
+
+    .main-area {
+        background: #f8fafc;
+        min-height: 100vh;
+    }
+
+    .profile-card {
+        background: #fff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+
+    .stat-box {
+        background: #f8fafc;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .label-pill {
+        font-size: 10px;
+        font-weight: 850;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: #f1f5f9;
+        padding: 4px 10px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
 </style>
 
 <main class="main-area">
@@ -41,7 +78,7 @@ $staff = [
             </div>
         </div>
         <div style="display: flex; gap: 12px; align-items: center;">
-            <a href="edit.php" class="btn" style="background: #000; color: #fff; font-size: 13px; font-weight: 850; padding: 12px 30px; border-radius: 8px; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+            <a href="edit.php" class="btn" style="background: var(--primary);  color: #fff; font-size: 13px; font-weight: 850; padding: 12px 30px; border-radius: 8px; text-decoration: none; display: flex; align-items: center; gap: 8px;">
                 <i class="fa-solid fa-user-gear"></i> MODIFY CREDENTIALS
             </a>
         </div>
@@ -53,7 +90,7 @@ $staff = [
                 <!-- Primary Identity Card -->
                 <div class="profile-card">
                     <h3 style="font-size: 15px; font-weight: 950; color: #01172a; margin: 0 0 25px 0; border-bottom: 1px dashed #e2e8f0; padding-bottom: 15px;">Personnel Identity Core</h3>
-                    
+
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
                         <div>
                             <span class="label-pill">Connect Nodes</span>
