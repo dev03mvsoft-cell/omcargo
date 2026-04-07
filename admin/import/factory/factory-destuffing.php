@@ -1,0 +1,353 @@
+<?php
+$path_prefix = "../../";
+$is_root = false;
+include $path_prefix . 'includes/header.php';
+?>
+<?php include $path_prefix . 'includes/sidebar.php'; ?>
+
+<style>
+/* PREMIUM TOASTER CSS */
+.toast-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.toast {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid #bbf7d0;
+    border-left: 5px solid #10b981;
+    border-radius: 12px;
+    padding: 16px 24px;
+    min-width: 320px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    transform: translateX(120%);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast-icon {
+    width: 40px;
+    height: 40px;
+    background: #f0fdf4;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #10b981;
+    font-size: 18px;
+}
+
+.toast-text {
+    flex: 1;
+}
+
+.toast-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #01172a;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.toast-msg {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+</style>
+
+<div class="toast-container" id="toast-container"></div>
+
+<main class="main-area">
+    <header class="header" style="background: #fff; border-bottom: 1px solid #f1f5f9; padding: 20px 40px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <span style="font-size: 13px; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 4px;">FACTORY FLOW: FINAL STAGE (DE-STUFFING)</span>
+            <h1 class="page-title" style="font-size: 20px; font-weight: 600; margin: 0; color: #01172a;">Unloading & Inventory Verification</h1>
+            <p style="font-size: 14px; color: var(--text-muted); font-weight: 600; margin-top: 2px;">OCM-FAC-24-902 | CONTAINER: MAEU4430910</p>
+        </div>
+        <div style="display: flex; gap: 15px;">
+            <button type="button" class="btn" onclick="window.location.href='../../work-assignment.php'" style="background: #f1f5f9; color: #64748b; font-size: 14px; font-weight: 500; border: none; cursor: pointer;">ACTIVE TASKS</button>
+            <button type="submit" form="fac-destuff-form" class="btn btn-primary" style="padding: 10px 25px; font-size: 14px; font-weight: 600; background: var(--primary); color: #fff; border: none; cursor: pointer;">SAVE & PROCEED</button>
+        </div>
+    </header>
+
+    <!-- Tab-Style Progress Bar - Below Header -->
+    <div style="background: #fff; border-bottom: 1px solid #f1f5f9; padding: 25px 40px 10px 40px;">
+        <div style="display: flex; justify-content: center; gap: 60px;">
+            <div style="padding-bottom: 15px; color: #10b981; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-circle-check"></i> 01. PORT ARRIVAL</div>
+            <div style="padding-bottom: 15px; color: #10b981; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-circle-check"></i> 02. PORT OUT</div>
+            <div style="padding-bottom: 15px; color: #10b981; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-circle-check"></i> 03. FACTORY IN</div>
+            <div style="padding-bottom: 15px; border-bottom: 4px solid var(--primary); color: var(--primary); font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">04. DE-STUFFING</div>
+        </div>
+    </div>
+
+    <div class="content-padding" style="padding: 40px;">
+        <?php if (isset($_GET['success'])): ?>
+            <!-- HIGH-FIDELITY SUCCESS STATE -->
+            <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 80px 40px; text-align: center; max-width: 800px; margin: 40px auto; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);">
+                <div style="width: 100px; height: 100px; background: #f0fdf4; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;">
+                    <i class="fa-solid fa-circle-check" style="font-size: 50px; color: #10b981;"></i>
+                </div>
+                <h2 style="font-size: 32px; font-weight: 700; color: #01172a; margin: 0 0 10px 0;">Mission Accomplished</h2>
+                <p style="font-size: 16px; color: #64748b; margin-bottom: 40px;">The industrial de-stuffing workflow for <strong>OCM-FAC-24-902</strong> has been successfully finalized and archived.</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px; text-align: left; background: #f8fafc; padding: 25px; border-radius: 12px; border: 1px solid #f1f5f9;">
+                    <div>
+                        <span style="font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase; display: block; margin-bottom: 5px;">CLIENT REFERENCE</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #1e293b;">RAYSUT CEMENT CO.</span>
+                    </div>
+                    <div>
+                        <span style="font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase; display: block; margin-bottom: 5px;">FINAL STATUS</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #10b981;"><i class="fa-solid fa-flag-checkered"></i> 100% DELIVERED</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <button onclick="window.location.href='../../work-assignment.php'" class="btn" style="padding: 15px 40px; font-size: 14px; font-weight: 600; background: var(--primary); color: #fff; border: none; border-radius: 10px; cursor: pointer;">BACK TO LOGISTICS HUB</button>
+                    <button onclick="window.print()" class="btn" style="padding: 15px 40px; font-size: 14px; font-weight: 600; background: #fff; border: 1.5px solid #e2e8f0; color: #64748b; border-radius: 10px; cursor: pointer;"><i class="fa-solid fa-print"></i> PRINT TALLY REPORT</button>
+                </div>
+            </div>
+        <?php else: ?>
+        <form id="fac-destuff-form" action="factory-destuffing.php?success=1" method="POST" enctype="multipart/form-data">
+            
+            <div class="form-section">
+                <h3 class="section-title"><i class="fa-solid fa-clock-rotate-left"></i> Unloading Operations</h3>
+                <div class="sub-field-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label class="form-label">De-stuffing Start Time</label>
+                        <input type="datetime-local" name="destuff_start" class="form-input" style="font-weight: 400;">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">De-stuffing End Time</label>
+                        <input type="datetime-local" name="destuff_end" class="form-input" style="font-weight: 400;">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tally Sheet / Job ID</label>
+                        <input type="text" name="tally_id" placeholder="TLY-FAC-4001" class="form-input" style="font-weight: 400;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tally Section (As requested by user in context) -->
+            <div class="form-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 class="section-title" style="margin: 0;"><i class="fa-solid fa-clipboard-list"></i> Product Tally & Condition Report</h3>
+                    <button type="button" onclick="addProductRow()" class="btn" style="background: #f1f5f9; color: var(--primary); font-size: 13px; font-weight: 600; padding: 8px 15px; border-radius: 6px; border: 1px solid #e2e8f0; cursor: pointer;"><i class="fa-solid fa-plus"></i> ADD PRODUCT LINE</button>
+                </div>
+                
+                <div class="card" style="border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;">
+                    <table class="table" id="destuff-tally-table" style="width: 100%; border-collapse: collapse; min-width: 1000px;">
+                        <thead>
+                            <tr style="background: #f8fafc; border-bottom: 1px solid var(--border); text-align: left;">
+                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Truck / Trailer</th>
+                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Product / SKU</th>
+                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Unit Type</th>
+                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Manifest</th>
+                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Rec. (OK)</th>
+                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Damaged</th>
+                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Short/Exs</th>
+                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 15px 16px;"><input type="text" value="OM-TR-4550" class="form-input" style="font-weight: 500; font-size: 14px; padding: 10px 14px; background: #fff; border: 1px solid var(--border); border-radius: 6px; color: #1e293b;"></td>
+                                <td style="padding: 15px 16px;"><input type="text" value="INDUSTRIAL PUMPS CP-40" class="form-input" style="font-weight: 500; font-size: 14px; padding: 10px 14px; background: #fff; border: 1px solid var(--border); border-radius: 6px; color: var(--primary);"></td>
+                                <td style="padding: 15px 16px;">
+                                    <select class="form-input" style="font-weight: 400; font-size: 14px; padding: 10px 14px; background: #fff; border: 1px solid var(--border); border-radius: 6px;">
+                                        <option>BAGS</option>
+                                        <option>BOXES</option>
+                                        <option>PALLETS</option>
+                                        <option>UNITS</option>
+                                    </select>
+                                </td>
+                                <td style="padding: 15px 16px;"><input type="number" value="100" class="form-input" style="text-align: center; font-weight: 400; font-size: 14px; border: none; padding: 0; background: transparent;"></td>
+                                <td style="padding: 15px 16px;"><input type="number" value="98" class="form-input" style="text-align: center; font-weight: 500; font-size: 14px; border: none; padding: 0; background: #f0fdf4; color: #16a34a; border-radius: 4px;"></td>
+                                <td style="padding: 15px 16px;"><input type="number" value="2" class="form-input" style="text-align: center; font-weight: 500; font-size: 14px; border: none; padding: 0; background: #fef2f2; color: #dc2626; border-radius: 4px;"></td>
+                                <td style="padding: 15px 16px;"><input type="number" value="0" class="form-input" style="text-align: center; font-weight: 400; font-size: 14px; border: none; padding: 0; background: transparent;"></td>
+                                <td style="padding: 15px 16px;"><input type="number" value="100" class="form-input" style="text-align: center; font-weight: 600; font-size: 14px; border: none; padding: 0; background: transparent; color: var(--primary);"></td>
+                            </tr>
+                        </tbody>
+                        <tfoot style="background: #f8fafc; border-top: 2px solid var(--border);">
+                            <tr>
+                                <td colspan="3" style="padding: 18px 16px; text-align: right; font-size: 13px; font-weight: 600; color: #475569; text-transform: uppercase;">Grand Total Tally</td>
+                                <td style="padding: 18px 16px; text-align: center;">
+                                    <div style="font-weight: 600; font-size: 14px; color: #1e293b;">100</div>
+                                </td>
+                                <td style="padding: 18px 16px; text-align: center;">
+                                    <div style="font-weight: 600; font-size: 14px; color: #16a34a;">98</div>
+                                </td>
+                                <td style="padding: 18px 16px; text-align: center;">
+                                    <div style="font-weight: 600; font-size: 14px; color: #dc2626;">2</div>
+                                </td>
+                                <td style="padding: 18px 16px; text-align: center;">
+                                    <div style="font-weight: 600; font-size: 14px; color: #475569;">0</div>
+                                </td>
+                                <td style="padding: 18px 16px; text-align: center;">
+                                    <div style="font-weight: 600; font-size: 14px; color: var(--primary);">100</div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 class="section-title" style="margin: 0;"><i class="fa-solid fa-file-shield"></i> Post De-stuffing Documentation</h3>
+                    <button type="button" onclick="addDestuffDocRow()" class="btn" style="background: #f1f5f9; color: var(--primary); font-size: 13px; font-weight: 600; padding: 8px 15px; border-radius: 6px; border: 1px solid #e2e8f0; cursor: pointer;"><i class="fa-solid fa-plus"></i> ADD NEW DOC</button>
+                </div>
+                
+                <div class="card" style="border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;">
+                    <table class="table" id="destuff-evidence-table" style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: #f8fafc; border-bottom: 1px solid var(--border); text-align: left;">
+                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Document Name</th>
+                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase;">Upload Remark / Notes</th>
+                                <th style="padding: 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; text-align: center;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 15px 16px;">
+                                    <input type="text" value="Signed Tally Sheet" class="form-input" style="font-weight: 500; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff; color: var(--primary);">
+                                </td>
+                                <td style="padding: 15px 16px;">
+                                    <input type="text" placeholder="Enter doc remarks..." class="form-input" style="font-weight: 400; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff;">
+                                </td>
+                                <td style="padding: 15px 16px; text-align: center;">
+                                    <button type="button" onclick="this.nextElementSibling.click()" style="background: var(--primary-light); color: var(--primary); border: 1.5px dashed var(--primary); padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i> UPLOAD
+                                    </button>
+                                    <input type="file" hidden>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 15px 16px;">
+                                    <input type="text" value="Delivery Note (DO) Copy" class="form-input" style="font-weight: 500; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff; color: var(--primary);">
+                                </td>
+                                <td style="padding: 15px 16px;">
+                                    <input type="text" placeholder="Enter slip reference..." class="form-input" style="font-weight: 400; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff;">
+                                </td>
+                                <td style="padding: 15px 16px; text-align: center;">
+                                    <button type="button" style="background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;">
+                                        <i class="fa-solid fa-paperclip"></i> ATTACH
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group" style="margin-top: 25px;">
+                    <label class="form-label" style="font-size: 14px;">Final Delivery Remarks</label>
+                    <textarea name="remarks_delivery" rows="2" class="form-input" placeholder="General observations on shipment delivery..." style="height: 120px; font-weight: 400; font-size: 14px; padding: 12px 16px;"></textarea>
+                </div>
+            </div>
+
+            <!-- SUCCESS NOTIFICATION BANNER -->
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 25px; border-radius: 12px; margin-top: 30px; display: flex; align-items: flex-start; gap: 20px;">
+                <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 26px; margin-top: 3px;"></i>
+                <div>
+                    <h4 style="font-size: 15px; font-weight: 700; color: #166534; margin: 0;">Industrial Workflow Completion</h4>
+                    <p style="font-size: 14px; color: #15803d; font-weight: 500; margin: 5px 0 0 0;">Submitting this report will finalize the Tally Sheet, archive the container evidence, and mark this job as 100% COMPLETE in the Master Registry.</p>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; padding-top: 40px;">
+                <button type="submit" class="btn btn-primary" style="padding: 18px 80px; font-size: 14px; font-weight: 700; background: #10b981; color: #fff; border: none; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);">FINALIZE & CLOSE JOB <i class="fa-solid fa-flag-checkered" style="margin-left: 10px;"></i></button>
+            </div>
+        </form>
+        <?php endif; ?>
+    </div>
+</main>
+
+<script>
+function addProductRow() {
+    const tbody = document.querySelector('#destuff-tally-table tbody');
+    const newRow = document.createElement('tr');
+    newRow.style.borderBottom = '1px solid var(--border)';
+    newRow.innerHTML = `
+        <td style="padding: 15px 16px;"><input type="text" placeholder="TRUCK-NO" class="form-input" style="font-weight: 500; font-size: 14px; border: none; padding: 0; background: transparent;"></td>
+        <td style="padding: 15px 16px;"><input type="text" placeholder="Product name..." class="form-input" style="font-weight: 500; font-size: 14px; border: none; padding: 0; background: transparent; color: var(--primary);"></td>
+        <td style="padding: 15px 16px;">
+            <select class="form-input" style="font-weight: 400; font-size: 14px; border: none; padding: 0; background: transparent;">
+                <option>BAGS</option>
+                <option>BOXES</option>
+                <option>PALLETS</option>
+                <option>UNITS</option>
+            </select>
+        </td>
+        <td style="padding: 15px 16px;"><input type="number" placeholder="0" class="form-input" style="text-align: center; font-weight: 400; font-size: 14px; border: none; padding: 0; background: transparent;"></td>
+        <td style="padding: 15px 16px;"><input type="number" placeholder="0" class="form-input" style="text-align: center; font-weight: 500; font-size: 14px; border: none; padding: 0; background: #f0fdf4; color: #16a34a; border-radius: 4px;"></td>
+        <td style="padding: 15px 16px;"><input type="number" placeholder="0" class="form-input" style="text-align: center; font-weight: 500; font-size: 14px; border: none; padding: 0; background: #fef2f2; color: #dc2626; border-radius: 4px;"></td>
+        <td style="padding: 15px 16px;"><input type="number" placeholder="0" class="form-input" style="text-align: center; font-weight: 400; font-size: 14px; border: none; padding: 0; background: transparent;"></td>
+        <td style="padding: 15px 16px;"><input type="number" placeholder="0" class="form-input" style="text-align: center; font-weight: 600; font-size: 14px; border: none; padding: 0; background: transparent; color: var(--primary);"></td>
+    `;
+    tbody.appendChild(newRow);
+}
+
+function addDestuffDocRow() {
+    const tbody = document.querySelector('#destuff-evidence-table tbody');
+    const newRow = document.createElement('tr');
+    newRow.style.borderBottom = '1px solid var(--border)';
+    newRow.innerHTML = `
+        <td style="padding: 15px 16px;">
+            <input type="text" placeholder="Enter doc name..." class="form-input" style="font-weight: 500; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff; color: var(--primary);">
+        </td>
+        <td style="padding: 15px 16px;">
+            <input type="text" placeholder="Enter upload remark..." class="form-input" style="font-weight: 400; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; background: #fff;">
+        </td>
+        <td style="padding: 15px 16px; text-align: center;">
+            <button type="button" onclick="this.nextElementSibling.click()" style="background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;">
+                <i class="fa-solid fa-paperclip"></i> ATTACH
+            </button>
+            <input type="file" hidden>
+        </td>
+    `;
+    tbody.appendChild(newRow);
+}
+
+function showToast(title, message) {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+        <div class="toast-icon"><i class="fa-solid fa-check-double"></i></div>
+        <div class="toast-text">
+            <span class="toast-title">${title}</span>
+            <span class="toast-msg">${message}</span>
+        </div>
+    `;
+    container.appendChild(toast);
+    
+    // Trigger animation
+    setTimeout(() => toast.classList.add('show'), 100);
+    
+    // Auto-remove
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 500);
+    }, 5000);
+}
+
+<?php if (isset($_GET['success'])): ?>
+window.addEventListener('DOMContentLoaded', () => {
+    showToast('MISSION ACCOMPLISHED', 'Industrial De-stuffing finalized correctly.');
+});
+<?php endif; ?>
+</script>
+
+<?php include $path_prefix . 'includes/footer.php'; ?>

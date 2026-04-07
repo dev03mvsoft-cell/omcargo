@@ -112,7 +112,7 @@ include 'includes/header.php';
                         <span style="font-size: 8px; font-weight: 950; background: #eff6ff; color: #2563eb; padding: 3px 8px; border-radius: 4px; border: 1px solid #dbeafe;">DOCK FLOW</span>
                     </div>
                     <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">SEA EXPORT • SALALAH</p>
-                    <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
+                    <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
                 </div>
                 <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
@@ -120,7 +120,7 @@ include 'includes/header.php';
                         <span style="font-size: 8px; font-weight: 950; background: #fff7ed; color: #ea580c; padding: 3px 8px; border-radius: 4px; border: 1px solid #ffedd5;">FACTORY FLOW</span>
                     </div>
                     <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">DOMESTIC LOGISTICS</p>
-                    <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">FACTORY AUDIT</a>
+                    <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none;padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">FACTORY AUDIT</a>
                 </div>
                 <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
@@ -128,7 +128,7 @@ include 'includes/header.php';
                         <span style="font-size: 8px; font-weight: 950; background: #eff6ff; color: #2563eb; padding: 3px 8px; border-radius: 4px; border: 1px solid #dbeafe;">DOCK FLOW</span>
                     </div>
                     <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">SEA IMPORT • MUNDRA</p>
-                    <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
+                    <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none;padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
                 </div>
                 <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; border-left: 4px solid #ef4444;">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
@@ -136,7 +136,7 @@ include 'includes/header.php';
                         <span style="font-size: 8px; font-weight: 950; background: #fff7ed; color: #ea580c; padding: 3px 8px; border-radius: 4px; border: 1px solid #ffedd5;">FACTORY FLOW</span>
                     </div>
                     <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">SPECIAL CARGO • HAZMAT</p>
-                    <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #ef4444; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);">FACTORY AUDIT</a>
+                    <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none; padding: 12px; font-size: 13px; font-weight: 700; background: #ef4444; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);">FACTORY AUDIT</a>
                 </div>
             </div>
         </div>
@@ -160,7 +160,7 @@ include 'includes/header.php';
                     </div>
                     <p style="font-size: 11px; color: #64748b; font-weight: 600; margin: 0;">SEA EXPORT • MUNDRA PORT</p>
                     <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e2e8f0;">
-                        <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">FACTORY AUDIT</a>
+                        <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none;padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">FACTORY AUDIT</a>
                     </div>
                 </div>
 
@@ -175,7 +175,7 @@ include 'includes/header.php';
                     </div>
                     <p style="font-size: 11px; color: #64748b; font-weight: 600; margin: 0;">AIR EXPORT • MUSCAT AIRPORT</p>
                     <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e2e8f0;">
-                        <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
+                        <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none;padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
                     </div>
                 </div>
 
@@ -187,7 +187,7 @@ include 'includes/header.php';
                     </div>
                     <p style="font-size: 11px; color: #64748b; font-weight: 600; margin: 0;">ROAD TRANSPORT • INTERNAL</p>
                     <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e2e8f0;">
-                        <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">IN TRANSIT</a>
+                        <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none;padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">IN TRANSIT</a>
                     </div>
                 </div>
 
@@ -199,7 +199,7 @@ include 'includes/header.php';
                     </div>
                     <p style="font-size: 11px; color: #64748b; font-weight: 600; margin: 0;">BULK IMPORT • SOHAR PORT</p>
                     <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e2e8f0;">
-                        <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; width: 100%; padding: 12px; font-size: 13px; font-weight: 700; background: #10b981; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);">COMPLETED</a>
+                        <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; padding: 12px; font-size: 13px; font-weight: 700; background: #10b981; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);">COMPLETED</a>
                     </div>
                 </div>
             </div>

@@ -6,30 +6,122 @@ include 'includes/header.php';
 <?php include 'includes/sidebar.php'; ?>
 
 <style>
-    .simple-modern-hub { padding: 40px; background: #fff; }
-    
+    .simple-modern-hub {
+        padding: 40px;
+        background: #fff;
+    }
+
     /* Minimalist Stepper */
-    .minimal-stepper { display: flex; gap: 40px; margin-bottom: 50px; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; }
-    .m-step { font-size: 11px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 15px; }
-    .m-step.active { color: var(--primary); }
-    .m-step.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--primary); }
+    .minimal-stepper {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 50px;
+        border-bottom: 1px solid #f1f5f9;
+        padding-bottom: 15px;
+    }
+
+    .m-step {
+        font-size: 11px;
+        font-weight: 800;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .m-step.active {
+        color: var(--primary);
+    }
+
+    .m-step.active::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+    }
 
     /* Clean Stats Row */
-    .clean-stats { display: flex; gap: 60px; margin-bottom: 40px; padding: 20px 0; }
-    .stat-item { display: flex; flex-direction: column; gap: 4px; }
-    .s-label { font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; }
-    .s-value { font-size: 18px; font-weight: 800; color: #000; }
+    .clean-stats {
+        display: flex;
+        gap: 60px;
+        margin-bottom: 40px;
+        padding: 20px 0;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .s-label {
+        font-size: 10px;
+        font-weight: 700;
+        color: #64748b;
+        text-transform: uppercase;
+    }
+
+    .s-value {
+        font-size: 18px;
+        font-weight: 800;
+        color: #000;
+    }
 
     /* Modern Simple Table */
-    .simple-table { width: 100%; border-collapse: collapse; }
-    .simple-table th { padding: 12px 15px; background: #f8fafc; font-size: 10px; font-weight: 800; color: #475569; text-transform: uppercase; text-align: left; border-bottom: 1px solid #e2e8f0; }
-    .simple-table td { padding: 12px 15px; border-bottom: 1px solid #f1f5f9; }
-    .simple-table tr:hover { background: #fcfdfe; }
-    
-    .input-simple { width: 100%; border: 1px solid #e2e8f0; border-radius: 4px; padding: 8px 10px; font-size: 11px; font-weight: 600; color: #1e293b; background: #fff; }
-    .input-simple:focus { border-color: var(--primary); outline: none; }
-    
-    .pill-modern { padding: 4px 10px; border-radius: 4px; font-size: 9px; font-weight: 900; text-transform: uppercase; background: #f1f5f9; color: #475569; }
+    .simple-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .simple-table th {
+        padding: 12px 15px;
+        background: #f8fafc;
+        font-size: 10px;
+        font-weight: 800;
+        color: #475569;
+        text-transform: uppercase;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .simple-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .simple-table tr:hover {
+        background: #fcfdfe;
+    }
+
+    .input-simple {
+        width: 100%;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        padding: 8px 10px;
+        font-size: 11px;
+        font-weight: 600;
+        color: #1e293b;
+        background: #fff;
+    }
+
+    .input-simple:focus {
+        border-color: var(--primary);
+        outline: none;
+    }
+
+    .pill-modern {
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 9px;
+        font-weight: 900;
+        text-transform: uppercase;
+        background: #f1f5f9;
+        color: #475569;
+    }
 </style>
 
 <main class="main-area">
@@ -96,7 +188,7 @@ include 'includes/header.php';
                     <th width="80" style="color: #ef4444;">Short/B</th>
                     <th width="80" style="color: #ef4444;">Short/Q</th>
                     <th width="140">LR Info</th>
-                    <th width="140">Syr Invoice</th>
+                    <th width="140">Invoice</th>
                     <th width="160">Supplier</th>
                     <th width="90">Status</th>
                     <th width="180">Remarks</th>
@@ -117,7 +209,7 @@ include 'includes/header.php';
     function addRows() {
         const count = parseInt(document.getElementById('row-input').value) || 1;
         const tbody = document.getElementById('simple-body');
-        for(let i=0; i<count; i++) {
+        for (let i = 0; i < count; i++) {
             rowIndex++;
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -183,7 +275,9 @@ include 'includes/header.php';
         });
     }
 
-    window.onload = () => { addRows(); };
+    window.onload = () => {
+        addRows();
+    };
 </script>
 
 <?php include 'includes/footer.php'; ?>

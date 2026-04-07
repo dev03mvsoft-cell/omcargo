@@ -29,7 +29,7 @@ include $path_prefix . 'includes/header.php';
                 </div>
                 <div style="text-align: right;">
                     <div style="font-size: 10px; font-weight: 800; color: var(--primary); letter-spacing: 1px;">STRATEGIC LOGISTICS</div>
-                    <div style="font-size: 14px; font-weight: 900; border: 2px solid #000; padding: 4px 15px; display: inline-block; margin-top: 8px; background: #000; color: #fff;">DRAFT ASSIGNMENT</div>
+                    <div style="font-size: 14px; font-weight: 900; border: 2px solid var(--primary); padding: 4px 15px; display: inline-block; margin-top: 8px; background: var(--primary); color: #fff;">DRAFT ASSIGNMENT</div>
                 </div>
             </div>
 
@@ -87,7 +87,7 @@ include $path_prefix . 'includes/header.php';
                                 <option value="AMIT VERMA">AMIT VERMA (OPS COORDINATOR)</option>
                                 <option value="PRIYA SINGH">PRIYA SINGH (CUSTOMS LIAISON)</option>
                             </select>
-                            <button id="assign-btn" onclick="assignJob()" class="btn" style="background: #000; color: #fff; padding: 0 45px; font-size: 11px; font-weight: 850; height: 45px; border-radius: 10px; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">DEPLOY AGENT</button>
+                            <button id="assign-btn" onclick="assignJob()" class="btn" style="background: var(--primary); color: #fff; padding: 0 45px; font-size: 11px; font-weight: 850; height: 45px; border-radius: 10px; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">DEPLOY AGENT</button>
                         </div>
                     </div>
                     <div style="text-align: right;">
