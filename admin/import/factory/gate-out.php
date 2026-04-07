@@ -31,7 +31,7 @@ include $path_prefix . 'includes/header.php';
             <p style="font-size: 14px; color: var(--text-muted); font-weight: 400; margin-top: 2px;">OCM-FAC-24-902 | CONTAINER: MAEU4430910</p>
         </div>
         <div style="display: flex; gap: 15px;">
-            <button type="button" class="btn" onclick="window.location.href='../../work-assignment.php'" style="background: #f1f5f9; color: #64748b; font-size: 14px; font-weight: 500; border: none; cursor: pointer;">ACTIVE TASKS</button>
+            <button onclick="window.history.back()" class="btn" style="background:#fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 800;">BACK</button>
             <button type="submit" form="fac-gateout-form" class="btn btn-primary" style="padding: 10px 25px; font-size: 14px; font-weight: 600; background: var(--primary); color: #fff; border: none; cursor: pointer;">SAVE & PROCEED</button>
         </div>
     </header>

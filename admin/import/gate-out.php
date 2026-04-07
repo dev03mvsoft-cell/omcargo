@@ -21,7 +21,7 @@ include $path_prefix . 'includes/header.php';
             <p style="font-size: 10px; color: var(--text-muted); font-weight: 600; margin-top: 2px;">OCM-IMP-24-001 | MUNDRA PORT GATE OUT</p>
         </div>
         <div style="display: flex; gap: 15px;">
-            <button type="button" class="btn" onclick="window.location.href='../work-assignment.php'" style="background: #f1f5f9; color: #64748b; font-size: 11px; font-weight: 850; border: none; cursor: pointer;">ACTIVE TASKS</button>
+            <button onclick="window.history.back()" class="btn" style="background:#fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 800;">BACK</button>
             <button type="button" class="btn" onclick="window.location.href='vessel-arrival.php'" style="background: #f1f5f9; color: #64748b; font-size: 11px; font-weight: 800; border: none; cursor: pointer;">PREVIOUS</button>
             <button type="submit" form="gate-out-form" class="btn btn-primary" style="padding: 10px 25px; font-size: 11px; font-weight: 850; background: var(--primary); color: #fff; border: none; cursor: pointer;">SAVE & PROCEED</button>
         </div>
