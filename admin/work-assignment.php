@@ -72,7 +72,7 @@ include 'includes/header.php';
             <div class="card" style="border: 1px solid var(--border); overflow: hidden;">
                 <table class="table" style="width:100%; border-collapse: collapse;">
                     <thead>
-                        <tr style="text-align: left; background: #f8fafc;">
+                        <tr style="text-align: left; background: #ffffff;">
                             <th style="padding: 16px; font-size: 10px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; border-bottom: 1px solid var(--border);">S.No</th>
                             <th style="padding: 16px; font-size: 10px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; border-bottom: 1px solid var(--border);">Job ID</th>
                             <th style="padding: 16px; font-size: 10px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; border-bottom: 1px solid var(--border);">Creation Date</th>
@@ -84,7 +84,7 @@ include 'includes/header.php';
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="border-bottom: 1px solid var(--border);">
+                        <tr style="border-bottom: 1px solid var(--border); cursor: pointer;" onclick="window.location.href='job-create.php'">
                             <td style="padding: 18px 16px; font-weight: 700; font-size: 12px; color: var(--text-muted);">01</td>
                             <td style="padding: 18px 16px;">
                                 <div style="font-weight: 800; font-size: 12px; color: var(--primary);">OCM-EXP-24-001</div>
@@ -98,7 +98,7 @@ include 'includes/header.php';
                                 <div style="font-weight: 700; font-size: 11px; font-family: monospace;">AAAL/24-25/004</div>
                             </td>
                             <td style="padding: 18px 16px;">
-                                <span class="badge" style="background: #eff6ff; color: #2563eb; font-size: 9px;">EXPORT</span>
+                                <span class="badge" style="background: #eff6ff; color: #2563eb; font-size: 9px; font-weight: 800; border: 1px solid #dbeafe;">EXPORT / DOCK</span>
                             </td>
                             <td style="padding: 18px 16px;">
                                 <div style="display: flex; align-items: center; gap: 10px;">
@@ -108,16 +108,16 @@ include 'includes/header.php';
                             </td>
                             <td align="right" style="padding: 18px 16px;">
                                 <div style="display: flex; gap: 8px; justify-content: flex-end;">
-                                    <a href="job-assign-slip.php" class="btn" style="padding: 6px 14px; font-size: 10px; border: 1.5px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 6px; font-weight: 800;">
+                                    <a href="job-assign-slip.php" class="btn" onclick="event.stopPropagation()" style="padding: 6px 14px; font-size: 10px; border: 1.5px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 6px; font-weight: 800;">
                                         <i class="fa-solid fa-eye"></i> SLIP
                                     </a>
-                                    <a href="job-status.php" class="btn" style="padding: 6px 16px; font-size: 10px; border: 1px solid #ffedd5; background: #fff7ed; color: #ea580c; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
+                                    <a href="job-status.php" class="btn" onclick="event.stopPropagation()" style="padding: 6px 16px; font-size: 10px; border: 1px solid #ffedd5; background: #fff7ed; color: #ea580c; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
                                         <i class="fa-solid fa-pen-to-square"></i> STATUS
                                     </a>
                                 </div>
                             </td>
                         </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
+                        <tr style="border-bottom: 1px solid var(--border); cursor: pointer;" onclick="window.location.href='factory-stuffing/job-create.php'">
                             <td style="padding: 18px 16px; font-weight: 700; font-size: 12px; color: var(--text-muted);">02</td>
                             <td style="padding: 18px 16px;">
                                 <div style="font-weight: 800; font-size: 12px; color: #f59e0b;">OCM-FAC-24-005</div>
@@ -131,7 +131,7 @@ include 'includes/header.php';
                                 <div style="font-weight: 700; font-size: 11px; font-family: monospace;">AFTL/24/9903</div>
                             </td>
                             <td style="padding: 18px 16px;">
-                                <span class="badge" style="background: #fff7ed; color: #ea580c; font-size: 9px;">FACTORY</span>
+                                <span class="badge" style="background: #fff7ed; color: #ea580c; font-size: 9px; font-weight: 800; border: 1px solid #ffedd5;">EXPORT / FACTORY</span>
                             </td>
                             <td style="padding: 18px 16px;">
                                 <div style="display: flex; align-items: center; gap: 10px;">
@@ -141,16 +141,16 @@ include 'includes/header.php';
                             </td>
                             <td align="right" style="padding: 18px 16px;">
                                 <div style="display: flex; gap: 8px; justify-content: flex-end;">
-                                    <a href="factory-stuffing/job-assign-slip.php" class="btn" style="padding: 6px 16px; font-size: 10px; border: 1px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
+                                    <a href="factory-stuffing/job-assign-slip.php" class="btn" onclick="event.stopPropagation()" style="padding: 6px 16px; font-size: 10px; border: 1px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
                                         <i class="fa-solid fa-eye"></i> SLIP
                                     </a>
-                                    <a href="factory-stuffing/checklist.php" class="btn" style="padding: 6px 16px; font-size: 10px; border: 1px solid #ffedd5; background: #fff7ed; color: #ea580c; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
+                                    <a href="factory-stuffing/factory-gate-in.php" class="btn" onclick="event.stopPropagation()" style="padding: 6px 16px; font-size: 10px; border: 1px solid #ffedd5; background: #fff7ed; color: #ea580c; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
                                         <i class="fa-solid fa-pen-to-square"></i> STATUS
                                     </a>
                                 </div>
                             </td>
                         </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
+                        <tr style="border-bottom: 1px solid var(--border); cursor: pointer;" onclick="window.location.href='import/vessel-arrival.php'">
                             <td style="padding: 18px 16px; font-weight: 700; font-size: 12px; color: var(--text-muted);">03</td>
                             <td style="padding: 18px 16px;">
                                 <div style="font-weight: 800; font-size: 12px; color: var(--primary);">OCM-EXP-24-012</div>
@@ -164,7 +164,7 @@ include 'includes/header.php';
                                 <div style="font-weight: 700; font-size: 11px; font-family: monospace;">AAAL/24-25/012</div>
                             </td>
                             <td style="padding: 18px 16px;">
-                                <span class="badge" style="background: #fdf2f8; color: #db2777; font-size: 9px;">IMPORT</span>
+                                <span class="badge" style="background: #fdf2f8; color: #db2777; font-size: 9px; font-weight: 800; border: 1px solid #fbcfe8;">IMPORT / DOCK</span>
                             </td>
                             <td style="padding: 18px 16px;">
                                 <div style="display: flex; align-items: center; gap: 10px;">
@@ -174,16 +174,16 @@ include 'includes/header.php';
                             </td>
                             <td align="right" style="padding: 18px 16px;">
                                 <div style="display: flex; gap: 8px; justify-content: flex-end;">
-                                    <a href="job-assign-slip.php" class="btn" style="padding: 6px 16px; font-size: 10px; border: 1px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
+                                    <a href="job-assign-slip.php" class="btn" onclick="event.stopPropagation()" style="padding: 6px 16px; font-size: 10px; border: 1px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
                                         <i class="fa-solid fa-eye"></i> SLIP
                                     </a>
-                                    <a href="job-status.php" class="btn" style="padding: 6px 16px; font-size: 10px; border: 1px solid #ffedd5; background: #fff7ed; color: #ea580c; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
+                                    <a href="import/vessel-arrival.php" class="btn" onclick="event.stopPropagation()" style="padding: 6px 16px; font-size: 10px; border: 1px solid #ffedd5; background: #fff7ed; color: #ea580c; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
                                         <i class="fa-solid fa-pen-to-square"></i> STATUS
                                     </a>
                                 </div>
                             </td>
                         </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
+                        <tr style="border-bottom: 1px solid var(--border); cursor: pointer;" onclick="window.location.href='import/factory/vessel-arrival.php'">
                             <td style="padding: 18px 16px; font-weight: 700; font-size: 12px; color: var(--text-muted);">04</td>
                             <td style="padding: 18px 16px;">
                                 <div style="font-weight: 800; font-size: 12px; color: #10b981;">OCM-FAC-24-902</div>
@@ -197,7 +197,7 @@ include 'includes/header.php';
                                 <div style="font-weight: 700; font-size: 11px; font-family: monospace;">RCCL/IMP/902</div>
                             </td>
                             <td style="padding: 18px 16px;">
-                                <span class="badge" style="background: #f0fdf4; color: #10b981; font-size: 9px; border: 1px solid #bbf7d0;">FACTORY IMPORT</span>
+                                <span class="badge" style="background: #f0fdf4; color: #10b981; font-size: 9px; font-weight: 800; border: 1px solid #bbf7d0;">IMPORT / FACTORY</span>
                             </td>
                             <td style="padding: 18px 16px;">
                                 <div style="display: flex; align-items: center; gap: 10px;">
@@ -207,10 +207,10 @@ include 'includes/header.php';
                             </td>
                             <td align="right" style="padding: 18px 16px;">
                                 <div style="display: flex; gap: 8px; justify-content: flex-end;">
-                                    <a href="import/factory/job-assign-slip.php" class="btn" style="padding: 6px 16px; font-size: 10px; border: 1px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
+                                    <a href="import/factory/job-assign-slip.php" class="btn" onclick="event.stopPropagation()" style="padding: 6px 16px; font-size: 10px; border: 1px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
                                         <i class="fa-solid fa-eye"></i> SLIP
                                     </a>
-                                    <a href="import/factory/vessel-arrival.php" class="btn" style="padding: 6px 16px; font-size: 10px; border: 1px solid #ffedd5; background: #fff7ed; color: #ea580c; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
+                                    <a href="import/factory/vessel-arrival.php" class="btn" onclick="event.stopPropagation()" style="padding: 6px 16px; font-size: 10px; border: 1px solid #ffedd5; background: #fff7ed; color: #ea580c; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
                                         <i class="fa-solid fa-pen-to-square"></i> STATUS
                                     </a>
                                 </div>
@@ -218,7 +218,7 @@ include 'includes/header.php';
                         </tr>
 
                         <!-- DOCK IMPORT EXAMPLES -->
-                        <tr style="border-bottom: 1px solid var(--border);">
+                        <tr style="border-bottom: 1px solid var(--border); cursor: pointer;" onclick="window.location.href='import/vessel-arrival.php'">
                             <td style="padding: 18px 16px; font-weight: 700; font-size: 12px; color: var(--text-muted);">05</td>
                             <td style="padding: 18px 16px;">
                                 <div style="font-weight: 800; font-size: 12px; color: #0284c7;">OCM-DCK-24-110</div>
@@ -232,7 +232,7 @@ include 'includes/header.php';
                                 <div style="font-weight: 700; font-size: 11px; font-family: monospace;">OTE/DCK/0445</div>
                             </td>
                             <td style="padding: 18px 16px;">
-                                <span class="badge" style="background: #f0f9ff; color: #0284c7; font-size: 9px; border: 1px solid #bae6fd;">DOCK IMPORT</span>
+                                <span class="badge" style="background: #f0f9ff; color: #0284c7; font-size: 9px; font-weight: 800; border: 1px solid #bae6fd;">IMPORT / DOCK</span>
                             </td>
                             <td style="padding: 18px 16px;">
                                 <div style="display: flex; align-items: center; gap: 10px;">
@@ -242,10 +242,10 @@ include 'includes/header.php';
                             </td>
                             <td align="right" style="padding: 18px 16px;">
                                 <div style="display: flex; gap: 8px; justify-content: flex-end;">
-                                    <a href="import/job-assign-slip.php" class="btn" style="padding: 6px 16px; font-size: 10px; border: 1px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
+                                    <a href="import/job-assign-slip.php" class="btn" onclick="event.stopPropagation()" style="padding: 6px 16px; font-size: 10px; border: 1px solid #e2e8f0; background: #fff; color: #01172a; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
                                         <i class="fa-solid fa-eye"></i> SLIP
                                     </a>
-                                    <a href="import/gate-in-cfs.php" class="btn" style="padding: 6px 16px; font-size: 10px; border: 1px solid #ffedd5; background: #fff7ed; color: #ea580c; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
+                                    <a href="import/vessel-arrival.php" class="btn" onclick="event.stopPropagation()" style="padding: 6px 16px; font-size: 10px; border: 1px solid #ffedd5; background: #fff7ed; color: #ea580c; text-decoration: none; display: flex; align-items: center; gap: 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase;">
                                         <i class="fa-solid fa-pen-to-square"></i> STATUS
                                     </a>
                                 </div>
@@ -266,7 +266,7 @@ include 'includes/header.php';
                                 <div style="font-weight: 700; font-size: 11px; font-family: monospace;">SOF/FAC/2024</div>
                             </td>
                             <td style="padding: 18px 16px;">
-                                <span class="badge" style="background: #f0fdf4; color: #10b981; font-size: 9px; border: 1px solid #bbf7d0;">FACTORY IMPORT</span>
+                                <span class="badge" style="background: #f0fdf4; color: #10b981; font-size: 9px; font-weight: 800; border: 1px solid #bbf7d0;">IMPORT / FACTORY</span>
                             </td>
                             <td style="padding: 18px 16px;">
                                 <div style="display: flex; align-items: center; gap: 10px;">

@@ -148,7 +148,7 @@ include $path_prefix . 'includes/header.php';
         <div>
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px;">
                 <span style="padding: 4px 10px; background: #ecfdf5; color: #059669; font-size: 9px; font-weight: 900; border-radius: 4px; text-transform: uppercase;">Final Seal</span>
-                <p style="font-size: 10px; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;" id="disp-job-meta">STAGE 05 • RECOGNIZING LIFECYCLE DEPARTURE</p>
+                <p style="font-size: 10px; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;" id="disp-job-meta">STAGE 06 • RECOGNIZING LIFECYCLE DEPARTURE</p>
             </div>
             <h1 class="page-title" style="font-size: 22px; font-weight: 950; letter-spacing: -1px;">On-Board <span style="color: #059669;">Confirmation</span></h1>
         </div>
@@ -161,11 +161,12 @@ include $path_prefix . 'includes/header.php';
     <div class="onboard-hub">
         <!-- 1. Minimal Stepper -->
         <div class="minimal-stepper">
-            <div class="m-step completed">01. JOB CREATE</div>
-            <div class="m-step completed">02. CHECKLIST</div>
-            <div class="m-step completed">03. BOOKING</div>
+            <div class="m-step completed">01. FACTORY ENTRY</div>
+            <div class="m-step completed">02. LOADING CARGO</div>
+            <div class="m-step completed">03. CHECKLIST</div>
             <div class="m-step completed">04. GATE IN</div>
-            <div class="m-step active">05. ONBOARD</div>
+            <div class="m-step completed">05. BOOKING</div>
+            <div class="m-step active">06. ONBOARD</div>
         </div>
 
         <!-- 2. Vessel & Departure Details -->

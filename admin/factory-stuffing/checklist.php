@@ -115,7 +115,7 @@ include $path_prefix . 'includes/header.php';
     <header class="header" style="border-bottom: 1px solid #f1f5f9; background: #fff; padding: 20px 40px;">
         <div>
             <h1 class="page-title" style="font-size: 18px; font-weight: 900;">Factory Stuffing Checklist</h1>
-            <p style="font-size: 10px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">STAGE 02: DOCUMENT VERIFICATION | AUDIT-READY</p>
+            <p style="font-size: 10px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">STAGE 03: DOCUMENT VERIFICATION | AUDIT-READY</p>
         </div>
         <div style="display: flex; gap: 15px;">
             <button onclick="window.history.back()" class="btn" style="background:#fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 800;">BACK</button>
@@ -126,10 +126,12 @@ include $path_prefix . 'includes/header.php';
     <div class="checklist-hub">
         <!-- 1. Minimalist Stepper -->
         <div class="minimal-stepper">
-            <div class="m-step completed">01. JOB CREATE</div>
-            <div class="m-step active">02. CHECKLIST</div>
-            <div class="m-step">03. GATE IN</div>
-            <div class="m-step">04. ONBOARD</div>
+            <div class="m-step completed">01. FACTORY ENTRY</div>
+            <div class="m-step completed">02. LOADING CARGO</div>
+            <div class="m-step active">03. CHECKLIST</div>
+            <div class="m-step">04. GATE IN</div>
+            <div class="m-step">05. BOOKING</div>
+            <div class="m-step">06. ONBOARD</div>
         </div>
 
         <!-- 2. Checklist Table -->
@@ -221,12 +223,12 @@ include $path_prefix . 'includes/header.php';
     function submitChecklist() {
         Swal.fire({
             title: 'Verification Complete',
-            text: 'Compliance documents verified for the Factory Stuffing job. Redirecting to Gate-in stage.',
+            text: 'Compliance documents verified. Proceeding to Stage 04: Port / CFS Gate-In.',
             icon: 'success',
-            confirmButtonColor: '#2563eb',
-            confirmButtonText: 'Next: Gate-in'
+            confirmButtonColor: '#000',
+            confirmButtonText: 'Proceed to Gate-In'
         }).then(() => {
-            window.location.href = 'booking.php';
+            window.location.href = 'gate-in.php';
         });
     }
 </script>

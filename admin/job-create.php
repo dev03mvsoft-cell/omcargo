@@ -23,6 +23,7 @@ include 'includes/header.php';
     </header>
 
     <div class="content-padding">
+
         <form id="master-form" action="job-assign-slip.php" method="POST">
 
             <!-- 1. SHIPMENT CORE -->
@@ -127,7 +128,7 @@ include 'includes/header.php';
                             <td align="center" rowspan="2" style="border: 2px solid #000;"><input type="text" name="t_sr_r[]" class="data-input" value="01"></td>
                             <td rowspan="2" style="border: 2px solid #000;"><textarea name="t_desc[]" rows="4" class="data-input" style="text-align: left; font-size: 11px;"></textarea></td>
                             <td rowspan="2" style="border: 2px solid #000;"><input type="text" name="t_hsn[]" class="data-input"></td>
-                            <td colspan="3" style="border: 2px solid #000; padding: 0; background: #f8fafc;">
+                            <td colspan="3" style="border: 2px solid #000; padding: 0; background: #ffffff;">
                                 <input type="text" name="t_cat[]" class="cat-label" placeholder="PRODUCT CATEGORY (e.g. MOSAIC)" style="text-align: center; height: 32px;">
                             </td>
                         </tr>
@@ -253,7 +254,7 @@ include 'includes/header.php';
                 <td align="center" rowspan="2" style="border: 2px solid #000;"><input type="text" name="t_sr_r[]" class="data-input" value="${sNo}"></td>
                 <td rowspan="2" style="border: 2px solid #000;"><textarea name="t_desc[]" rows="4" class="data-input" style="text-align: left; font-size: 11px;"></textarea></td>
                 <td rowspan="2" style="border: 2px solid #000;"><input type="text" name="t_hsn[]" class="data-input"></td>
-                <td colspan="3" style="border: 2px solid #000; padding: 0; background: #f8fafc;">
+                <td colspan="3" style="border: 2px solid #000; padding: 0; background: #ffffff;">
                     <input type="text" name="t_cat[]" class="cat-label" placeholder="PRODUCT CATEGORY" style="text-align: center; height: 32px;">
                 </td>
             </tr>

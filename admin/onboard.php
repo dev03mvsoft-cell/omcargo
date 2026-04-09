@@ -11,46 +11,7 @@ include 'includes/header.php';
         background: #fff;
     }
 
-    /* Minimalist Stepper */
-    .minimal-stepper {
-        display: flex;
-        gap: 40px;
-        margin-bottom: 50px;
-        border-bottom: 1px solid #f1f5f9;
-        padding-bottom: 15px;
-    }
 
-    .m-step {
-        font-size: 11px;
-        font-weight: 600;
-        color: #94a3b8;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        position: relative;
-        padding-bottom: 15px;
-    }
-
-    .m-step.completed {
-        color: #059669;
-    }
-
-    .m-step.completed i {
-        margin-right: 5px;
-    }
-
-    .m-step.active {
-        color: var(--primary);
-    }
-
-    .m-step.active::after {
-        content: '';
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: var(--primary);
-    }
 
     /* Modern Simple Inputs */
     .field-group {
@@ -186,13 +147,13 @@ include 'includes/header.php';
     </header>
 
     <div class="onboard-hub">
-        <!-- 1. Minimal Stepper -->
+        <!-- 1. Minimalist Stepper -->
         <div class="minimal-stepper">
-            <div class="m-step completed"><i class="fa-solid fa-circle-check"></i> 01. CARTING</div>
-            <div class="m-step completed"><i class="fa-solid fa-circle-check"></i> 02. CHECKLIST</div>
-            <div class="m-step completed"><i class="fa-solid fa-circle-check"></i> 03. BOOKING</div>
-            <div class="m-step completed"><i class="fa-solid fa-circle-check"></i> 04. LINE</div>
-            <div class="m-step completed"><i class="fa-solid fa-circle-check"></i> 05. GATE IN</div>
+            <div class="m-step completed">01. CARTING</div>
+            <div class="m-step completed">02. CHECKLIST</div>
+            <div class="m-step completed">03. BOOKING</div>
+            <div class="m-step completed">04. LINING</div>
+            <div class="m-step completed">05. GATE IN</div>
             <div class="m-step active">06. ONBOARD</div>
         </div>
 

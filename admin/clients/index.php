@@ -50,6 +50,7 @@ include '../includes/header.php';
 
     .search-input input {
         width: 100%;
+        max-width: 500px;
         padding: 12px 16px 12px 48px;
         border: 1.5px solid #f1f5f9;
         border-radius: 10px;
@@ -121,20 +122,12 @@ include '../includes/header.php';
         color: #475569;
     }
 
-    .bulk-action-bar {
-        position: fixed;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--primary);
-        color: #fff;
-        padding: 12px 30px;
-        border-radius: 40px;
-        display: none;
-        align-items: center;
-        gap: 20px;
-        z-index: 2000;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+
+
+    .bulk-action-bar.active {
+        display: flex;
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
     }
 
     /* Avatar Colors */
@@ -163,16 +156,16 @@ include '../includes/header.php';
 <main class="main-area">
     <header class="header" style="background: #fff; border-bottom: 1px solid #f1f5f9; padding: 25px var(--p-x); position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center;">
         <div>
-            <h1 class="page-title" style="font-size: 20px; font-weight: 950; margin: 0; letter-spacing: -0.7px; color: #01172a;">Stakeholder Matrix</h1>
+            <h1 class="page-title" style="font-size: 20px; font-weight: 950; margin: 0; letter-spacing: -0.7px; color: #01172a;">Client Management</h1>
             <p style="font-size: 11px; color: var(--text-muted); font-weight: 600; margin-top: 2px;">Managing corporate partnerships and logistics delegation hubs</p>
         </div>
         <div style="display: flex; gap: 15px; align-items: center;">
-            <div class="hide-mobile" style="text-align: right; border-right: 1px solid #f1f5f9; padding-right: 20px;">
+            <!-- <div class="hide-mobile" style="text-align: right; border-right: 1px solid #f1f5f9; padding-right: 20px;">
                 <p style="font-size: 9px; font-weight: 950; color: #94a3b8; text-transform: uppercase; margin: 0;">GLOBAL DIRECTORY</p>
                 <p style="font-size: 10px; color: #10b981; font-weight: 950; margin: 0;">128 ACTIVE PARTNERS</p>
-            </div>
+            </div> -->
             <a href="create.php" class="btn" style="background: var(--primary); color: #fff; font-size: 12px; font-weight: 800; padding: 12px 30px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.15);">
-                <i class="fa-solid fa-plus-circle" style="font-size: 14px;"></i> ONBOARD PARTNER
+                <i class="fa-solid fa-plus-circle" style="font-size: 14px;"></i> CREATE CLIENT
             </a>
         </div>
     </header>
@@ -181,19 +174,24 @@ include '../includes/header.php';
 
         <!-- INTEGRATED COMMAND HUB -->
         <div class="command-hub">
-            <div style="padding-left: 5px;">
-                <input type="checkbox" id="select-all" style="width: 20px; height: 20px; cursor: pointer; accent-color: #000; border: 2px solid #e2e8f0; border-radius: 4px;">
-            </div>
+
             <div class="search-input">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="client-search" placeholder="Search by Client Name, Designation or GST/VAT ID...">
             </div>
             <div style="display: flex; gap: 10px;">
+
                 <button class="btn" style="background: #fff; border: 1.5px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 850; padding: 12px 20px; border-radius: 10px; display: flex; align-items: center; gap: 8px;">
                     <i class="fa-solid fa-download"></i> EXPORT
                 </button>
                 <button class="btn" style="background: #fff; border: 1.5px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 850; padding: 12px 20px; border-radius: 10px; display: flex; align-items: center; gap: 8px;">
                     <i class="fa-solid fa-sliders"></i> FILTER
+                </button>
+                <div style="padding-left: 5px;padding-top: 5px;">
+                    <input type="checkbox" id="select-all" style="width: 20px; height: 20px; cursor: pointer; accent-color: #000; border: 2px solid #e2e8f0; border-radius: 4px;">
+                </div>
+                <button id="hub-delete" class="btn" style="background: #fef2f2; border: 1.5px solid #fee2e2; color: #ef4444; font-size: 11px; font-weight: 850; padding: 12px 20px; border-radius: 10px; display: none; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-trash-can"></i> DELETE
                 </button>
             </div>
         </div>
@@ -228,10 +226,10 @@ include '../includes/header.php';
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; padding-top: 25px; border-top: 1.5px dashed #f1f5f9;">
-                    <a href="view.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: #f8fafc; color: #64748b; font-size: 11px; font-weight: 950; border: 1.5px solid #e2e8f0; transition: all 0.2s;" onmouseover="this.style.background='#fff'; this.style.borderColor='#000'; this.style.color='#000'" onmouseout="this.style.background='#f8fafc'; this.style.borderColor='#e2e8f0'; this.style.color='#64748b'">UNIT VIEW</a>
-                    <a href="edit.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: var(--primary); color: #fff; font-size: 11px; font-weight: 850; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);">MODIFY DATA</a>
-                    <button class="btn" style="background: #fef2f2; border: 1.5px solid #fee2e2; color: #ef4444; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 12px; transition: all 0.2s;" onmouseover="this.style.background='#ef4444'; this.style.color='#fff'" onmouseout="this.style.background='#fef2f2'; this.style.color='#ef4444'"><i class="fa-solid fa-trash-can"></i></button>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; padding-top: 25px; border-top: 1.5px dashed #f1f5f9;">
+                    <a href="view.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: #f8fafc; color: #64748b; font-size: 11px; font-weight: 950; border: 1.5px solid #e2e8f0; transition: all 0.2s;" onmouseover="this.style.background='#fff'; this.style.borderColor='#000'; this.style.color='#000'" onmouseout="this.style.background='#f8fafc'; this.style.borderColor='#e2e8f0'; this.style.color='#64748b'">VIEW</a>
+                    <a href="edit.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: var(--primary); color: #fff; font-size: 11px; font-weight: 850; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);">EDIT</a>
+                    <button class="btn" style="background: #fef2f2; border: 1.5px solid #fee2e2; color: #ef4444; border-radius: 10px; font-size: 11px; font-weight: 950; cursor: pointer; padding: 12px; transition: all 0.2s;" onmouseover="this.style.background='#ef4444'; this.style.color='#fff'" onmouseout="this.style.background='#fef2f2'; this.style.color='#ef4444'">DELETE</button>
                 </div>
             </div>
 
@@ -264,10 +262,10 @@ include '../includes/header.php';
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; padding-top: 25px; border-top: 1.5px dashed #f1f5f9;">
-                    <a href="view.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: #f8fafc; color: #64748b; font-size: 11px; font-weight: 950; border: 1.5px solid #e2e8f0; transition: all 0.2s;" onmouseover="this.style.background='#fff'; this.style.borderColor='#000'; this.style.color='#000'" onmouseout="this.style.background='#f8fafc'; this.style.borderColor='#e2e8f0'; this.style.color='#64748b'">UNIT VIEW</a>
-                    <a href="edit.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: var(--primary); color: #fff; font-size: 11px; font-weight: 850; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);">MODIFY DATA</a>
-                    <button class="btn" style="background: #fef2f2; border: 1.5px solid #fee2e2; color: #ef4444; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 12px; transition: all 0.2s;" onmouseover="this.style.background='#ef4444'; this.style.color='#fff'" onmouseout="this.style.background='#fef2f2'; this.style.color='#ef4444'"><i class="fa-solid fa-trash-can"></i></button>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; padding-top: 25px; border-top: 1.5px dashed #f1f5f9;">
+                    <a href="view.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: #f8fafc; color: #64748b; font-size: 11px; font-weight: 950; border: 1.5px solid #e2e8f0; transition: all 0.2s;" onmouseover="this.style.background='#fff'; this.style.borderColor='#000'; this.style.color='#000'" onmouseout="this.style.background='#f8fafc'; this.style.borderColor='#e2e8f0'; this.style.color='#64748b'">VIEW</a>
+                    <a href="edit.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: var(--primary); color: #fff; font-size: 11px; font-weight: 850; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);">EDIT</a>
+                    <button class="btn" style="background: #fef2f2; border: 1.5px solid #fee2e2; color: #ef4444; border-radius: 10px; font-size: 11px; font-weight: 950; cursor: pointer; padding: 12px; transition: all 0.2s;" onmouseover="this.style.background='#ef4444'; this.style.color='#fff'" onmouseout="this.style.background='#fef2f2'; this.style.color='#ef4444'">DELETE</button>
                 </div>
             </div>
 
@@ -300,24 +298,17 @@ include '../includes/header.php';
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; padding-top: 25px; border-top: 1.5px dashed #f1f5f9;">
-                    <a href="view.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: #f8fafc; color: #64748b; font-size: 11px; font-weight: 950; border: 1.5px solid #e2e8f0; transition: all 0.2s;" onmouseover="this.style.background='#fff'; this.style.borderColor='#000'; this.style.color='#000'" onmouseout="this.style.background='#f8fafc'; this.style.borderColor='#e2e8f0'; this.style.color='#64748b'">UNIT VIEW</a>
-                    <a href="edit.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: var(--primary); color: #fff; font-size: 11px; font-weight: 850; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);">MODIFY DATA</a>
-                    <button class="btn" style="background: #fef2f2; border: 1.5px solid #fee2e2; color: #ef4444; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 12px; transition: all 0.2s;" onmouseover="this.style.background='#ef4444'; this.style.color='#fff'" onmouseout="this.style.background='#fef2f2'; this.style.color='#ef4444'"><i class="fa-solid fa-trash-can"></i></button>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; padding-top: 25px; border-top: 1.5px dashed #f1f5f9;">
+                    <a href="view.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: #f8fafc; color: #64748b; font-size: 11px; font-weight: 950; border: 1.5px solid #e2e8f0; transition: all 0.2s;" onmouseover="this.style.background='#fff'; this.style.borderColor='#000'; this.style.color='#000'" onmouseout="this.style.background='#f8fafc'; this.style.borderColor='#e2e8f0'; this.style.color='#64748b'">VIEW</a>
+                    <a href="edit.php" style="text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; background: var(--primary); color: #fff; font-size: 11px; font-weight: 850; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);">EDIT</a>
+                    <button class="btn" style="background: #fef2f2; border: 1.5px solid #fee2e2; color: #ef4444; border-radius: 10px; font-size: 11px; font-weight: 950; cursor: pointer; padding: 12px; transition: all 0.2s;" onmouseover="this.style.background='#ef4444'; this.style.color='#fff'" onmouseout="this.style.background='#fef2f2'; this.style.color='#ef4444'">DELETE</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- BULK ACTION COMMAND BAR -->
-    <div class="bulk-action-bar" id="bulk-bar">
-        <span style="font-size: 12px; font-weight: 950; border-right: 1.5px solid rgba(255,255,255,0.2); padding-right: 20px;" id="bulk-count">3 RECORDS SELECTED</span>
-        <div style="display: flex; gap: 15px;">
-            <button class="btn" style="background: transparent; color: #fff; font-size: 10px; font-weight: 950; padding: 5px; cursor: pointer;"><i class="fa-solid fa-shield-check"></i> VERIFY ALL</button>
-            <button class="btn" style="background: transparent; color: #fff; font-size: 10px; font-weight: 950; padding: 5px; cursor: pointer;"><i class="fa-solid fa-download"></i> EXPORT BATCH</button>
-            <button class="btn" id="bulk-delete" style="background: #ef4444; color: #fff; font-size: 10px; font-weight: 950; padding: 8px 15px; border-radius: 20px; cursor: pointer; border: none;"><i class="fa-solid fa-trash-can"></i> PURGE SELECTION</button>
-        </div>
-    </div>
+
 </main>
 
 <script>
@@ -328,13 +319,15 @@ include '../includes/header.php';
         const bulkCount = document.getElementById('bulk-count');
         const searchInput = id = 'client-search';
 
+        const hubDelete = document.getElementById('hub-delete');
+
         function updateBulkBar() {
             const checked = document.querySelectorAll('.client-checkbox:checked').length;
             if (checked > 0) {
-                bulkBar.style.display = 'flex';
-                bulkCount.innerText = `${checked} ${checked === 1 ? 'RECORD' : 'RECORDS'} SELECTED`;
+                hubDelete.style.display = 'flex';
+                hubDelete.innerHTML = `<i class="fa-solid fa-trash-can"></i> DELETE (${checked})`;
             } else {
-                bulkBar.style.display = 'none';
+                hubDelete.style.display = 'none';
             }
         }
 
@@ -383,7 +376,7 @@ include '../includes/header.php';
                     confirmButtonColor: '#000',
                     cancelButtonColor: '#f1f5f9',
                     cancelButtonText: '<span style="color: #64748b; font-weight: 800;">CANCEL</span>',
-                    confirmButtonText: 'PURGE RECORD'
+                    confirmButtonText: 'DELETE RECORD'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         card.style.transform = 'scale(0.9)';
@@ -394,19 +387,18 @@ include '../includes/header.php';
             });
         });
 
-        // Bulk Delete Action
-        const bulkDeleteBtn = document.getElementById('bulk-delete');
-        if (bulkDeleteBtn) {
-            bulkDeleteBtn.addEventListener('click', function() {
+        // Bulk Delete Action Logic (Mapped to Hub Button)
+        if (hubDelete) {
+            hubDelete.addEventListener('click', function() {
                 const selected = document.querySelectorAll('.client-checkbox:checked');
 
                 Swal.fire({
-                    title: 'Bulk Purge Triggered',
-                    text: `Are you sure you want to permanently delete these ${selected.length} client records? This action is irreversible.`,
-                    icon: 'error',
+                    title: 'Delete Selected Clients?',
+                    text: `Are you sure you want to permanently delete these ${selected.length} records? This action is irreversible.`,
+                    icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#ef4444',
-                    confirmButtonText: 'CONFIRM BULK PURGE'
+                    confirmButtonText: 'CONFIRM DELETE'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         selected.forEach(cb => {
@@ -415,7 +407,7 @@ include '../includes/header.php';
                             card.style.opacity = '0';
                             setTimeout(() => card.remove(), 300);
                         });
-                        selectAll.checked = false;
+                        if (selectAll) selectAll.checked = false;
                         updateBulkBar();
                     }
                 });

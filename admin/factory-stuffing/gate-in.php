@@ -120,11 +120,12 @@ include $path_prefix . 'includes/header.php';
     <div class="gatein-hub">
         <!-- 1. Minimal Stepper -->
         <div class="minimal-stepper">
-            <div class="m-step completed">01. JOB CREATE</div>
-            <div class="m-step completed">02. CHECKLIST</div>
-            <div class="m-step completed">03. BOOKING</div>
+            <div class="m-step completed">01. FACTORY ENTRY</div>
+            <div class="m-step completed">02. LOADING CARGO</div>
+            <div class="m-step completed">03. CHECKLIST</div>
             <div class="m-step active">04. GATE IN</div>
-            <div class="m-step">05. ONBOARD</div>
+            <div class="m-step">05. BOOKING</div>
+            <div class="m-step">06. ONBOARD</div>
         </div>
 
         <!-- 2. Terminal Arrival Audit -->
@@ -138,15 +139,16 @@ include $path_prefix . 'includes/header.php';
                     <tr>
                         <th width="40">#</th>
                         <th width="150">Container No</th>
-                        <th width="120">Seal No</th>
                         <th width="120">Truck No</th>
+                        <th width="130">LR Number</th>
+                        <th width="120">Seal Number</th>
                         <th width="100">Booking Ref</th>
                         <th width="100">Gross Wt</th>
                         <th width="100">Net Wt</th>
-                        <th width="100">Tare Wt</th>
-                        <th width="150">Gate-In Arrival</th>
-                        <th width="180">Arrival Status (YES/NO)</th>
-                        <th>Remarks / Inspection</th>
+                        <th width="150">Gate-In (Port)</th>
+                        <th width="180">Arrival Status</th>
+                        <th width="150">Gate-Pass / Doc</th>
+                        <th>Terminal Remarks</th>
                     </tr>
                 </thead>
                 <tbody id="gatein-registry">
@@ -192,20 +194,26 @@ include $path_prefix . 'includes/header.php';
                 <tr>
                     <td style="font-size: 10px; font-weight: 800; color: #94a3b8;">${(idx+1).toString().padStart(2, '0')}</td>
                     <td><input type="text" class="input-simple" value="${item.container}" style="font-weight: 800; text-transform: uppercase;"></td>
-                    <td><input type="text" class="input-simple" value="${item.seal}"></td>
                     <td><input type="text" class="input-simple" value="${item.truck}"></td>
+                    <td><input type="text" class="input-simple" value="${item.lrNo || ''}" placeholder="LR-XXXX"></td>
+                    <td><input type="text" class="input-simple" value="${item.seal}"></td>
                     <td><input type="text" class="input-simple" value="${job.bookingNo || 'PENDING'}"></td>
                     <td><input type="number" class="input-simple" value="${item.gross}"></td>
                     <td><input type="number" class="input-simple" value="${item.net}"></td>
-                    <td><input type="number" class="input-simple" value="${(item.gross - item.net).toFixed(2)}"></td>
                     <td><input type="datetime-local" class="input-simple" value="<?php echo date('Y-m-d\TH:i'); ?>"></td>
                     <td>
                         <select class="input-simple arrival-status" style="font-weight: 800; color: #2563eb;" onchange="updateTerminalTally()">
                             <option value="no">NOT ARRIVED (NO)</option>
-                            <option value="yes">GATE-IN DONE (YES)</option>
+                            <option value="yes" selected>PORT ENTRY DONE (YES)</option>
                         </select>
                     </td>
-                    <td><input type="text" class="input-simple" placeholder="..."></td>
+                    <td>
+                        <div style="display: flex; gap: 5px; align-items: center;">
+                            <button type="button" class="btn btn-secondary" style="padding: 5px 10px; font-size: 10px;" onclick="this.nextElementSibling.click()"><i class="fa-solid fa-file-arrow-up"></i></button>
+                            <input type="file" hidden>
+                        </div>
+                    </td>
+                    <td><input type="text" class="input-simple" placeholder="EIR Issued..."></td>
                 </tr>`;
                 tbody.insertAdjacentHTML('beforeend', row);
             });
@@ -236,12 +244,12 @@ include $path_prefix . 'includes/header.php';
     function submitGateIn() {
         Swal.fire({
             title: 'Gate-In Verified',
-            text: 'Terminal arrival sequence synchronized via Factory Protocol. Moving to Stage 05: On-board.',
+            text: 'Terminal arrival sequence synchronized. Moving to Stage 05: Carrier Booking Confirmation.',
             icon: 'success',
             confirmButtonColor: '#000',
-            confirmButtonText: 'Next: On-board'
+            confirmButtonText: 'Next: Booking'
         }).then(() => {
-            window.location.href = 'onboard.php';
+            window.location.href = 'booking.php';
         });
     }
 </script>

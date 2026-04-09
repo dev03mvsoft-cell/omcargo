@@ -1,9 +1,9 @@
 <!-- GLOBAL MODULAR SIDEBAR -->
 <aside class="sidebar" style="background: #fff; border-right: 1px solid #f1f5f9;">
-    <div class="sidebar-logo" style="border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: center;  background: #fff;">
+    <div class="sidebar-logo" style="border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: center; background: #fff; padding: 32px 24px;">
         <img src="<?php echo $path_prefix; ?>../assets/logo/oman-logo.webp" alt="Oman Cargo" style="width: 150px; height: auto; max-height: 120px; object-fit: contain;">
     </div>
-    <nav style="flex: 1; padding: 0 16px;">
+    <nav class="sidebar-nav">
         <?php if (isset($is_client_portal) && $is_client_portal): ?>
             <!-- ==========================================
                  CLIENT PORTAL MENU (DYNAMIC)
@@ -39,7 +39,7 @@
 
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px dashed #e2e8f0;">
                 <p style="font-size: 9px; font-weight: 850; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; padding: 0 16px; margin-bottom: 12px;">SYSTEM SWITCH</p>
-                <a href="<?php echo $path_prefix; ?>index.php" class="nav-item" style="margin-bottom: 6px; padding: 12px 16px; border-radius: 8px; display: flex; align-items: center; gap: 12px; text-decoration: none; background: #f8fafc; border: 1.5px solid #e2e8f0; color: #64748b;">
+                <a href="<?php echo $path_prefix; ?>../index.php" class="nav-item" style="margin-bottom: 6px; padding: 12px 16px; border-radius: 8px; display: flex; align-items: center; gap: 12px; text-decoration: none; background: #f8fafc; border: 1.5px solid #e2e8f0; color: #64748b;">
                     <i class="fa-solid fa-shield-halved" style="font-size: 14px;"></i>
                     <span style="font-size: 13px; font-weight: 700;">Admin Dashboard</span>
                 </a>
@@ -56,7 +56,7 @@
             =========================================== -->
             <p style="font-size: 9px; font-weight: 850; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; padding: 0 16px; margin: 25px 0 15px 0; border-bottom: 1.5px solid #f8fafc; padding-bottom: 8px;">MAIN OPERATIONS</p>
 
-            <a href="<?php echo $path_prefix; ?>index.php" class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php' && !isset($is_client_portal)) ? 'active' : ''; ?>" style="margin-bottom: 6px; padding: 12px 16px; border-radius: 8px; transition: all 0.2s; display: flex; align-items: center; gap: 12px; text-decoration: none;">
+            <a href="<?php echo $path_prefix; ?>../index.php" class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php' && !isset($is_client_portal)) ? 'active' : ''; ?>" style="margin-bottom: 6px; padding: 12px 16px; border-radius: 8px; transition: all 0.2s; display: flex; align-items: center; gap: 12px; text-decoration: none;">
                 <i class="fa-solid fa-house" style="font-size: 14px;"></i>
                 <span style="font-size: 13px; font-weight: 700;">Dashboard Overview</span>
             </a>

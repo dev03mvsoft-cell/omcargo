@@ -40,7 +40,7 @@ include 'includes/header.php';
             <div class="m-step completed">01. CARTING</div>
             <div class="m-step completed">02. CHECKLIST</div>
             <div class="m-step completed">03. BOOKING</div>
-            <div class="m-step active">04. LINE PROCESS</div>
+            <div class="m-step active">04. LINING</div>
             <div class="m-step">05. GATE IN</div>
             <div class="m-step">06. ONBOARD</div>
         </div>

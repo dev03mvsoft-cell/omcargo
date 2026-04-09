@@ -36,25 +36,13 @@ include $path_prefix . 'includes/header.php';
         </div>
     </header>
 
-    <!-- Tab-Style Progress Bar - Below Header -->
-    <div style="background: #fff; border-bottom: 1px solid #f1f5f9; padding: 25px 40px 10px 40px;">
-        <div style="display: flex; justify-content: center; gap: 60px;">
-            <!-- Stage 1 -->
-            <div style="padding-bottom: 15px; color: #10b981; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">
-                <i class="fa-solid fa-circle-check"></i> 01. PORT ARRIVAL
-            </div>
-            <!-- Stage 2: Active -->
-            <div style="padding-bottom: 15px; border-bottom: 4px solid var(--primary); color: var(--primary); font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">
-                02. PORT OUT
-            </div>
-            <!-- Stage 3 -->
-            <div style="padding-bottom: 15px; color: #94a3b8; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">
-                03. FACTORY IN
-            </div>
-            <!-- Stage 4 -->
-            <div style="padding-bottom: 15px; color: #94a3b8; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">
-                04. DE-STUFFING
-            </div>
+    <!-- 1. Minimalist Stepper -->
+    <div style="background: #fff; border-bottom: 1px solid #f1f5f9; padding: 25px 40px 0 40px;">
+        <div class="minimal-stepper" style="justify-content: flex-start; margin-bottom: 0; border-bottom: none;">
+            <div class="m-step completed">01. PORT ARRIVAL</div>
+            <div class="m-step active">02. GATE OUT</div>
+            <div class="m-step">03. FACTORY IN</div>
+            <div class="m-step">04. DE-STUFFING</div>
         </div>
     </div>
 

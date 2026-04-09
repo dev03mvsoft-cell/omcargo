@@ -125,7 +125,7 @@ include $path_prefix . 'includes/header.php';
     <header class="header" style="border-bottom: 1px solid #f1f5f9; background: #fff; padding: 20px 40px;">
         <div>
             <h1 class="page-title" style="font-size: 18px; font-weight: 950;">Factory Booking Hub</h1>
-            <p style="font-size: 10px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">STAGE 03: LIVE CARRIER SYNC | COMPREHENSIVE BOOKING STATUS</p>
+            <p style="font-size: 10px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">STAGE 05: LIVE CARRIER SYNC | COMPREHENSIVE BOOKING STATUS</p>
         </div>
         <div style="display: flex; gap: 15px;">
             <button onclick="window.history.back()" class="btn" style="background:#fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 800;">BACK</button>
@@ -136,11 +136,12 @@ include $path_prefix . 'includes/header.php';
     <div class="booking-hub">
         <!-- 1. Stepper -->
         <div class="minimal-stepper">
-            <div class="m-step completed">01. JOB CREATE</div>
-            <div class="m-step completed">02. CHECKLIST</div>
-            <div class="m-step active">03. BOOKING</div>
-            <div class="m-step">04. GATE IN</div>
-            <div class="m-step">05. ONBOARD</div>
+            <div class="m-step completed">01. FACTORY ENTRY</div>
+            <div class="m-step completed">02. LOADING CARGO</div>
+            <div class="m-step completed">03. CHECKLIST</div>
+            <div class="m-step completed">04. GATE IN</div>
+            <div class="m-step active">05. BOOKING</div>
+            <div class="m-step">06. ONBOARD</div>
         </div>
 
         <!-- 2. Magic Scanning Zone -->
@@ -422,12 +423,12 @@ APSEZ-CT2, MUNDRA, GUJARAT 370421</textarea>
     function submitBooking() {
         Swal.fire({
             title: 'Booking Synchronized!',
-            text: 'All routing and container metadata has been locked. Moving to Gate-in Verification.',
+            text: 'All routing and container metadata has been locked. Moving to Final Stage 06: On-board Confirmation.',
             icon: 'success',
             confirmButtonColor: '#000',
-            confirmButtonText: 'Proceed to Terminal'
+            confirmButtonText: 'Proceed to On-board'
         }).then(() => {
-            window.location.href = 'gate-in.php';
+            window.location.href = 'onboard.php';
         });
     }
 </script>

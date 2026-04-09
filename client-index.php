@@ -39,7 +39,7 @@ include 'admin/includes/header.php';
                 <h2 style="font-size: 24px; font-weight: 950; color: #10b981; margin: 5px 0;">01</h2>
                 <p style="font-size: 10px; color: #10b981; font-weight: 700;">Within 48 Hours</p>
             </div>
-            <div class="card" style="padding: 24px; background: #f8fafc; border: 1.5px dashed #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center;">
+            <div class="card" style="padding: 24px; background: #ffffff; border: 1.5px dashed #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center;">
                 <div>
                      <i class="fa-solid fa-headset" style="font-size: 18px; color: #64748b; margin-bottom: 8px;"></i>
                      <p style="font-size: 10px; font-weight: 800; color: #64748b; margin: 0;">24/7 SUPPORT</p>
@@ -94,7 +94,7 @@ include 'admin/includes/header.php';
                         </div>
                     </div>
 
-                    <a href="client-track.php?id=9003" style="display: block; text-align: center; background: #f8fafc; border: 1.5px solid #e2e8f0; color: #2563eb; font-size: 10px; font-weight: 900; padding: 10px; border-radius: 6px; text-decoration: none;">TRACK DETAILS</a>
+                    <a href="client-track.php?id=9003" style="display: block; text-align: center; background: #ffffff; border: 1.5px solid #e2e8f0; color: #2563eb; font-size: 10px; font-weight: 900; padding: 10px; border-radius: 6px; text-decoration: none;">TRACK DETAILS</a>
                 </div>
             </div>
 
@@ -131,7 +131,7 @@ include 'admin/includes/header.php';
                         </div>
                     </div>
 
-                    <a href="client-track.php?id=9012" style="display: block; text-align: center; background: #f8fafc; border: 1.5px solid #e2e8f0; color: #2563eb; font-size: 10px; font-weight: 900; padding: 10px; border-radius: 6px; text-decoration: none;">TRACK DETAILS</a>
+                    <a href="client-track.php?id=9012" style="display: block; text-align: center; background: #ffffff; border: 1.5px solid #e2e8f0; color: #2563eb; font-size: 10px; font-weight: 900; padding: 10px; border-radius: 6px; text-decoration: none;">TRACK DETAILS</a>
                 </div>
             </div>
 

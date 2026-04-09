@@ -144,7 +144,7 @@ include 'includes/header.php';
         </div>
         <div style="display: flex; gap: 15px;">
             <button onclick="window.location.href='custom-checklist.php'" class="btn" style="background:#fff; border: 1px solid #e2e8f0; color: #64748b; font-size: 11px; font-weight: 800;">BACK</button>
-            <button onclick="submitBooking()" class="btn btn-primary" style="padding: 10px 25px; font-size: 11px; font-weight: 800;">SAVE & FINISH</button>
+            <button onclick="submitBooking()" class="btn btn-primary" style="padding: 10px 25px; font-size: 11px; font-weight: 800;">SAVE</button>
         </div>
     </header>
 
@@ -157,7 +157,7 @@ include 'includes/header.php';
             <div class="m-step completed">01. CARTING</div>
             <div class="m-step completed">02. CHECKLIST</div>
             <div class="m-step active">03. BOOKING</div>
-            <div class="m-step">04. LINE PROCESS</div>
+            <div class="m-step">04. LINING</div>
             <div class="m-step">05. GATE IN</div>
             <div class="m-step">06. ONBOARD</div>
         </div>

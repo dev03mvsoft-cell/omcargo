@@ -102,7 +102,7 @@ include 'includes/header.php';
         <div style="margin-bottom: 50px;">
             <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px;">
                 <h3 style="font-size: 13px; font-weight: 950; color: #1e293b; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Saturday, 16 May 2026</h3>
-                <span style="font-size: 10px; font-weight: 800; color: #10b981;">CURRENT • 4 PROJECTS ACTIVE</span>
+                <span style="font-size: 10px; font-weight: 800; color: #10b981;">CURRENT • 6 PROJECTS ACTIVE</span>
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 20px;">
@@ -111,7 +111,18 @@ include 'includes/header.php';
                         <h4 style="font-size: 14px; font-weight: 800; margin: 0;">RAYSUT CEMENT</h4>
                         <span style="font-size: 8px; font-weight: 950; background: #eff6ff; color: #2563eb; padding: 3px 8px; border-radius: 4px; border: 1px solid #dbeafe;">DOCK FLOW</span>
                     </div>
-                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">SEA EXPORT • SALALAH</p>
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 12px;">SEA EXPORT • SALALAH</p>
+                    
+                    <div style="margin-bottom: 18px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <span style="font-size: 9px; font-weight: 800; color: #64748b; letter-spacing: 0.5px;">STAGE 02/04</span>
+                            <span style="font-size: 9px; font-weight: 900; color: var(--primary);">GATE-IN</span>
+                        </div>
+                        <div style="height: 6px; background: #f1f5f9; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 50%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                        </div>
+                    </div>
+
                     <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
                 </div>
                 <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;">
@@ -119,7 +130,18 @@ include 'includes/header.php';
                         <h4 style="font-size: 14px; font-weight: 800; margin: 0;">OMAN TRADING CO</h4>
                         <span style="font-size: 8px; font-weight: 950; background: #fff7ed; color: #ea580c; padding: 3px 8px; border-radius: 4px; border: 1px solid #ffedd5;">FACTORY FLOW</span>
                     </div>
-                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">DOMESTIC LOGISTICS</p>
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 12px;">DOMESTIC LOGISTICS</p>
+
+                    <div style="margin-bottom: 18px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <span style="font-size: 9px; font-weight: 800; color: #64748b; letter-spacing: 0.5px;">STAGE 03/04</span>
+                            <span style="font-size: 9px; font-weight: 900; color: #ea580c;">STUFFING</span>
+                        </div>
+                        <div style="height: 6px; background: #fff7ed; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 75%; height: 100%; background: #ea580c; border-radius: 10px;"></div>
+                        </div>
+                    </div>
+
                     <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none;padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">FACTORY AUDIT</a>
                 </div>
                 <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;">
@@ -127,16 +149,78 @@ include 'includes/header.php';
                         <h4 style="font-size: 14px; font-weight: 800; margin: 0;">GLOBAL MARITIME</h4>
                         <span style="font-size: 8px; font-weight: 950; background: #eff6ff; color: #2563eb; padding: 3px 8px; border-radius: 4px; border: 1px solid #dbeafe;">DOCK FLOW</span>
                     </div>
-                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">SEA IMPORT • MUNDRA</p>
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 12px;">SEA IMPORT • MUNDRA</p>
+
+                    <div style="margin-bottom: 18px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <span style="font-size: 9px; font-weight: 800; color: #64748b; letter-spacing: 0.5px;">STAGE 02/05</span>
+                            <span style="font-size: 9px; font-weight: 900; color: var(--primary);">GATE-OUT</span>
+                        </div>
+                        <div style="height: 6px; background: #f1f5f9; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 40%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                        </div>
+                    </div>
+
                     <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none;padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
                 </div>
-                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; border-left: 4px solid #ef4444;">
+                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; border-left: 4px solid #fbfbfbff;">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
                         <h4 style="font-size: 14px; font-weight: 800; margin: 0;">PETROLEUM OMAN</h4>
                         <span style="font-size: 8px; font-weight: 950; background: #fff7ed; color: #ea580c; padding: 3px 8px; border-radius: 4px; border: 1px solid #ffedd5;">FACTORY FLOW</span>
                     </div>
-                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 15px;">SPECIAL CARGO • HAZMAT</p>
-                    <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none; padding: 12px; font-size: 13px; font-weight: 700; background: #ef4444; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);">FACTORY AUDIT</a>
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 12px;">SPECIAL CARGO • HAZMAT</p>
+
+                    <div style="margin-bottom: 18px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <span style="font-size: 9px; font-weight: 800; color: #64748b; letter-spacing: 0.5px;">STAGE 01/04</span>
+                            <span style="font-size: 9px; font-weight: 900; color: #ea580c;">DOCS READY</span>
+                        </div>
+                        <div style="height: 6px; background: #fff7ed; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 25%; height: 100%; background: #ea580c; border-radius: 10px;"></div>
+                        </div>
+                    </div>
+
+                    <a href="job-details.php?type=factory" class="btn" style="display: block; text-align: center; text-decoration: none; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);">FACTORY AUDIT</a>
+                </div>
+
+                <!-- ADDED IMPORT MODELS -->
+                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                        <h4 style="font-size: 14px; font-weight: 800; margin: 0;">AL-FAJR LOGISTICS</h4>
+                        <span style="font-size: 8px; font-weight: 950; background: #fff7ed; color: #ea580c; padding: 3px 8px; border-radius: 4px; border: 1px solid #ffedd5;">FACTORY FLOW</span>
+                    </div>
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 12px;">SEA IMPORT • FACTORY DE-STUFFING</p>
+
+                    <div style="margin-bottom: 18px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <span style="font-size: 9px; font-weight: 800; color: #64748b; letter-spacing: 0.5px;">STAGE 04/05</span>
+                            <span style="font-size: 9px; font-weight: 900; color: #ea580c;">STUFFING</span>
+                        </div>
+                        <div style="height: 6px; background: #fff7ed; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 80%; height: 100%; background: #ea580c; border-radius: 10px;"></div>
+                        </div>
+                    </div>
+
+                    <a href="import/factory/vessel-arrival.php" class="btn" style="display: block; text-align: center; text-decoration: none; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">FACTORY AUDIT</a>
+                </div>
+                <div class="card" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                        <h4 style="font-size: 14px; font-weight: 800; margin: 0;">MARITIME SERVICES</h4>
+                        <span style="font-size: 8px; font-weight: 950; background: #eff6ff; color: #2563eb; padding: 3px 8px; border-radius: 4px; border: 1px solid #dbeafe;">DOCK FLOW</span>
+                    </div>
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700; margin-bottom: 12px;">SEA IMPORT • DOCK DE-STUFFING</p>
+
+                    <div style="margin-bottom: 18px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <span style="font-size: 9px; font-weight: 800; color: #64748b; letter-spacing: 0.5px;">STAGE 03/05</span>
+                            <span style="font-size: 9px; font-weight: 900; color: var(--primary);">GATE-IN</span>
+                        </div>
+                        <div style="height: 6px; background: #f1f5f9; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 60%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                        </div>
+                    </div>
+
+                    <a href="import/gate-in-cfs.php" class="btn" style="display: block; text-align: center; text-decoration: none; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">DOCK AUDIT</a>
                 </div>
             </div>
         </div>
@@ -199,7 +283,7 @@ include 'includes/header.php';
                     </div>
                     <p style="font-size: 11px; color: #64748b; font-weight: 600; margin: 0;">BULK IMPORT • SOHAR PORT</p>
                     <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e2e8f0;">
-                        <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; padding: 12px; font-size: 13px; font-weight: 700; background: #10b981; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);">COMPLETED</a>
+                        <a href="job-details.php?type=dock" class="btn" style="display: block; text-align: center; text-decoration: none; padding: 12px; font-size: 13px; font-weight: 700; background: #2563eb; color: #fff; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);">COMPLETED</a>
                     </div>
                 </div>
             </div>

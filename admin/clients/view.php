@@ -20,15 +20,58 @@ $client = [
 <?php include '../includes/sidebar.php'; ?>
 
 <style>
-    :root { --p-x: 30px; }
-    @media (max-width: 768px) { :root { --p-x: 15px; } }
-    body { overflow-x: hidden; width: 100%; }
-    .main-area { width: 100%; overflow-x: hidden; position: relative; }
-    
-    .view-section { background: #fff; border: 1.5px solid #f1f5f9; border-radius: 12px; padding: 25px; margin-bottom: 25px; }
-    .view-label { display: block; font-size: 10px; font-weight: 850; color: #94a3b8; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
-    .view-value { font-size: 14px; font-weight: 700; color: #0f172a; margin: 0; }
-    .stat-box { background: #f8fafc; padding: 20px; border-radius: 8px; border: 1.5px solid #f1f5f9; }
+    :root {
+        --p-x: 30px;
+    }
+
+    @media (max-width: 768px) {
+        :root {
+            --p-x: 15px;
+        }
+    }
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .main-area {
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .view-section {
+        background: #fff;
+        border: 1.5px solid #f1f5f9;
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+    }
+
+    .view-label {
+        display: block;
+        font-size: 10px;
+        font-weight: 850;
+        color: #94a3b8;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .view-value {
+        font-size: 14px;
+        font-weight: 700;
+        color: #0f172a;
+        margin: 0;
+    }
+
+    .stat-box {
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1.5px solid #f1f5f9;
+    }
 </style>
 
 <!-- MAIN AREA START -->
@@ -40,7 +83,7 @@ $client = [
             </a>
             <div>
                 <h1 class="page-title" style="font-size: 18px; font-weight: 800; margin: 0; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px;">
-                    <?php echo $client['company_name']; ?> 
+                    <?php echo $client['company_name']; ?>
                     <span style="font-size: 8px; font-weight: 950; background: #f0fdf4; color: #16a34a; padding: 3px 8px; border-radius: 4px; border: 1px solid #dcfce7; vertical-align: middle;">VERIFIED</span>
                 </h1>
                 <p style="font-size: 11px; color: var(--text-muted); font-weight: 600; margin-top: 2px;">Corporate Partner Profile • Registered Mar 2024</p>
@@ -92,43 +135,43 @@ $client = [
                 <div class="view-section" style="border: 1.5px solid #000; background: #fff;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                         <h3 style="font-size: 13px; font-weight: 950; color: #000; margin: 0; text-transform: uppercase;">Recent Shipment History</h3>
-                        <a href="job-assign-slip.php" style="font-size: 10px; font-weight: 850; color: #2563eb; text-decoration: none;">VIEW ALL RECORDS <i class="fa-solid fa-chevron-right" style="margin-left: 5px;"></i></a>
+                        <a href="../job-assign-slip.php" style="font-size: 10px; font-weight: 850; color: #2563eb; text-decoration: none;">VIEW ALL RECORDS <i class="fa-solid fa-chevron-right" style="margin-left: 5px;"></i></a>
                     </div>
                     <div style="display: grid; gap: 12px;">
-                        <div style="padding: 15px; background: #f8fafc; border: 1.5px solid #f1f5f9; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <a href="/admin/job-assign-slip.php" style="text-decoration: none; padding: 15px; background: #f8fafc; border: 1.5px solid #f1f5f9; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s;" onmouseover="this.style.borderColor='#cbd5e1'; this.style.background='#fff'" onmouseout="this.style.borderColor='#f1f5f9'; this.style.background='#f8fafc'">
                             <div>
                                 <p style="font-size: 11px; font-weight: 950; color: #01172a; margin-bottom: 4px;">EXP-24-001 • MSC GULSUN</p>
                                 <p style="font-size: 10px; color: #64748b; font-weight: 700; margin: 0;">MUNDRA -> SALALAH • 16 MAY 2026</p>
                             </div>
                             <span style="font-size: 8px; font-weight: 950; background: #fff7ed; color: #ea580c; padding: 4px 10px; border-radius: 4px; border: 1px solid #ffedd5;">FACTORY FLOW</span>
-                        </div>
-                        <div style="padding: 15px; background: #f8fafc; border: 1.5px solid #f1f5f9; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        </a>
+                        <a href="../job-assign-slip.php" style="text-decoration: none; padding: 15px; background: #f8fafc; border: 1.5px solid #f1f5f9; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s;" onmouseover="this.style.borderColor='#cbd5e1'; this.style.background='#fff'" onmouseout="this.style.borderColor='#f1f5f9'; this.style.background='#f8fafc'">
                             <div>
                                 <p style="font-size: 11px; font-weight: 950; color: #01172a; margin-bottom: 4px;">EXP-24-005 • OMAN PRIDE</p>
                                 <p style="font-size: 10px; color: #64748b; font-weight: 700; margin: 0;">SOHAR -> MUNDRA • 15 MAY 2026</p>
                             </div>
                             <span style="font-size: 8px; font-weight: 950; background: #eff6ff; color: #2563eb; padding: 4px 10px; border-radius: 4px; border: 1px solid #dbeafe;">DOCK FLOW</span>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Right: Account Stats -->
             <div>
-                <div class="view-section" style="background: #1e293b; border-color: #0f172a; color: #fff;">
-                    <h4 style="font-size: 10px; font-weight: 850; color: #64748b; text-transform: uppercase; margin-bottom: 20px;">Operational Intelligence</h4>
+                <div class="view-section" style="background: #fff; border: 1.5px solid #f1f5f9;">
+                    <h4 style="font-size: 10px; font-weight: 850; color: #1e293b; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 0.5px; border-bottom: 1px solid #f8fafc; padding-bottom: 10px;">Operational Intelligence</h4>
                     <div style="display: grid; gap: 15px;">
-                        <div class="stat-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                            <span class="view-label" style="color: #64748b;">Total Shipments Initiated</span>
-                            <p class="view-value" style="color: #fff; font-size: 24px; font-weight: 950;"><?php echo $client['total_shipments']; ?></p>
+                        <div class="stat-box">
+                            <span class="view-label">Total Shipments Initiated</span>
+                            <p class="view-value" style="font-size: 24px; font-weight: 950; color: var(--primary);"><?php echo $client['total_shipments']; ?></p>
                         </div>
-                        <div class="stat-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                            <span class="view-label" style="color: #64748b;">Last Activity Registered</span>
-                            <p class="view-value" style="color: #fff; font-size: 16px; font-weight: 850;"><?php echo $client['last_active']; ?></p>
+                        <div class="stat-box">
+                            <span class="view-label">Last Activity Registered</span>
+                            <p class="view-value" style="font-size: 16px; font-weight: 850;"><?php echo $client['last_active']; ?></p>
                         </div>
-                        <div class="stat-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                            <span class="view-label" style="color: #64748b;">Credit Line Status</span>
-                            <p class="view-value" style="color: #16a34a; font-size: 14px; font-weight: 950;">ACTIVE ELIGIBLE</p>
+                        <div class="stat-box">
+                            <span class="view-label">Credit Line Status</span>
+                            <p class="view-value" style="color: #16a34a; font-size: 14px; font-weight: 950;"><i class="fa-solid fa-circle-check" style="margin-right: 5px;"></i> ACTIVE ELIGIBLE</p>
                         </div>
                     </div>
                 </div>
